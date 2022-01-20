@@ -1,0 +1,42 @@
+.post-wrapper{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.author-info{
+    /*background-color: #bfa;*/
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.author-detail{
+    margin-left: 10px;
+}
+
+.author-name{
+    font-size: 16px;
+}
+
+.author-time{
+    font-size: 12px;
+}
+
+.post-content{
+    width: 100%;
+    /*background-color: red;*/
+}
+
+.post-text{
+    margin-top: 5px;
+    margin-left: 60px;
+    margin-right: 20px;
+}
+
+.post-picture{
+    margin-left: 60px;
+}

@@ -1,0 +1,19 @@
+.regist-form-wrapper {
+    width: 500px;
+    margin: 10px auto;
+    background-color: #ffffff;
+    border: #ffffff 1px solid;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+    border-radius: 30px;
+}
+
+.regist-all-form {
+    margin: 20px 20px;
+}
+
+.regist-title {
+    margin: 10px auto;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
