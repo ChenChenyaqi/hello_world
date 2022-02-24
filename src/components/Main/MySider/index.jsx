@@ -12,14 +12,10 @@ const MySider = () => {
             <Sider className="site-layout-background" width={200}>
                 <Menu
                     mode="inline"
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
                     style={{height: '100%'}}
                 >
                     <SubMenu key="sub1" icon={<BarsOutlined/>} title="前端">
-                        <Menu.Item key="1">
-                            <Link to={"/htmlcss"}>HTML/CSS</Link>
-                        </Menu.Item>
+                        <Menu.Item key="1">HTML/CSS</Menu.Item>
                         <Menu.Item key="2">JavaScript</Menu.Item>
                         <Menu.Item key="3">前端框架</Menu.Item>
                     </SubMenu>
