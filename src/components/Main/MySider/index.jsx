@@ -1,7 +1,6 @@
 import React from 'react';
 import {Layout, Menu, Affix} from "antd";
 import {BarsOutlined} from "@ant-design/icons";
-import {Link} from "react-router-dom"
 
 const {SubMenu} = Menu;
 const {Sider} = Layout;
