@@ -5,7 +5,6 @@ import {nanoid} from 'nanoid'
 import PubSub from 'pubsub-js'
 import {withRouter} from 'react-router-dom'
 
-
 import './index.css'
 import CheckPermissions from "../../../utils/CheckPermissions";
 import axios from "axios";
@@ -16,14 +15,10 @@ const {TextArea} = Input;
 const EditPost = (Props) => {
 
     const [value, setValue] = useState("")
-    let [showFileList, setShowFileList] = React.useState(0)
+    let [showFileList, setShowFileList] = useState(0)
     const onChange = ({target: {value}}) => {
         setValue(value)
     };
-
-    // React.useEffect(() => {
-    //
-    // }, [showFileList])
 
     const publishPost = () => {
         CheckPermissions('请先登录！')

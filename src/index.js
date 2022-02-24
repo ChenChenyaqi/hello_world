@@ -2,12 +2,13 @@
 import React from 'react'
 // 引入ReactDOM
 import ReactDOM from 'react-dom'
-import {BrowserRouter} from "react-router-dom";
+// 引入HashRouter
+import {HashRouter} from "react-router-dom";
 // 引入App组件
 import App from './App'
 // 渲染App到页面
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <App/>
-    </BrowserRouter>, document.getElementById('root')
+    </HashRouter>, document.getElementById('root')
 )
