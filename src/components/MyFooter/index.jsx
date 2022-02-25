@@ -6,7 +6,7 @@ const {Footer} = Layout
 const MyFooter = () => {
     return (
         <div>
-            <Footer style={{textAlign: 'center'}}>Hello World ©2018 Created by Java js Chen</Footer>
+            <Footer style={{textAlign: 'center'}}>Hello World ©2022 Created by Java js Chen</Footer>
         </div>
     );
 }
