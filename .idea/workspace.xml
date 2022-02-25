@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/localhost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localhost.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,8 +100,8 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="npm.npm start" />
       <item itemvalue="npm.build" />
+      <item itemvalue="npm.npm start" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
