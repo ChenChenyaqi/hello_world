@@ -47,11 +47,10 @@ const EditPost = (Props) => {
                 // 清空输入框内容
                 setValue("")
                 Props.history.replace("/")
+                // 发送post给AllPosts组件
+                PubSub.publish("postPublish", postObj)
             }
         )
-        // 发送post给AllPosts组件
-        PubSub.publish("postPublish", postObj)
-
     }
 
     let fileListLength = null

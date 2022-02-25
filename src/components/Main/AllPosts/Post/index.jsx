@@ -9,7 +9,6 @@ import localhost from "../../../../utils/localhost";
 const {Paragraph} = Typography
 
 const Post = (props) => {
-    // console.log("##",props.post)
     const postAuthor = props.post.postAuthor
     const postTime = props.post.postTime
     const postContent = props.post.postContent

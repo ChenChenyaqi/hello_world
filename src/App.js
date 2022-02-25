@@ -11,6 +11,7 @@ import Forget from "./components/MyHeader/MyHeaderNav/LoginAndRegist/Forget";
 import Activity from "./components/Activity";
 import axios from "axios";
 import localhost from "./utils/localhost";
+import User from "./components/User";
 
 
 const {Content} = Layout;
@@ -44,6 +45,7 @@ const App = (props) => {
                         <Route path="/regist" component={Regist}/>
                         <Route path="/forget" component={Forget}/>
                         <Route path="/activity" component={Activity}/>
+                        <Route path="/user" component={User}/>
                         <Route path="/" component={Main}/>
                     </Switch>
                 </Content>
