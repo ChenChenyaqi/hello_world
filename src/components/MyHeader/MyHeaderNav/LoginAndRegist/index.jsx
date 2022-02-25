@@ -34,7 +34,7 @@ const LoginAndRegist = () => {
                 <Link to={'/regist'}>注册</Link>
             </div>
             <div style={{display: isLogin ? "" : "none"}}>
-                欢迎: <a href="/">{username}</a>&nbsp;&nbsp;
+                欢迎: <Link to={'/user'}>{username}</Link>&nbsp;&nbsp;
                 <Link onClick={logout} to={'/login'}>退出登录</Link>
             </div>
         </div>

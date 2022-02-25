@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Main/UpdateButton/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Main/UpdateButton/index.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/User/index.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/User/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/AllPosts/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/EditPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -170,7 +163,7 @@
       <workItem from="1645093094440" duration="28000" />
       <workItem from="1645707146688" duration="568000" />
       <workItem from="1645707774411" duration="6577000" />
-      <workItem from="1645749403899" duration="6819000" />
+      <workItem from="1645749403899" duration="11554000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -193,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645708899420</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="分页展示帖子，及修复发帖后，无法显示图片问题">
+      <created>1645756455391</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1645756455392</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +218,8 @@
     </ignored-roots>
     <MESSAGE value="一些修改..." />
     <MESSAGE value="修复侧边导航栏初次显示的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复侧边导航栏初次显示的问题" />
+    <MESSAGE value="分页展示帖子，及修复发帖后，无法显示图片问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="分页展示帖子，及修复发帖后，无法显示图片问题" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">
