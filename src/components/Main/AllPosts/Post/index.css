@@ -40,3 +40,30 @@
 .post-picture{
     margin-left: 60px;
 }
+
+/*点赞、评论*/
+.post-bottom{
+    margin-left: 60px;
+}
+
+.post-bottom a:hover{
+    color: #1890FF;
+}
+
+.post-bottom a{
+    margin-right: 20px;
+    color: gray;
+}
+
+.post-bottom a i{
+    font-size: 20px;
+}
+
+.post-bottom span{
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.icon-dianzan1{
+    color: #1890FF;
+}
