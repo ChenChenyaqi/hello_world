@@ -136,6 +136,16 @@ const Post = (props) => {
                 setLikedCount(JSON.parse(response.data))
             }
         )
+        // 查询本帖评论量
+        axios.get(`http://${localhost}:8080/post/CommentCount`,{
+            headers:{
+                postId
+            }
+        }).then(
+            response => {
+                setCommentCount(response.data)
+            }
+        )
         // 若没有这个likedPostsId，则为用户本地存储加上
         let likedPostsId = localStorage.getItem("likedPostsId")
         if (!likedPostsId) {
