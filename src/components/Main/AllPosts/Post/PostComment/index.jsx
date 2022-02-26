@@ -1,62 +1,33 @@
-import React, { createElement, useState } from 'react';
-import { Comment, Tooltip, Avatar } from 'antd';
-import moment from 'moment';
-import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
+import React, {useState} from 'react';
 import './index.css'
+import axios from "axios";
+import localhost from "../../../../../utils/localhost";
+import MyComment from "./MyComment";
 
-const PostComment = () => {
+const PostComment = (props) => {
 
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
-    const [action, setAction] = useState(null);
+    // 获取此帖子下所有评论
+    const {postId, postAuthor} = props
+    // 此贴评论
+    const [commentList, setCommentList] = useState([])
 
-    const like = () => {
-        setLikes(1);
-        setDislikes(0);
-        setAction('liked');
-    };
 
-    const dislike = () => {
-        setLikes(0);
-        setDislikes(1);
-        setAction('disliked');
-    };
+    React.useEffect(() => {
+        // 根据postId 查找此贴下的所有评论
+        axios.get(`http://${localhost}:8080/comment?postId=${postId}`,).then(
+            response => {
+                setCommentList(response.data)
+            }
+        )
+    }, [])
 
-    const actions = [
-        <Tooltip key="comment-basic-like" title="Like">
-      <span onClick={like}>
-        {createElement(action === 'liked' ? LikeFilled : LikeOutlined)}
-          <span className="comment-action">{likes}</span>
-      </span>
-        </Tooltip>,
-        <Tooltip key="comment-basic-dislike" title="Dislike">
-      <span onClick={dislike}>
-        {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined)}
-          <span className="comment-action">{dislikes}</span>
-      </span>
-        </Tooltip>,
-        <span key="comment-basic-reply-to">Reply to</span>,
-    ];
-
-    return(
+    return (
         <div className="comment-wrapper">
-            <Comment
-                actions={actions}
-                author={<a>Han Solo</a>}
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
-                content={
-                    <p>
-                        We supply a series of design principles, practical patterns and high quality design
-                        resources (Sketch and Axure), to help people create their product prototypes beautifully
-                        and efficiently.
-                    </p>
-                }
-                datetime={
-                    <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-                        <span>{moment().fromNow()}</span>
-                    </Tooltip>
-                }
-            />
+            {
+                commentList.map((comment) => {
+                    return <MyComment key={comment.commentId} comment={comment}/>
+                })
+            }
         </div>
     )
 }
