@@ -14,7 +14,7 @@ const MyHeader = () => {
             className="header"
             style={{backgroundColor: "#fff"}}>
             {/*logo*/}
-            <Link to={'/'}><img src="/img/logo.png" style={{height: "50px"}} alt="logo"/></Link>
+            <Link to={'/'}><img className="logo" src="/img/logo.png" alt="logo"/></Link>
 
             {/*顶部导航*/}
             <MyHeaderNav/>

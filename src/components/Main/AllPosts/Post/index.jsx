@@ -8,6 +8,7 @@ import localhost from "../../../../utils/localhost";
 import PostComment from "./PostComment";
 import EditComment from "./PostComment/EditComment";
 import Pubsub from 'pubsub-js'
+import CheckPermissions from "../../../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 
 const {Paragraph} = Typography
@@ -81,7 +82,11 @@ const Post = (props) => {
 
     // 发布评论
     const handleSubmit = () => {
+        CheckPermissions("请先登录！")
         if (!value) {
+            return;
+        }
+        if(!localStorage.getItem("token")){
             return;
         }
         setSubmitting(true)
