@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import './index.css'
 import axios from "axios";
+import Pubsub from 'pubsub-js'
 import localhost from "../../../../../utils/localhost";
 import MyComment from "./MyComment";
 
 const PostComment = (props) => {
 
     // 获取此帖子下所有评论
-    const {postId, postAuthor} = props
+    const {postId} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
 
@@ -19,6 +20,14 @@ const PostComment = (props) => {
                 setCommentList(response.data)
             }
         )
+        Pubsub.subscribe('newComment',(_,newComment) => {
+            setCommentList((commentList)=>{
+                return [
+                    newComment,
+                    ...commentList
+                ]
+            })
+        })
     }, [])
 
     return (

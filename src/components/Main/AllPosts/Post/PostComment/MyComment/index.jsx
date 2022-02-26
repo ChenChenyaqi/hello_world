@@ -67,6 +67,10 @@ const MyComment = (props) => {
         )
     };
 
+    const reply = () => {
+
+    }
+
     useEffect(() => {
         // 若没有点赞/点踩数据，则加上
         let likedComments = localStorage.getItem("likedComments")
@@ -120,7 +124,7 @@ const MyComment = (props) => {
                                         <span className="comment-action">{dislikeCount}</span>
                                     </span>
                     </Tooltip>,
-                    <span key="comment-basic-reply-to">回复</span>
+                    <span key="comment-basic-reply-to" onClick={reply}>回复</span>
                 ]
             }
             author={<a>{commentAuthor}</a>}
