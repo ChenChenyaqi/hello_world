@@ -39,3 +39,25 @@ src
   	|index.js
 ```
 
+## 三、技术选项
+
+### 前端
+
+- React
+- Redux
+- Ant Design
+- axios
+- moment
+- nanoid
+- pubsub-js
+- Less
+
+### 后端
+
+- Spring Boot
+- Lombok
+- MySQL
+- MyBatis-plus
+- 阿里云OSS
+- JWT
+- Javax mail
