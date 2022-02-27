@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Activity/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Activity/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Forget/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Forget/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Regist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Regist/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/CheckPermissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CheckPermissions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +168,7 @@
       <workItem from="1645770676746" duration="415000" />
       <workItem from="1645831796697" duration="21345000" />
       <workItem from="1645865189032" duration="1204000" />
-      <workItem from="1645922481757" duration="12251000" />
+      <workItem from="1645922481757" duration="12745000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -278,7 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1645929525939</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="优化代码...写写注释和改改请求方式">
+      <created>1645944097262</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1645944097262</updated>
+    </task>
+    <task id="LOCAL-00016" summary="api文档">
+      <created>1645944332073</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1645944332073</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +316,9 @@
     <MESSAGE value="修复没有登录可以评论bug" />
     <MESSAGE value="优化项目结构" />
     <MESSAGE value="修改ReadMe" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改ReadMe" />
+    <MESSAGE value="优化代码...写写注释和改改请求方式" />
+    <MESSAGE value="api文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="api文档" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

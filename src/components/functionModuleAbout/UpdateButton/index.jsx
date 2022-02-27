@@ -22,7 +22,7 @@ class UpdateButton extends Component {
                 loadings: newLoadings,
             };
         });
-        axios.get(`http://${localhost}:8080/post/getAll?start=${this.start + this.step}&step=10`).then(
+        axios.get(`http://${localhost}:8080/post?start=${this.start + this.step}&step=10`).then(
             response => {
                 this.start += this.step;
                 PubSub.publish('pushNewPosts', response.data.posts)

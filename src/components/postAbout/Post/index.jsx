@@ -113,7 +113,7 @@ const Post = (props) => {
 
     React.useEffect(() => {
         // 获取本帖子的图片
-        axios.get(`http://${localhost}:8080/picture/getAll?postId=${props.post.postId}`).then(
+        axios.get(`http://${localhost}:8080/picture?postId=${props.post.postId}`).then(
             response => {
                 if (response.data.length !== 0) {
                     for (let k = 0; k < response.data.length; k++) {
@@ -129,7 +129,7 @@ const Post = (props) => {
             }
         )
         // 查询本帖评论量
-        axios.get(`http://${localhost}:8080/post/CommentCount?postId=${postId}`).then(
+        axios.get(`http://${localhost}:8080/post/commentCount?postId=${postId}`).then(
             response => {
                 setCommentCount(response.data)
             }
