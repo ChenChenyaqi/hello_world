@@ -1,43 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon3.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Activity/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Activity/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/PostComment/EditComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditComment/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/PostComment/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/PostComment/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/PostComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/Post/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/EditPost/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MySider/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainAbout/MySider/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/UpdateButton/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/UpdateButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainAbout/Main/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyFooter/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footerAbout/MyFooter/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/Forget/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Forget/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/Login/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/Regist/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Regist/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/Regist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Regist/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/LoginAndRegist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/MyHeaderNav/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyHeader/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/User/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +163,7 @@
       <workItem from="1645770676746" duration="415000" />
       <workItem from="1645831796697" duration="21345000" />
       <workItem from="1645865189032" duration="1204000" />
-      <workItem from="1645922481757" duration="4711000" />
+      <workItem from="1645922481757" duration="4956000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -271,7 +235,21 @@
       <option name="project" value="LOCAL" />
       <updated>1645857712918</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="优化项目结构">
+      <created>1645928540363</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1645928540363</updated>
+    </task>
+    <task id="LOCAL-00012" summary="优化项目结构">
+      <created>1645928736809</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1645928736809</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +281,8 @@
     <MESSAGE value="实现简单回复帖子功能" />
     <MESSAGE value="修复没有显示评论量问题" />
     <MESSAGE value="修复没有登录可以评论bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复没有登录可以评论bug" />
+    <MESSAGE value="优化项目结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化项目结构" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">
