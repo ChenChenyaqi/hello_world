@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {Avatar, Typography, Image, Comment} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import './index.css'
-import {timestampToTime} from '../../../../utils/timeUtils'
+import {timestampToTime} from '../../../utils/timeUtils'
 import axios from "axios";
-import localhost from "../../../../utils/localhost";
-import PostComment from "./PostComment";
-import EditComment from "./PostComment/EditComment";
+import localhost from "../../../utils/localhost";
+import AllComments from "../../commentAbout/AllComments";
+import EditComment from "../../commentAbout/EditComment";
 import Pubsub from 'pubsub-js'
-import CheckPermissions from "../../../../utils/CheckPermissions";
+import CheckPermissions from "../../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 
 const {Paragraph} = Typography
@@ -236,7 +236,7 @@ const Post = (props) => {
                         }
                     />
                     {/*所有评论组件*/}
-                    <PostComment postId={postId}/>
+                    <AllComments postId={postId}/>
                 </div>
             </div>
         </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PubSub from 'pubsub-js'
-import Post from "./Post";
+import Post from "../Post";
 import axios from "axios";
 import localhost from "../../../utils/localhost";
-import UpdateButton from "../UpdateButton";
+import UpdateButton from "../../functionModuleAbout/UpdateButton";
 
 const AllPosts = () => {
 

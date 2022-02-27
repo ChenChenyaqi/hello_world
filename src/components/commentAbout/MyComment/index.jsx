@@ -3,7 +3,7 @@ import {Avatar, Comment, Tooltip} from "antd";
 import {AntDesignOutlined, DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined} from "@ant-design/icons";
 import moment from "moment";
 import axios from "axios";
-import localhost from "../../../../../../utils/localhost";
+import localhost from "../../../utils/localhost";
 
 const MyComment = (props) => {
 

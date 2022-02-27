@@ -1,8 +1,8 @@
 import React from 'react';
 import {Layout} from "antd";
-import MySider from "./MySider";
-import EditPost from "./EditPost";
-import AllPosts from "./AllPosts";
+import MySider from "../MySider";
+import EditPost from "../../postAbout/EditPost";
+import AllPosts from "../../postAbout/AllPosts";
 
 const {Content} = Layout;
 

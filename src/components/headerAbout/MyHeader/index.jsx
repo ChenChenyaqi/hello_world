@@ -1,7 +1,7 @@
 import React from 'react';
 import {Layout} from "antd";
-import MyHeaderNav from "./MyHeaderNav";
-import LoginAndRegist from "./MyHeaderNav/LoginAndRegist";
+import MyHeaderNav from "../MyHeaderNav";
+import LoginAndRegist from "../../functionModuleAbout/LoginAndRegist";
 import './index.css'
 import {Link} from "react-router-dom";
 

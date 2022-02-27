@@ -4,7 +4,7 @@ import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import './index.css'
-import localhost from "../../../../../utils/localhost";
+import localhost from "../../utils/localhost";
 
 
 const Login = (props) => {

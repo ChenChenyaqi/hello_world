@@ -2,16 +2,16 @@ import React from 'react';
 import {Layout} from 'antd';
 import {Route, Switch} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
-import MyHeader from "./components/MyHeader";
-import MyFooter from "./components/MyFooter";
-import Login from "./components/MyHeader/MyHeaderNav/LoginAndRegist/Login";
-import Regist from "./components/MyHeader/MyHeaderNav/LoginAndRegist/Regist";
-import Main from "./components/Main";
-import Forget from "./components/MyHeader/MyHeaderNav/LoginAndRegist/Forget";
-import Activity from "./components/Activity";
+import MyHeader from "./components/headerAbout/MyHeader";
+import MyFooter from "./components/footerAbout/MyFooter";
+import Login from "./pages/Login";
+import Regist from "./pages/Regist";
+import Main from "./components/mainAbout/Main";
+import Forget from "./pages/Forget";
+import Activity from "./pages/Activity";
 import axios from "axios";
 import localhost from "./utils/localhost";
-import User from "./components/User";
+import User from "./pages/User";
 
 
 const {Content} = Layout;

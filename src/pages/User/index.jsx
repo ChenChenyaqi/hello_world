@@ -4,7 +4,7 @@ import {AntDesignOutlined, MailOutlined, DownOutlined} from '@ant-design/icons';
 import './index.css'
 import axios from "axios";
 import localhost from "../../utils/localhost";
-import Post from "../Main/AllPosts/Post";
+import Post from "../../components/postAbout/Post";
 
 class User extends Component {
 

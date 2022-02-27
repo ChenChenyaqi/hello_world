@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import './index.css'
 import axios from "axios";
 import Pubsub from 'pubsub-js'
-import localhost from "../../../../../utils/localhost";
-import MyComment from "./MyComment";
+import localhost from "../../../utils/localhost";
+import MyComment from "../MyComment";
 
 const PostComment = (props) => {
 
