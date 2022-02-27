@@ -13,11 +13,10 @@ import {nanoid} from "nanoid";
 
 const {Paragraph} = Typography
 
+// 帖子组件
 const Post = (props) => {
-    const postId = props.post.postId
-    const postAuthor = props.post.postAuthor
-    const postTime = props.post.postTime
-    const postContent = props.post.postContent
+    // 从props中获取数据
+    const {postId,postAuthor,postTime,postContent} = props.post
     // 处理时间
     const time = timestampToTime(postTime)
     // 本帖子所有图片路径
@@ -41,11 +40,7 @@ const Post = (props) => {
         if (!isLiked) {
             setLikedCount(likedCount + 1)
             setIsLiked(true)
-            axios.get(`http://${localhost}:8080/post/liked`, {
-                headers: {
-                    postId
-                }
-            })
+            axios.get(`http://${localhost}:8080/post/liked?postId=${postId}`)
             let arr = JSON.parse(localStorage.getItem("likedPostsId"))
             arr.push(postId)
             localStorage.setItem("likedPostsId", JSON.stringify(arr))
@@ -53,11 +48,7 @@ const Post = (props) => {
             // 若点过赞，则取消赞
             setLikedCount(likedCount - 1)
             setIsLiked(false)
-            axios.get(`http://${localhost}:8080/post/unLiked`, {
-                headers: {
-                    postId
-                }
-            })
+            axios.get(`http://${localhost}:8080/post/unLiked?postId=${postId}`)
             let arr = JSON.parse(localStorage.getItem("likedPostsId"))
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i] === postId) {
@@ -132,21 +123,13 @@ const Post = (props) => {
             }
         )
         // 查询本帖点赞量
-        axios.get(`http://${localhost}:8080/post/likeCount`, {
-            headers: {
-                postId
-            }
-        }).then(
+        axios.get(`http://${localhost}:8080/post/likeCount?postId=${postId}`).then(
             response => {
                 setLikedCount(JSON.parse(response.data))
             }
         )
         // 查询本帖评论量
-        axios.get(`http://${localhost}:8080/post/CommentCount`,{
-            headers:{
-                postId
-            }
-        }).then(
+        axios.get(`http://${localhost}:8080/post/CommentCount?postId=${postId}`).then(
             response => {
                 setCommentCount(response.data)
             }

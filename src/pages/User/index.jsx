@@ -6,6 +6,7 @@ import axios from "axios";
 import localhost from "../../utils/localhost";
 import Post from "../../components/postAbout/Post";
 
+// 个人中心组件
 class User extends Component {
 
     state = {
@@ -13,42 +14,40 @@ class User extends Component {
         posts: null
     };
 
+    // 切换导航
     handleClick = e => {
         console.log('click ', e);
         this.setState({current: e.key});
     };
 
-    componentDidMount() {
-        axios.get(`http://${localhost}:8080/post/getByUsername`, {
-            headers: {
-                username: localStorage.getItem("username")
-            }
-        }).then(response => {
-            this.setState(() => {
-                return {posts: response.data}
-            })
-        })
-    }
-
-    onClick(postId){
-        return ()=>{
-            axios.get(`http://${localhost}:8080/post/delete`,{
-                headers:{
-                    postId
-                }
-            }).then(response => {
+    // 删除帖子
+    onClick(postId) {
+        return () => {
+            axios.get(`http://${localhost}:8080/post/delete?postId=${postId}`).then(response => {
                 const {posts} = this.state
-                let delIndex = 0;
-                for(let i = 0; i < posts.length; i++){
-                    if(posts[i].postId === postId){
-                        delIndex = i;
-                        break;
+                if (posts.length > 0) {
+                    let delIndex = 0;
+                    for (let i = 0; i < posts.length; i++) {
+                        if (posts[i].postId === postId) {
+                            delIndex = i;
+                            break;
+                        }
                     }
+                    posts.splice(delIndex, 1)
+                    this.setState({posts})
                 }
-                posts.splice(delIndex,1)
-                this.setState({posts})
             })
         }
+    }
+
+    componentDidMount() {
+        // 发送请求获取用户发的帖子
+        axios.get(`http://${localhost}:8080/post/getByUsername?username=${localStorage.getItem("username")}`).then(
+            response => {
+                this.setState(() => {
+                    return {posts: response.data}
+                })
+            })
     }
 
     render() {
@@ -69,10 +68,10 @@ class User extends Component {
                 </div>
                 <div>
                     <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
-                        <Menu.Item key="xiaoxi" icon={<MailOutlined/>}>
+                        <Menu.Item key="message" icon={<MailOutlined/>}>
                             消息
                         </Menu.Item>
-                        <Menu.Item key="pinglun" icon={<MailOutlined/>}>
+                        <Menu.Item key="comment" icon={<MailOutlined/>}>
                             评论
                         </Menu.Item>
                     </Menu>

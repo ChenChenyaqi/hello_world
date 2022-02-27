@@ -12,16 +12,24 @@ import localhost from "../../../utils/localhost";
 
 const {TextArea} = Input;
 
+// 编辑帖子组件
 const EditPost = (Props) => {
-
+    // 帖子内容
     const [value, setValue] = useState("")
+    // 是否展示上传文件列表
     let [showFileList, setShowFileList] = useState(0)
+    let fileListLength = null
+
+    // 自动获取帖子内容
     const onChange = ({target: {value}}) => {
         setValue(value)
     };
 
+    // 点击发布帖子时
     const publishPost = () => {
+        // 先检查权限
         CheckPermissions('请先登录！')
+        // 没有token则拒绝发帖
         if (!localStorage.getItem("token")) {
             return ""
         }
@@ -30,6 +38,7 @@ const EditPost = (Props) => {
             return ""
         }
         setShowFileList((showFileList) => showFileList + 1)
+        // 准备帖子数据
         const postId = nanoid()
         const postContent = value
         const postTime = Date.now()
@@ -39,7 +48,7 @@ const EditPost = (Props) => {
         const postObj = {postId, postContent, postTime, postAuthor, postLike, postDislike}
         const dataObj = JSON.stringify(postObj)
 
-        // 让图片出来
+        // 保存帖子
         axios.post(`http://${localhost}:8080/post/save`,
             dataObj,
             {headers: {"Content-Type": "application/json"}}).then(
@@ -53,7 +62,7 @@ const EditPost = (Props) => {
         )
     }
 
-    let fileListLength = null
+
     const props = {
         name: 'file',
         accept: ".png, .jpg, .jpeg",
@@ -99,6 +108,7 @@ const EditPost = (Props) => {
         }
     };
 
+    // 点击上传图片按钮
     const uploadPicture = () => {
         CheckPermissions("请先登录！")
     }

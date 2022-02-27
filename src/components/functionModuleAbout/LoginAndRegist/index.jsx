@@ -4,10 +4,19 @@ import {Link} from "react-router-dom";
 
 const LoginAndRegist = () => {
 
+    // 是否登录
     const [isLogin, setIsLogin] = useState(false)
+    // 获取用户名
     const [username, setUserName] = useState("")
 
     const token = localStorage.getItem("token")
+
+    // 点击退出登录后
+    const logout = () => {
+        localStorage.removeItem("token")
+        setIsLogin(false)
+        setUserName("")
+    }
 
     useEffect(()=>{
         if (token) {
@@ -16,14 +25,6 @@ const LoginAndRegist = () => {
             setUserName(usernameVal)
         }
     },[token])
-
-
-
-    const logout = () => {
-        localStorage.removeItem("token")
-        setIsLogin(false)
-        setUserName("")
-    }
 
     return (
         <div>

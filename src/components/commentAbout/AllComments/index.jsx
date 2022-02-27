@@ -12,7 +12,6 @@ const PostComment = (props) => {
     // 此贴评论
     const [commentList, setCommentList] = useState([])
 
-
     React.useEffect(() => {
         // 根据postId 查找此贴下的所有评论
         axios.get(`http://${localhost}:8080/comment?postId=${postId}`,).then(
@@ -20,6 +19,7 @@ const PostComment = (props) => {
                 setCommentList(response.data)
             }
         )
+        // 订阅得到新发的评论
         Pubsub.subscribe('newComment',(_,newComment) => {
             setCommentList((commentList)=>{
                 return [

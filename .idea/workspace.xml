@@ -3,7 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Activity/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Activity/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Forget/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Forget/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Regist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Regist/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CheckPermissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CheckPermissions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +178,7 @@
       <workItem from="1645770676746" duration="415000" />
       <workItem from="1645831796697" duration="21345000" />
       <workItem from="1645865189032" duration="1204000" />
-      <workItem from="1645922481757" duration="5678000" />
+      <workItem from="1645922481757" duration="12251000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -259,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645928919864</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="修改ReadMe">
+      <created>1645929525939</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1645929525939</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +311,8 @@
     <MESSAGE value="修复没有显示评论量问题" />
     <MESSAGE value="修复没有登录可以评论bug" />
     <MESSAGE value="优化项目结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化项目结构" />
+    <MESSAGE value="修改ReadMe" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改ReadMe" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

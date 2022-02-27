@@ -6,33 +6,71 @@ import axios from "axios";
 import './index.css'
 import localhost from "../../utils/localhost";
 
-
+// 注册组件
 const Regist = (props) => {
 
+    // 获取验证码超时时间
     const [timeOut, setTimeOut] = React.useState(60)
+    // 控制是否可以点击获取验证码按钮
     const [sendCodeHidden, setSendCodeHidden] = React.useState(false)
+    // 用户邮箱
     const [email, setEmail] = React.useState(null)
+    // 邮箱验证码
     const [code, setCode] = React.useState(null)
 
+    // 获取验证码
+    const getCode = () => {
+        // 验证码正则
+        let pattern = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/
+        if (!pattern.test(email)) {
+            return
+        }
+        setSendCodeHidden(true)
+        // 发送请求获取验证码
+        axios.get(`http://${localhost}:8080/user/save/seccode`, {
+            headers: {"userEmail": email}
+        }).then(
+            response => {
+                setCode(response.data.code)
+            },
+            error => {
+                message.error("获取验证码失败，请重试！")
+            }
+        )
+    }
+
+    // 获取邮箱
+    const getEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    // 用户点击注册后的回调
     const onFinish = (values) => {
-        // 发送网络请求
-        if(!code || code.toLowerCase() !== values.code.toLowerCase()){
+        // 检查验证码是否正确
+        if (!code || code.toLowerCase() !== values.code.toLowerCase()) {
             message.error("验证码错误！")
             return
         }
+        // 收集表单数据
         const {username, password} = values
         const userObj = {username, password, email}
         const userJson = JSON.stringify(userObj)
+        // 发送请求保存用户
         axios.post(`http://${localhost}:8080/user/save`,
             userJson,
             {headers: {"Content-Type": "application/json"}}
         ).then(
             response => {
                 if (response.data === "注册成功") {
+                    // 提示注册成功
                     message.success(response.data)
+                    // 保存用户名到本地存储
+                    localStorage.setItem("username", username)
+                    localStorage.removeItem("password")
                     // 登录成功跳转登录页面
                     props.history.push("/login");
                 } else {
+                    // 提示错误信息
                     message.error(response.data + "，用户名已占用！")
                 }
 
@@ -41,6 +79,7 @@ const Regist = (props) => {
     };
 
     React.useEffect(() => {
+        // 当用户点击获取验证码后，给一个倒计时
         if (sendCodeHidden) {
             let timer = setInterval(() => {
                 if (timeOut > 0) {
@@ -57,30 +96,6 @@ const Regist = (props) => {
             }
         }
     }, [timeOut, sendCodeHidden])
-
-    const getCode = () => {
-        let pattern = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/
-        if (!pattern.test(email)) {
-            return
-        }
-        setSendCodeHidden(true)
-
-        axios.get(`http://${localhost}:8080/user/save/seccode`, {
-            headers: {"userEmail": email}
-        }).then(
-            response => {
-                setCode(response.data.code)
-            },
-            error => {
-                message.error("获取验证码失败，请重试！")
-            }
-        )
-    }
-
-
-    const getEmail = (e) => {
-        setEmail(e.target.value)
-    }
 
 
     return (
@@ -194,10 +209,11 @@ const Regist = (props) => {
                                     </Form.Item>
                                 </Col>
                                 <Col span={12}>
-                                    <div style={{position:"relative"}}>
+                                    <div style={{position: "relative"}}>
                                         <Button disabled={sendCodeHidden} onClick={getCode}>获取验证码</Button>
                                         {
-                                            sendCodeHidden ? <div style={{position:"absolute"}}>{timeOut}秒后重试</div> : ""
+                                            sendCodeHidden ?
+                                                <div style={{position: "absolute"}}>{timeOut}秒后重试</div> : ""
                                         }
                                     </div>
                                 </Col>

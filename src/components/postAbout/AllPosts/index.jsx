@@ -21,22 +21,18 @@ const AllPosts = () => {
             setPosts((oldPosts) => [...oldPosts, ...newPosts])
         })
         // 请求所有帖子
-        axios.get(`http://${localhost}:8080/post/getAll`, {
-            headers: {
-                start: 0,
-                step: 10
-            }
-        }).then(response => {
-            if (response.data.msg) {
-                console.log("帖子为空！")
-            } else {
-                let allPosts = response.data.posts
-                setPosts(() => {
-                    setIsLoading(false)
-                    return allPosts
-                })
-            }
-        })
+        axios.get(`http://${localhost}:8080/post/getAll?start=0&step=10`).then(
+            response => {
+                if (response.data.msg) {
+                    console.log("帖子为空！")
+                } else {
+                    let allPosts = response.data.posts
+                    setPosts(() => {
+                        setIsLoading(false)
+                        return allPosts
+                    })
+                }
+            })
     }, [])
 
 

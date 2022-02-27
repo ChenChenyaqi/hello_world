@@ -14,10 +14,12 @@ const MyComment = (props) => {
         commentLike, commentDisLike
     } = props.comment
 
+    // 评论喜欢数
     const [likeCount, setLikeCount] = useState(commentLike)
+    // 不喜欢数
     const [dislikeCount, setDislikeCount] = useState(commentDisLike)
 
-    // 评论点赞与点踩量
+    // 是点赞还是点踩
     const [action, setAction] = useState(null);
 
     // 点赞时
@@ -67,6 +69,7 @@ const MyComment = (props) => {
         )
     };
 
+    // 点击回复时
     const reply = () => {
 
     }
