@@ -11,8 +11,8 @@ src
 	|--components	//## 所有组件
     |	|--commentAbout	//# 评论相关组件
     |	|	|--AllComments	// 存放所有评论的容器组件
-    |	|	|--EditComments	// 编辑评论组件
-    |	|	|--MyComments	// 评论组件
+    |	|	|--EditComment	// 编辑评论组件
+    |	|	|--MyComment	// 评论组件
     |	|--footerAbout	//# 页面底部相关组件
     |	|	|--MyFooter		// 页脚组件
     |	|--functionModuleAbout	// 功能组件
