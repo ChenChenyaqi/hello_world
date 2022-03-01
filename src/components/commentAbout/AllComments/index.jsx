@@ -20,12 +20,11 @@ const PostComment = (props) => {
         )
         // 订阅得到新发的评论
         Pubsub.subscribe('newComment',(_,newComment) => {
-            setCommentList((commentList)=>{
-                return [
-                    newComment,
-                    ...commentList
-                ]
-            })
+            axios.get(`http://${localhost}:8080/comment?postId=${postId}`,).then(
+                response => {
+                    setCommentList(response.data)
+                }
+            )
         })
     }, [])
 
