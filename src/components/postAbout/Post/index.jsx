@@ -208,18 +208,18 @@ const Post = (props) => {
                     {/*发布评论框*/}
                     <Comment
                         avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
+                        style={{marginLeft:'10px'}}
                         content={
                             <EditComment
                                 onChange={handleChange}
                                 onSubmit={handleSubmit}
                                 submitting={submitting}
                                 value={value}
-                                postAuthor={postAuthor}
                             />
                         }
                     />
                     {/*所有评论组件*/}
-                    <AllComments postId={postId}/>
+                    <AllComments postId={postId} postAuthor={postAuthor}/>
                 </div>
             </div>
         </div>

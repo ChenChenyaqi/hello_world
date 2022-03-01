@@ -6,9 +6,8 @@ import localhost from "../../../utils/localhost";
 import MyComment from "../MyComment";
 
 const PostComment = (props) => {
-
     // 获取此帖子下所有评论
-    const {postId} = props
+    const {postId, postAuthor} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
 
@@ -34,7 +33,7 @@ const PostComment = (props) => {
         <div className="comment-wrapper">
             {
                 commentList.map((comment) => {
-                    return <MyComment key={comment.commentId} comment={comment}/>
+                    return <MyComment key={comment.commentId} comment={comment} postId={postId} postAuthor={postAuthor}/>
                 })
             }
         </div>

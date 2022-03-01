@@ -13,6 +13,7 @@ const EditComment = ({ onChange, onSubmit, submitting, value }) => (
                 onChange={onChange}
                 value={value}
                 placeholder={'发条友善的评论吧~~~'}
+                style={{width:'90%'}}
             />
         </Form.Item>
         <Form.Item>
