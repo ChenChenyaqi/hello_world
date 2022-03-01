@@ -5,6 +5,7 @@ import {nanoid} from "nanoid";
 import axios from "axios";
 import localhost from "../../../utils/localhost";
 import Pubsub from "pubsub-js";
+import store from "../../../redux/store";
 
 const { TextArea } = Input;
 
@@ -36,7 +37,7 @@ const EditReply = ({ replyTo, postId }) => {
             commentContent: value,
             commentTime: Date.now().toString(),
             commentLike: 0,
-            commentDislike: 0,
+            commentDislike: 0
         }
         // 保存到服务器
         axios.post(`http://${localhost}:8080/comment/save`, newComment, {
@@ -48,6 +49,7 @@ const EditReply = ({ replyTo, postId }) => {
                 setSubmitting(false)
                 setValue('')
                 Pubsub.publish('newComment',newComment)
+                store.dispatch({type:'remove'})
             }
         )
     }

@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/Loading/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/getDataStep.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/MyComment/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/UpdateButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/Post/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reply_reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reply_reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/localhost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localhost.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -169,7 +181,7 @@
       <workItem from="1645831796697" duration="21345000" />
       <workItem from="1645865189032" duration="1204000" />
       <workItem from="1645922481757" duration="17276000" />
-      <workItem from="1646115041097" duration="4996000" />
+      <workItem from="1646115041097" duration="14397000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -297,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646121609367</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="修复评论bug">
+      <created>1646122899982</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1646122899982</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +354,8 @@
     <MESSAGE value="api文档" />
     <MESSAGE value="修改请求URL" />
     <MESSAGE value="完善回复功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善回复功能" />
+    <MESSAGE value="修复评论bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复评论bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

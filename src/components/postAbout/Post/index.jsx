@@ -65,9 +65,11 @@ const Post = (props) => {
         // 点开评论区时
         if (showComment) {
             setShowComment(false)
+            Pubsub.publish('showComment', {isGetComment:false, commentPostId: postId})
         } else {
             // 没点开评论区时
             setShowComment(true)
+            Pubsub.publish('showComment', {isGetComment:true, commentPostId: postId})
         }
     }
 

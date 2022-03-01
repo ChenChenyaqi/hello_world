@@ -76,7 +76,11 @@ const MyComment = (props) => {
 
     // 点击回复时
     const reply = () => {
-        store.dispatch({type: 'add', data: commentId})
+        if(store.getState() === commentId){
+            store.dispatch({type: 'remove'})
+        } else {
+            store.dispatch({type: 'add', data: commentId})
+        }
     }
 
     useEffect(() => {
