@@ -3,6 +3,7 @@ import {Form, Input, Button, Checkbox, Layout, message} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Pubsub from 'pubsub-js'
 import './index.css'
 import localhost from "../../utils/localhost";
 
@@ -33,6 +34,7 @@ const Login = (props) => {
                     // 提示登录成功
                     message.success(response.data.msg)
                     // 保存token、用户名、密码
+                    Pubsub.publish("login",{})
                     localStorage.setItem("token", response.data.token)
                     localStorage.setItem("username", username)
                     localStorage.setItem("password", password)

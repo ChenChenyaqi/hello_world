@@ -64,10 +64,10 @@ const EditReply = ({ replyTo, postId }) => {
                     onChange={onChange}
                     value={value}
                     placeholder={`回复@ ${replyTo} :`}
-                    style={{width:'80%'}}
+                    style={{width:'80%', borderRadius:'6px'}}
                 />
                 <Button
-                    style={{marginLeft:'5px'}}
+                    style={{marginLeft:'5px', borderRadius:'6px'}}
                     htmlType="submit"
                     loading={submitting}
                     onClick={onSubmit}

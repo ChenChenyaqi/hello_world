@@ -2,3 +2,11 @@
     display: flex;
     justify-content: center;
 }
+
+.getMore{
+    color: gray;
+}
+
+.getMore:hover{
+    color: #1890FF;
+}

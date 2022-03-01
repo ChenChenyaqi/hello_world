@@ -10,7 +10,8 @@
 .user{
     background-color: white;
     margin-top: 10px;
-    padding: 5px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .post-item{
@@ -28,4 +29,12 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.logout{
+    position: absolute;
+    right: 60px;
+    top: 19px;
+    z-index: 999;
+    background-color: white;
 }

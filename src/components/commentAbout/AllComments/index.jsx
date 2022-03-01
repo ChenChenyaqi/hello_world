@@ -7,7 +7,7 @@ import MyComment from "../MyComment";
 import Loading from "../../functionModuleAbout/Loading";
 import {commentStep} from "../../../utils/getDataStep";
 import GetMoreButton from "../../functionModuleAbout/GetMoreButton";
-import {message, Empty} from "antd";
+import {message, Empty, Divider} from "antd";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
@@ -64,8 +64,11 @@ const AllComments = (props) => {
         <div className="comment-wrapper">
             {
                 isGettingComments ? <Loading isLoading={isGettingComments}/> : commentList.map((comment) => {
-                    return <MyComment key={comment.commentId} comment={comment} postId={postId}
-                                      postAuthor={postAuthor}/>
+                    return <div key={comment.commentId}>
+                        <MyComment  comment={comment} postId={postId}
+                                    postAuthor={postAuthor}/>
+                        <Divider />
+                    </div>
                 })
             }
             {
@@ -80,7 +83,9 @@ const AllComments = (props) => {
                                     </>
                                 }
                                                               imageStyle={{height: 40}}/> :
-                                <GetMoreButton isLoading={isLoading} getMore={getMore}/>
+                                <div style={{marginBottom:'10px'}}>
+                                    <GetMoreButton isLoading={isLoading} getMore={getMore}/>
+                                </div>
                         }
                     </>
             }

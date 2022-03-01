@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Empty, Menu, message, Popconfirm} from 'antd';
-import {AntDesignOutlined, MailOutlined} from '@ant-design/icons';
+import {Avatar, Empty, Menu, message, Popconfirm, Divider} from 'antd';
+import {AntDesignOutlined, HomeOutlined, MessageOutlined} from '@ant-design/icons';
 import './index.css'
 import axios from "axios";
+import Pubsub from 'pubsub-js';
 import localhost from "../../utils/localhost";
 import Post from "../../components/postAbout/Post";
 import Loading from "../../components/functionModuleAbout/Loading";
-import GetMoreButton from "../../components/functionModuleAbout/GetMoreButton";
+import {Link} from "react-router-dom";
 
 // 个人中心组件
 const User = () => {
 
-    const [current, setCurrent] = useState('mail')
+    const [current, setCurrent] = useState('post')
     const [posts, setPosts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
@@ -41,6 +42,12 @@ const User = () => {
         }
     }
 
+    // 点击退出登录后
+    const logout = () => {
+        localStorage.removeItem("token")
+        Pubsub.publish("logout", {})
+    }
+
     useEffect(() => {
         // 发送请求获取用户发的帖子
         setIsLoading(true)
@@ -64,17 +71,17 @@ const User = () => {
                 <div className="user-other">
                     <h2>{localStorage.getItem("username")}</h2>
                 </div>
+                <div className="logout">
+                    <Link onClick={logout} to={'/login'}>退出登录</Link>
+                </div>
             </div>
             <div>
                 <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-                    <Menu.Item key="post" icon={<MailOutlined/>}>
+                    <Menu.Item key="post" icon={<HomeOutlined/>}>
                         我的帖子
                     </Menu.Item>
-                    <Menu.Item key="message" icon={<MailOutlined/>}>
+                    <Menu.Item key="message" icon={<MessageOutlined/>}>
                         消息
-                    </Menu.Item>
-                    <Menu.Item key="comment" icon={<MailOutlined/>}>
-                        评论
                     </Menu.Item>
                 </Menu>
             </div>
@@ -82,26 +89,28 @@ const User = () => {
                 {
                     isLoading ? <Loading isLoading={isLoading}/> : <>
                         {
-                            posts.length === 0 ? <Empty description={<span style={{fontSize: '15px'}}>暂无帖子</span>} imageStyle={{height: 70}}/>
+                            posts.length === 0 ? <Empty description={<span style={{fontSize: '15px'}}>暂无帖子</span>}
+                                                        imageStyle={{height: 70}}/>
                                 : posts.map((post) => {
-                                return (
-                                    <div key={post.postId} className="post-item">
-                                        <Post post={post}/>
-                                        <div className="delete-button">
-                                            <Popconfirm
-                                                title="确认删除？"
-                                                okText="是"
-                                                cancelText="否"
-                                                onConfirm={deletePost(post.postId)}
-                                            >
-                                                <a href="#" onClick={(e) => {
-                                                    e.preventDefault()
-                                                }}>删除</a>
-                                            </Popconfirm>
+                                    return (
+                                        <div key={post.postId} className="post-item">
+                                            <Post post={post}/>
+                                            <div className="delete-button">
+                                                <Popconfirm
+                                                    title="确认删除？"
+                                                    okText="是"
+                                                    cancelText="否"
+                                                    onConfirm={deletePost(post.postId)}
+                                                >
+                                                    <a href="#" onClick={(e) => {
+                                                        e.preventDefault()
+                                                    }}>删除</a>
+                                                </Popconfirm>
+                                            </div>
+                                            <Divider/>
                                         </div>
-                                    </div>
-                                )
-                            })
+                                    )
+                                })
                         }
                     </>
                 }

@@ -1,30 +1,27 @@
 import React, {useState, useEffect} from 'react';
+import {UserOutlined} from "@ant-design/icons"
 import {Link} from "react-router-dom";
+import Pubsub from 'pubsub-js'
 
 
 const LoginAndRegist = () => {
 
     // 是否登录
     const [isLogin, setIsLogin] = useState(false)
-    // 获取用户名
-    const [username, setUserName] = useState("")
 
     const token = localStorage.getItem("token")
 
-    // 点击退出登录后
-    const logout = () => {
-        localStorage.removeItem("token")
-        setIsLogin(false)
-        setUserName("")
-    }
-
     useEffect(()=>{
         if (token) {
-            const usernameVal = localStorage.getItem("username")
             setIsLogin(true)
-            setUserName(usernameVal)
         }
-    },[token])
+        Pubsub.subscribe("logout",() => {
+            setIsLogin(false)
+        })
+        Pubsub.subscribe("login",()=>{
+            setIsLogin(true)
+        })
+    },[])
 
     return (
         <div>
@@ -35,8 +32,7 @@ const LoginAndRegist = () => {
                 <Link to={'/regist'}>注册</Link>
             </div>
             <div style={{display: isLogin ? "" : "none"}}>
-                欢迎: <Link to={'/user'}>{username}</Link>&nbsp;&nbsp;
-                <Link onClick={logout} to={'/login'}>退出登录</Link>
+                <Link to={'/user'}><UserOutlined style={{fontSize:'22px'}}/></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     );

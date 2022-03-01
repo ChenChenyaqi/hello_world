@@ -8,16 +8,18 @@ const EditComment = ({ onChange, onSubmit, submitting, value }) => (
     <>
         <Form.Item>
             <TextArea
+
                 maxLength={200}
                 autoSize={{minRows: 1, maxRows: 2}}
                 onChange={onChange}
                 value={value}
                 placeholder={'发条友善的评论吧~~~'}
-                style={{width:'90%'}}
+                style={{width:'90%', borderRadius:'6px'}}
             />
         </Form.Item>
         <Form.Item>
             <Button
+                style={{borderRadius:'6px'}}
                 htmlType="submit"
                 loading={submitting}
                 onClick={onSubmit}

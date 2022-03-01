@@ -16,17 +16,21 @@ const AllPosts = () => {
     const [isLoading, setIsLoading] = useState(true)
     // 分批请求起点
     const [start, setStart] = useState(0)
+    // 是否正在加载更多
+    const [isGetMore, setIsGetMore] = useState(false)
 
     const getMore = () => {
+        setIsGetMore(true)
         axios.get(`http://${localhost}:8080/post?start=${start}&step=${postStep}`).then(
             response => {
                 const postList = response.data.posts
                 if (postList.length === 0) {
+                    setIsGetMore(false)
                     message.info("没有更多了...")
                 } else {
                     let newPosts = postList
                     setPosts(() => {
-                        setIsLoading(false)
+                        setIsGetMore(false)
                         setStart(start + postStep)
                         return [
                             ...posts,
@@ -67,7 +71,7 @@ const AllPosts = () => {
                 })
             }
             {
-                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isLoading}/>
+                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isGetMore}/>
             }
         </div>
     )

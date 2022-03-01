@@ -6,12 +6,13 @@ import axios from "axios";
 import localhost from "../../../utils/localhost";
 import EditReply from "../EditReply";
 import store from "../../../redux/store";
+import {addCommentId, removeCommentId} from '../../../redux/reply_action'
 
 const MyComment = (props) => {
 
     // 得到评论有关信息
     const {
-        commentId, commentPostId, commentAuthor,
+        commentId, commentAuthor,
         commentReplyAuthor, commentContent, commentTime,
         commentLike, commentDisLike
     } = props.comment
@@ -77,9 +78,9 @@ const MyComment = (props) => {
     // 点击回复时
     const reply = () => {
         if(store.getState() === commentId){
-            store.dispatch({type: 'remove'})
+            store.dispatch(removeCommentId())
         } else {
-            store.dispatch({type: 'add', data: commentId})
+            store.dispatch(addCommentId(commentId))
         }
     }
 

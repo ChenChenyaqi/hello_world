@@ -124,9 +124,9 @@ const EditPost = (Props) => {
                 autoSize={{minRows: 2, maxRows: 4}}
             />
             <div className="edit-btn" key={showFileList}>
-                <Button type="primary" onClick={publishPost}>发布</Button>&nbsp;
+                <Button type="primary" style={{borderRadius:'6px'}} onClick={publishPost}>发布</Button>&nbsp;
                 <Upload {...props}>
-                    <Button icon={<UploadOutlined/>} onClick={uploadPicture}>点击上传图片</Button>
+                    <Button style={{borderRadius:'6px'}} icon={<UploadOutlined/>} onClick={uploadPicture}>点击上传图片</Button>
                 </Upload>
             </div>
         </div>
