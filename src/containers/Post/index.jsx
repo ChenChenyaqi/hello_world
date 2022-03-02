@@ -2,21 +2,24 @@ import React, {useState} from 'react';
 import {Avatar, Typography, Image, Comment} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import './index.css'
-import {timestampToTime} from '../../../utils/timeUtils'
+import {timestampToTime} from '../../utils/timeUtils'
 import axios from "axios";
-import localhost from "../../../utils/localhost";
-import AllComments from "../../commentAbout/AllComments";
-import EditComment from "../../commentAbout/EditComment";
+import localhost from "../../utils/localhost";
+import AllComments from "../../components/commentAbout/AllComments";
+import EditComment from "../../components/commentAbout/EditComment";
 import Pubsub from 'pubsub-js'
-import CheckPermissions from "../../../utils/CheckPermissions";
+import CheckPermissions from "../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
+import {connect} from "react-redux";
+import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
 
 const {Paragraph} = Typography
 
-// 帖子组件
+// 帖子UI组件
 const Post = (props) => {
     // 从props中获取数据
-    const {postId,postAuthor,postTime,postContent} = props.post
+    const {postId, postAuthor, postTime, postContent} = props.post
+    const {state, remove} = props
     // 处理时间
     const time = timestampToTime(postTime)
     // 本帖子所有图片路径
@@ -62,14 +65,17 @@ const Post = (props) => {
     // 评论
     const comment = (e) => {
         e.preventDefault()
+        if (state.commentId) {
+            remove()
+        }
         // 点开评论区时
         if (showComment) {
             setShowComment(false)
-            Pubsub.publish('showComment', {isGetComment:false, commentPostId: postId})
+            Pubsub.publish('showComment', {isGetComment: false, commentPostId: postId})
         } else {
             // 没点开评论区时
             setShowComment(true)
-            Pubsub.publish('showComment', {isGetComment:true, commentPostId: postId})
+            Pubsub.publish('showComment', {isGetComment: true, commentPostId: postId})
         }
     }
 
@@ -79,7 +85,7 @@ const Post = (props) => {
         if (!value) {
             return;
         }
-        if(!localStorage.getItem("token")){
+        if (!localStorage.getItem("token")) {
             return;
         }
         setSubmitting(true)
@@ -103,7 +109,7 @@ const Post = (props) => {
             response => {
                 setSubmitting(false)
                 setValue('')
-                Pubsub.publish('newComment',newComment)
+                Pubsub.publish('newComment', newComment)
             }
         )
     };
@@ -210,7 +216,7 @@ const Post = (props) => {
                     {/*发布评论框*/}
                     <Comment
                         avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
-                        style={{marginLeft:'10px'}}
+                        style={{marginLeft: '10px'}}
                         content={
                             <EditComment
                                 onChange={handleChange}
@@ -223,9 +229,17 @@ const Post = (props) => {
                     {/*所有评论组件*/}
                     <AllComments postId={postId} postAuthor={postAuthor}/>
                 </div>
+
             </div>
         </div>
     );
 }
 
-export default Post;
+
+export default connect(
+    state => ({state}),
+    {
+        add: addCommentIdAction,
+        remove: removeCommentIdAction
+    }
+)(Post)

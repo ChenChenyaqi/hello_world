@@ -8,7 +8,7 @@ import EditReply from "../../components/commentAbout/EditReply";
 // 引入connect用于连接UI组件和redux
 import {connect} from 'react-redux'
 // 引入comment_action
-import {addCommentIdAction, removeCommentIdAction} from '../../redux/comment_action';
+import {addCommentIdAction, removeCommentIdAction} from '../../redux/actions/comment';
 
 // 定义UI组件
 const MyComment = (props) => {
@@ -78,7 +78,7 @@ const MyComment = (props) => {
 
     // 点击回复时
     const reply = () => {
-        if (state === commentId) {
+        if (state.commentId === commentId) {
             remove()
         } else {
             add(commentId)
@@ -157,7 +157,7 @@ const MyComment = (props) => {
                 }
             />
             {
-                state === commentId ?
+                state.commentId === commentId ?
                     <EditReply replyTo={commentAuthor} postId={postId}/> : null
             }
         </>

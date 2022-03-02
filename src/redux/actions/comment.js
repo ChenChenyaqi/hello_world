@@ -1,4 +1,4 @@
-import {ADD_COMMENT_ID, REMOVE_COMMENT_ID} from './constant'
+import {ADD_COMMENT_ID, REMOVE_COMMENT_ID} from '../constant'
 
 const addCommentIdAction = data => ({type:ADD_COMMENT_ID, data})
 

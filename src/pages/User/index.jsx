@@ -5,7 +5,7 @@ import './index.css'
 import axios from "axios";
 import Pubsub from 'pubsub-js';
 import localhost from "../../utils/localhost";
-import Post from "../../components/postAbout/Post";
+import Post from "../../containers/Post";
 import Loading from "../../components/functionModuleAbout/Loading";
 import {Link} from "react-router-dom";
 

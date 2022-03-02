@@ -1,4 +1,11 @@
-import {createStore} from "redux";
-import currentCommentReducer from "./comment_reducer"
+import {createStore, combineReducers} from "redux";
+import currentCommentReducer from "./reducers/comment"
+import currentPostReducer from "./reducers/post";
 
-export default createStore(currentCommentReducer)
+// 合并reducer
+const allReducer = combineReducers({
+    commentId:currentCommentReducer,
+    postId:currentPostReducer
+})
+
+export default createStore(allReducer)
