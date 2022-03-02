@@ -4,7 +4,7 @@
 * */
 
 const initState = "";
-export default function currentReplyReducer(preState=initState, action) {
+export default function currentCommentReducer(preState=initState, action) {
     const {type, data} = action
     switch(type){
         case 'add':

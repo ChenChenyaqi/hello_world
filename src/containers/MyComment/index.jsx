@@ -3,13 +3,15 @@ import {Avatar, Comment, Tooltip} from "antd";
 import {AntDesignOutlined, DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined} from "@ant-design/icons";
 import moment from "moment";
 import axios from "axios";
-import localhost from "../../../utils/localhost";
-import EditReply from "../EditReply";
-import store from "../../../redux/store";
-import {addCommentId, removeCommentId} from '../../../redux/reply_action'
+import localhost from "../../utils/localhost";
+import EditReply from "../../components/commentAbout/EditReply";
+// 引入connect用于连接UI组件和redux
+import {connect} from 'react-redux'
+// 引入comment_action
+import {addCommentIdAction, removeCommentIdAction} from '../../redux/comment_action';
 
+// 定义UI组件
 const MyComment = (props) => {
-
     // 得到评论有关信息
     const {
         commentId, commentAuthor,
@@ -17,7 +19,8 @@ const MyComment = (props) => {
         commentLike, commentDisLike
     } = props.comment
 
-    const {postId,postAuthor} = props
+    // state、add、remove是容器组件传来的状态和操作状态的方法
+    const {postId, postAuthor, state, add, remove} = props
 
     // 评论喜欢数
     const [likeCount, setLikeCount] = useState(commentLike)
@@ -25,8 +28,6 @@ const MyComment = (props) => {
     const [dislikeCount, setDislikeCount] = useState(commentDisLike)
     // 是点赞还是点踩
     const [action, setAction] = useState(null);
-    //
-    const [a, setA] = useState(null)
 
     // 点赞时
     const like = () => {
@@ -77,17 +78,14 @@ const MyComment = (props) => {
 
     // 点击回复时
     const reply = () => {
-        if(store.getState() === commentId){
-            store.dispatch(removeCommentId())
+        if (state === commentId) {
+            remove()
         } else {
-            store.dispatch(addCommentId(commentId))
+            add(commentId)
         }
     }
 
     useEffect(() => {
-        store.subscribe(() => {
-            setA({})
-        })
         // 若没有点赞/点踩数据，则加上
         let likedComments = localStorage.getItem("likedComments")
         if (!likedComments) {
@@ -144,11 +142,12 @@ const MyComment = (props) => {
                         <span key="comment-basic-reply-to" onClick={reply}>回复</span>
                     ]
                 }
-                author={<a>{commentReplyAuthor === postAuthor ? commentAuthor : `${commentAuthor} 回复 ${commentReplyAuthor}:`}</a>}
+                author={
+                    <a>{commentReplyAuthor === postAuthor ? commentAuthor : `${commentAuthor} 回复 ${commentReplyAuthor}:`}</a>}
                 avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
                 content={
                     <p>
-                         {commentContent}
+                        {commentContent}
                     </p>
                 }
                 datetime={
@@ -158,11 +157,24 @@ const MyComment = (props) => {
                 }
             />
             {
-                store.getState() === commentId ?
+                state === commentId ?
                     <EditReply replyTo={commentAuthor} postId={postId}/> : null
             }
         </>
     );
 }
 
-export default MyComment;
+
+// !!! store不能直接引入，要在AllComments中通过props的形式传入store
+// 建立并暴露一个容器组件，建立容器和UI组件的联系
+export default connect(
+    // mapStateToProps函数的返回的对象中的key就作为传递给UI组件props的key
+    state => ({state}),
+    // mapDispatchToProps函数的返回的对象作为操作状态的方法
+    {
+        // 通知redux执行添加操作
+        add: addCommentIdAction,
+        remove: removeCommentIdAction
+    }
+)(MyComment)
+

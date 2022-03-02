@@ -1,4 +1,4 @@
 import {createStore} from "redux";
-import currentReplyReducer from "./reply_reducer"
+import currentCommentReducer from "./comment_reducer"
 
-export default createStore(currentReplyReducer)
+export default createStore(currentCommentReducer)

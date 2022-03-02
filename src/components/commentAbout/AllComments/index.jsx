@@ -3,11 +3,12 @@ import './index.css'
 import axios from "axios";
 import Pubsub from 'pubsub-js'
 import localhost from "../../../utils/localhost";
-import MyComment from "../MyComment";
+import MyComment from '../../../containers/MyComment'
 import Loading from "../../functionModuleAbout/Loading";
 import {commentStep} from "../../../utils/getDataStep";
 import GetMoreButton from "../../functionModuleAbout/GetMoreButton";
 import {message, Empty, Divider} from "antd";
+import store from "../../../redux/store";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
@@ -65,9 +66,9 @@ const AllComments = (props) => {
             {
                 isGettingComments ? <Loading isLoading={isGettingComments}/> : commentList.map((comment) => {
                     return <div key={comment.commentId}>
-                        <MyComment  comment={comment} postId={postId}
-                                    postAuthor={postAuthor}/>
-                        <Divider />
+                        <MyComment comment={comment} postId={postId}
+                                   postAuthor={postAuthor}/>
+                        <Divider/>
                     </div>
                 })
             }
@@ -83,7 +84,7 @@ const AllComments = (props) => {
                                     </>
                                 }
                                                               imageStyle={{height: 40}}/> :
-                                <div style={{marginBottom:'10px'}}>
+                                <div style={{marginBottom: '10px'}}>
                                     <GetMoreButton isLoading={isLoading} getMore={getMore}/>
                                 </div>
                         }

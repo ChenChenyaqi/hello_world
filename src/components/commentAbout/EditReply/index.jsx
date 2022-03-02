@@ -63,6 +63,7 @@ const EditReply = ({ replyTo, postId }) => {
                     autoSize={{minRows: 1, maxRows: 2}}
                     onChange={onChange}
                     value={value}
+                    autoFocus
                     placeholder={`回复@ ${replyTo} :`}
                     style={{width:'80%', borderRadius:'6px'}}
                 />
