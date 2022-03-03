@@ -33,7 +33,6 @@
 
 .logout{
     position: absolute;
-    right: 60px;
     top: 19px;
     z-index: 999;
     background-color: white;

@@ -65,7 +65,7 @@ const EditReply = ({ replyTo, postId }) => {
                     value={value}
                     autoFocus
                     placeholder={`回复@ ${replyTo} :`}
-                    style={{width:'80%', borderRadius:'6px'}}
+                    style={{width:'70%', borderRadius:'6px'}}
                 />
                 <Button
                     style={{marginLeft:'5px', borderRadius:'6px'}}

@@ -64,7 +64,7 @@ const User = () => {
             <div className="user-info">
                 <div className="user-avatar">
                     <Avatar
-                        size={{xs: 20, sm: 25, md: 35, lg: 40, xl: 60, xxl: 80}}
+                        size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 60, xxl: 80}}
                         icon={<AntDesignOutlined/>}
                     />
                 </div>

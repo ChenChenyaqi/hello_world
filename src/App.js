@@ -12,6 +12,7 @@ import Activity from "./pages/Activity";
 import axios from "axios";
 import localhost from "./utils/localhost";
 import User from "./pages/User";
+import './App.css'
 
 
 const {Content} = Layout;
@@ -38,7 +39,7 @@ const App = (props) => {
             <Layout>
                 {/*顶部导航条*/}
                 <MyHeader/>
-                <Content style={{padding: '0 50px'}}>
+                <Content className="main-content">
                     {/*匹配路由，登录页、注册页、主页*/}
                     <Switch>
                         <Route path="/login" component={Login}/>

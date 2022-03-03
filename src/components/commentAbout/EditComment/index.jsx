@@ -13,7 +13,6 @@ const EditComment = ({ onChange, onSubmit, submitting, value }) => (
                 autoSize={{minRows: 1, maxRows: 2}}
                 onChange={onChange}
                 value={value}
-                autoFocus
                 placeholder={'发条友善的评论吧~~~'}
                 style={{width:'90%', borderRadius:'6px'}}
             />

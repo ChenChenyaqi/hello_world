@@ -68,7 +68,7 @@ const AllComments = (props) => {
                     return <div key={comment.commentId}>
                         <MyComment comment={comment} postId={postId}
                                    postAuthor={postAuthor}/>
-                        <Divider/>
+                        <Divider style={{margin: '-5px 0px'}}/>
                     </div>
                 })
             }

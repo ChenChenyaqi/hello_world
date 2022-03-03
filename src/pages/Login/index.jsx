@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Input, Button, Checkbox, Layout, message} from 'antd';
+import {Form, Input, Button, Checkbox, Layout, message, Row, Col} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import axios from "axios";
@@ -34,7 +34,7 @@ const Login = (props) => {
                     // 提示登录成功
                     message.success(response.data.msg)
                     // 保存token、用户名、密码
-                    Pubsub.publish("login",{})
+                    Pubsub.publish("login", {})
                     localStorage.setItem("token", response.data.token)
                     localStorage.setItem("username", username)
                     localStorage.setItem("password", password)
@@ -129,6 +129,8 @@ const Login = (props) => {
                     </Form>
                 </div>
             </div>
+
+
         </Layout>
     );
 

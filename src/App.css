@@ -1,0 +1,109 @@
+@media (min-width: 100px) and (max-width: 703px) {
+    .logo{
+        height: 1.5rem;
+    }
+    .main-content, .header{
+        padding: 0 5px;
+    }
+    .logout{
+        right: 5px;
+    }
+    .login-form-wrapper, .regist-form-wrapper{
+        width: 350px;
+    }
+    .header-nav div{
+        margin-right: 10px;
+    }
+    .login-regist-button{
+    }
+}
+
+@media (min-width: 704px) and (max-width: 819px) {
+    .logo{
+        height: 1.5rem;
+    }
+    .main-content, .header{
+        padding: 0 10px;
+    }
+    .logout{
+        right: 10px;
+    }
+    .login-form-wrapper, .regist-form-wrapper{
+        width: 380px;
+    }
+    .header-nav div{
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 820px) and (max-width: 954px) {
+    .logo{
+        height: 1.8rem;
+    }
+    .main-content, .header{
+        padding: 0 20px;
+    }
+    .logout{
+        right: 20px;
+    }
+    .login-form-wrapper, .regist-form-wrapper{
+        width: 400px;
+    }
+    .header-nav div{
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 955px) and (max-width: 1129px) {
+    .logo{
+        height: 2rem;
+    }
+    .main-content, .header{
+        padding: 0 30px;
+    }
+    .logout{
+        right: 30px;
+    }
+    .login-form-wrapper, .regist-form-wrapper{
+        width: 420px;
+    }
+    .header-nav div{
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 1130px) and (max-width: 1360px) {
+    .logo{
+        height: 2.5rem;
+    }
+    .main-content, .header{
+        padding: 0 40px;
+    }
+    .logout{
+        right: 40px;
+    }
+    .login-form-wrapper, .regist-form-wrapper{
+        width: 450px;
+    }
+    .header-nav div{
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 1361px) {
+    .logo{
+        height: 3rem;
+    }
+    .main-content, .header{
+        padding: 0 100px;
+    }
+    .logout{
+        right: 100px;
+    }
+    .login-form-wrapper, .regist-form-wrapper{
+        width: 498px;
+    }
+    .header-nav div{
+        margin-left: 20px;
+    }
+}
