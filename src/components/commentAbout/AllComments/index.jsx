@@ -21,12 +21,15 @@ const AllComments = (props) => {
     const [start, setStart] = useState(0)
     // 是否正在获取更多评论
     const [isLoading, setIsLoading] = useState(false)
+    // 加载更多提示
+    const [getMoreMsg, setGetMoreMsg] = useState("")
 
     const getMore = () => {
         setIsLoading(true)
         axios.get(`http://${localhost}:8080/comment?postId=${postId}&start=${start}&step=${commentStep}`,).then(
             response => {
                 if (response.data.length === 0) {
+                    setGetMoreMsg("暂无更多...")
                     message.info("暂无更多...")
                 } else {
                     setStart(start + commentStep)
@@ -85,7 +88,7 @@ const AllComments = (props) => {
                                 }
                                                               imageStyle={{height: 40}}/> :
                                 <div style={{marginBottom: '10px'}}>
-                                    <GetMoreButton isLoading={isLoading} getMore={getMore}/>
+                                    <GetMoreButton isLoading={isLoading} getMore={getMore} msg={getMoreMsg}/>
                                 </div>
                         }
                     </>

@@ -18,6 +18,8 @@ const AllPosts = () => {
     const [start, setStart] = useState(0)
     // 是否正在加载更多
     const [isGetMore, setIsGetMore] = useState(false)
+    // 加载信息
+    const [getMoreMsg, setGetMoreMsg] = useState("")
 
     const getMore = () => {
         setIsGetMore(true)
@@ -26,6 +28,7 @@ const AllPosts = () => {
                 const postList = response.data.posts
                 if (postList.length === 0) {
                     setIsGetMore(false)
+                    setGetMoreMsg("没有更多了...")
                     message.info("没有更多了...")
                 } else {
                     let newPosts = postList
@@ -71,7 +74,7 @@ const AllPosts = () => {
                 })
             }
             {
-                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isGetMore}/>
+                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isGetMore} msg={getMoreMsg}/>
             }
         </div>
     )
