@@ -12,11 +12,11 @@ const MyHeader = () => {
             className="header"
             style={{backgroundColor: "#fff"}}>
             <Row>
-                <Col xs={8} sm={6} md={4} lg={4} xl={4}>
+                <Col xs={8} sm={4} md={4} lg={4} xl={4}>
                     {/*logo*/}
                     <img className="logo" src="/img/logo.png" alt="logo"/>
                 </Col>
-                <Col xs={11} sm={12} md={16} lg={16} xl={16}>
+                <Col xs={11} sm={16} md={16} lg={16} xl={16}>
                     {/*/!*顶部导航*!/*/}
                     <MyHeaderNav/>
                 </Col>

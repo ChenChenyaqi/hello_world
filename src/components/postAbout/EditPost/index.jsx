@@ -4,7 +4,7 @@ import {UploadOutlined} from "@ant-design/icons"
 import {nanoid} from 'nanoid'
 import PubSub from 'pubsub-js'
 import {withRouter} from 'react-router-dom'
-
+import compressImage from "../../../utils/compressImage";
 import './index.css'
 import CheckPermissions from "../../../utils/CheckPermissions";
 import axios from "axios";
@@ -71,22 +71,25 @@ const EditPost = (Props) => {
             contentType: "multipart/form-data",
             username: localStorage.getItem("username")
         },
-        maxCount: 3,
+        maxCount: 5,
         disabled: !localStorage.getItem("token"),
         showUploadList: true,
         beforeUpload: (file, _) => {
             if (fileListLength === props.maxCount) {
-                message.error(`限制最大上传图片数：3`);
+                message.error(`限制最大上传图片数：5`);
                 return false
             }
             if (file.size > 1024 * 1024 * 5) {
                 message.error(`图片大小超过5Mb`);
                 return Upload.LIST_IGNORE
             }
-
-            file.uid = nanoid();
-            props.headers.pictureId = file.uid;
-            props.headers.pictureTime = Date.now()
+            return new Promise((resolve, reject) => {
+                const newFile = compressImage(file)
+                newFile.uid = nanoid();
+                props.headers.pictureId = newFile.uid;
+                props.headers.pictureTime = Date.now()
+                resolve(newFile)
+            })
         },
         onChange(info) {
             if (info.file.status !== 'uploading') {

@@ -191,6 +191,7 @@ const Post = (props) => {
                             return <Image key={index}
                                           width={200}
                                           src={picturePath}
+                                          placeholder={true}
                             />
                         }) : ""
                     }

@@ -18,7 +18,7 @@
     }
 }
 
-@media (min-width: 704px) and (max-width: 819px) {
+@media (min-width: 703px) and (max-width: 820px) {
     .logo{
         height: 1.5rem;
     }
@@ -36,7 +36,7 @@
     }
 }
 
-@media (min-width: 820px) and (max-width: 954px) {
+@media (min-width: 820px) and (max-width: 955px) {
     .logo{
         height: 1.8rem;
     }
@@ -54,7 +54,7 @@
     }
 }
 
-@media (min-width: 955px) and (max-width: 1129px) {
+@media (min-width: 955px) and (max-width: 1130px) {
     .logo{
         height: 2rem;
     }
@@ -90,7 +90,7 @@
     }
 }
 
-@media (min-width: 1361px) {
+@media (min-width: 1360px) {
     .logo{
         height: 3rem;
     }

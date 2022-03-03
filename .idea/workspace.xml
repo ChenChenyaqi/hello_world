@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/compressImage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/EditComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditComment/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainAbout/Main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainAbout/Main/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +175,7 @@
       <workItem from="1646115041097" duration="21290000" />
       <workItem from="1646144847553" duration="882000" />
       <workItem from="1646202112837" duration="11326000" />
-      <workItem from="1646275721818" duration="6890000" />
+      <workItem from="1646275721818" duration="13431000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -353,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646214034669</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="加入响应式，照顾移动端体验">
+      <created>1646282840602</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1646282840602</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +388,8 @@
     <MESSAGE value="增加一些UI" />
     <MESSAGE value="使用react-redux" />
     <MESSAGE value="改善体验，点击评论按钮后，所有回复框取消" />
-    <option name="LAST_COMMIT_MESSAGE" value="改善体验，点击评论按钮后，所有回复框取消" />
+    <MESSAGE value="加入响应式，照顾移动端体验" />
+    <option name="LAST_COMMIT_MESSAGE" value="加入响应式，照顾移动端体验" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">
