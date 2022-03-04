@@ -55,6 +55,7 @@
     top: -1px;
 }
 
+/*防止touchMove事件引起页面滑动*/
 .slider{
     touch-action: none;
 }
