@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="touchMove事件引起页面滑动解锁方案">
+    <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Regist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Regist/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +174,7 @@
       <workItem from="1646275721818" duration="14775000" />
       <workItem from="1646308857136" duration="7608000" />
       <workItem from="1646364560331" duration="9554000" />
-      <workItem from="1646379253357" duration="297000" />
+      <workItem from="1646379253357" duration="534000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -366,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646373988919</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="优化一点点">
+      <created>1646379695898</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1646379695898</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +419,8 @@
     <MESSAGE value="上传图片前压缩图片，且开放最大支持上传个数：5" />
     <MESSAGE value="滑动解锁" />
     <MESSAGE value="touchMove事件引起页面滑动解锁方案" />
-    <option name="LAST_COMMIT_MESSAGE" value="touchMove事件引起页面滑动解锁方案" />
+    <MESSAGE value="优化一点点" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化一点点" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

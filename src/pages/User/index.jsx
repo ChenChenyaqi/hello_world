@@ -10,7 +10,11 @@ import Loading from "../../components/functionModuleAbout/Loading";
 import {Link} from "react-router-dom";
 
 // 个人中心组件
-const User = () => {
+const User = (props) => {
+
+    if(!localStorage.getItem("token")){
+        props.history.push("/login");
+    }
 
     const [current, setCurrent] = useState('post')
     const [posts, setPosts] = useState([])
