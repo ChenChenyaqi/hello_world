@@ -33,9 +33,9 @@
 
 .logout{
     position: absolute;
-    top: 19px;
+    background-color: #ffffff;
+    top: 18px;
     z-index: 999;
-    background-color: white;
 }
 
 

@@ -197,7 +197,7 @@ const Regist = (props) => {
                             <Input onChange={getEmail} prefix={<MailOutlined className="site-form-item-icon"/>}
                                    placeholder="邮箱"/>
                         </Form.Item>
-                        <Form.Item extra="我们会发送一份电子邮箱给您.">
+                        <Form.Item extra="我们会发送一份电子邮件给您.">
                             <Row gutter={8}>
                                 <Col span={12}>
                                     <Form.Item
