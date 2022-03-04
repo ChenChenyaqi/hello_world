@@ -1,11 +1,14 @@
-import React from 'react';
-import {Form, Input, Button, Checkbox, Layout, message, Row, Col} from 'antd';
+import React, {useEffect, useRef, useState} from 'react';
+import {Form, Input, Button, Checkbox, Layout, message} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Pubsub from 'pubsub-js'
+import $ from 'jquery'
 import './index.css'
 import localhost from "../../utils/localhost";
+
+let id;
 
 // 登录组件
 const Login = (props) => {
@@ -17,45 +20,130 @@ const Login = (props) => {
     const username = localStorage.getItem("username")
     // 密码
     const password = localStorage.getItem("password")
+    // 显示验证码
+    const [showCode, setShowCode] = useState(false)
+
+    let moveX;
+    let downX;
+    let isMove = false;
+
+    const onMouseDown = (e) => {
+        downX = e.clientX
+        isMove = true
+    }
+    const onMouseMove = (e) => {
+        let sliderWidth = $(".slider").width()
+        let outBoxWidth = $(".outBox").outerWidth()
+        if (isMove) {
+            moveX = e.clientX - downX
+            //超出就固定移动距离为最大距离(outBoxWidth-sliderWidth)或最小距离(0)
+            if (moveX > outBoxWidth - sliderWidth) {
+                moveX = outBoxWidth - sliderWidth
+            } else if (moveX < 0) {
+                moveX = 0
+            }
+            $(".slider").css("left", moveX)
+            $(".slider_back").width(moveX)
+        }
+    }
+    const onMouseUp = (e) => {
+        let sliderWidth = $(".slider").width()
+        let outBoxWidth = $(".outBox").outerWidth()
+        isMove = false
+        //判断是否滑倒最后
+        if (moveX === outBoxWidth - sliderWidth) {
+            $("#remind").text("验证通过")
+            $(".slider").html("&#10004;")
+            Pubsub.publish("success", {})
+        } else if (moveX < outBoxWidth - sliderWidth) {
+            $(".slider").css("left", 0)
+            $(".slider_back").width('0')
+        }
+    }
+
+    const onTouchStart = (e) => {
+        downX = e.touches[0].screenX
+        isMove = true
+    }
+
+    const onTouchMove = (e) => {
+        let sliderWidth = $(".slider").width()
+        let outBoxWidth = $(".outBox").outerWidth()
+        if (isMove) {
+            moveX = e.touches[0].screenX - downX
+            //超出就固定移动距离为最大距离(outBoxWidth-sliderWidth)或最小距离(0)
+            if (moveX > outBoxWidth - sliderWidth) {
+                moveX = outBoxWidth - sliderWidth
+            } else if (moveX < 0) {
+                moveX = 0
+            }
+            $(".slider").css("left", moveX)
+            $(".slider_back").width(moveX)
+        }
+    }
+
+    const onTouchEnd = () => {
+        let sliderWidth = $(".slider").width()
+        let outBoxWidth = $(".outBox").outerWidth()
+        isMove = false
+        //判断是否滑倒最后
+        if (moveX === outBoxWidth - sliderWidth) {
+            $("#remind").text("验证通过")
+            $(".slider").html("&#10004;")
+            Pubsub.publish("success", {})
+        } else if (moveX < outBoxWidth - sliderWidth) {
+            $(".slider").css("left", 0)
+            $(".slider_back").width('0')
+        }
+    }
+
 
     // 用户点击登录后的回调
     const onFinish = (values) => {
-        // 收集页面数据
-        const {username, password, remember} = values
-        const userObj = {username, password}
-        const userJson = JSON.stringify(userObj)
-        // 发送请求确认是否可以登录
-        axios.post(`http://${localhost}:8080/user/login`,
-            userJson,
-            {headers: {"Content-Type": "application/json"}}
-        ).then(
-            response => {
-                if (response.data.msg === "登录成功") {
-                    // 提示登录成功
-                    message.success(response.data.msg)
-                    // 保存token、用户名、密码
-                    Pubsub.publish("login", {})
-                    localStorage.setItem("token", response.data.token)
-                    localStorage.setItem("username", username)
-                    localStorage.setItem("password", password)
-                    // 如果点击了记住我，则保存
-                    if (remember) {
-                        localStorage.setItem("remember", remember)
+        setShowCode(true)
+        Pubsub.unsubscribe(id)
+        message.info('请进行验证！')
+        id = Pubsub.subscribe('success', () => {
+            // 收集页面数据
+            const {username, password, remember} = values
+            const userObj = {username, password}
+            const userJson = JSON.stringify(userObj)
+            // 发送请求确认是否可以登录
+            axios.post(`http://${localhost}:8080/user/login`,
+                userJson,
+                {headers: {"Content-Type": "application/json"}}
+            ).then(
+                response => {
+                    if (response.data.msg === "登录成功") {
+                        // 提示登录成功
+                        setShowCode(false)
+                        message.success(response.data.msg)
+                        // 保存token、用户名、密码
+                        Pubsub.publish("login", {})
+                        localStorage.setItem("token", response.data.token)
+                        localStorage.setItem("username", username)
+                        localStorage.setItem("password", password)
+                        // 如果点击了记住我，则保存
+                        if (remember) {
+                            localStorage.setItem("remember", remember)
+                        } else {
+                            localStorage.setItem("remember", "")
+                        }
+                        // 登录成功跳转主页面
+                        props.history.push("/")
                     } else {
-                        localStorage.setItem("remember", "")
+                        // 提示用户名或密码错误
+                        message.error(response.data.msg)
                     }
-                    // 登录成功跳转主页面
-                    props.history.push("/")
-                } else {
-                    // 提示用户名或密码错误
-                    message.error(response.data.msg)
-                }
-            },
-        )
+                },
+            )
+        })
+
     };
 
     return (
-        <Layout className="site-layout-background" style={{padding: '24px 0'}}>
+        <Layout className="site-layout-background" style={{padding: '24px 0'}} onMouseMove={onMouseMove}
+                onMouseUp={onMouseUp} onTouchEnd={onTouchEnd}>
             <div className="login-form-wrapper">
                 <div className="login-title">
                     登录
@@ -114,6 +202,13 @@ const Login = (props) => {
                                 placeholder="密码"
                             />
                         </Form.Item>
+                        {
+                            showCode ? <div className="outBox">
+                                <div className="slider" onTouchMove={onTouchMove} onMouseDown={onMouseDown} onTouchStart={onTouchStart}>&rarr;</div>
+                                <p id="remind">向右滑动</p>
+                                <div className="slider_back"/>
+                            </div> : null
+                        }
                         <Form.Item>
                             <Form.Item name="remember" valuePropName="checked" noStyle>
                                 <Checkbox>记住我</Checkbox>

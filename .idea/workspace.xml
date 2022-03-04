@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/localhost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localhost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +33,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.17.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.17.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react_staging2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react_extension" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,19 +47,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Code\webstorm\helloworld\src\containers\Post" />
-      <recent name="E:\Code\webstorm\helloworld\src\redux\reducers" />
-      <recent name="E:\Code\webstorm\helloworld\src\redux\actions" />
-      <recent name="E:\Code\webstorm\helloworld\src\components\functionComponentAbout" />
-      <recent name="E:\Code\webstorm\helloworld\src\components\mainComponentAbout" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Code\webstorm\helloworld\src\components\commentAbout" />
       <recent name="E:\Code\webstorm\helloworld\src\components\MyHeader\LoginAndRegist\Regist" />
       <recent name="E:\Code\webstorm\helloworld\public\img" />
       <recent name="E:\Code\webstorm\helloworld\public" />
       <recent name="E:\Code\webstorm\helloworld\public\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Code\webstorm\helloworld\public" />
+      <recent name="E:\Code\webstorm\helloworld\src\containers\Post" />
+      <recent name="E:\Code\webstorm\helloworld\src\redux\reducers" />
+      <recent name="E:\Code\webstorm\helloworld\src\redux\actions" />
+      <recent name="E:\Code\webstorm\helloworld\src\components\functionComponentAbout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -70,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="npm.build">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -175,6 +179,8 @@
       <workItem from="1646144847553" duration="882000" />
       <workItem from="1646202112837" duration="11326000" />
       <workItem from="1646275721818" duration="14775000" />
+      <workItem from="1646308857136" duration="7608000" />
+      <workItem from="1646364560331" duration="8823000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
