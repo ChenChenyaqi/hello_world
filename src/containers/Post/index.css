@@ -1,70 +1,57 @@
-.post-wrapper{
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    border-radius: 8px;
+.post-wrapper {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  border-radius: 8px;
 }
-
-.author-info{
-    /*background-color: #bfa;*/
-    display: flex;
-    position: relative;
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 10px;
+.post-wrapper .author-info {
+  /*background-color: #bfa;*/
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
 }
-
-.author-detail{
-    margin-left: 10px;
+.post-wrapper .author-info .author-detail {
+  margin-left: 10px;
 }
-
-.author-name{
-    font-size: 16px;
+.post-wrapper .author-info .author-detail .author-name {
+  font-size: 16px;
 }
-
-.author-time{
-    font-size: 12px;
+.post-wrapper .author-info .author-detail .author-time {
+  font-size: 12px;
 }
-
-.post-content{
-    width: 100%;
-    /*background-color: red;*/
+.post-content {
+  width: 100%;
+  /*点赞、评论*/
 }
-
-.post-text{
-    margin-top: 5px;
-    margin-left: 60px;
-    margin-right: 20px;
+.post-content .post-text {
+  margin-top: 5px;
+  margin-left: 60px;
+  margin-right: 20px;
 }
-
-.post-picture{
-    margin-left: 60px;
+.post-content .post-picture {
+  margin-left: 60px;
 }
-
-/*点赞、评论*/
-.post-bottom{
-    margin-left: 60px;
+.post-content .post-bottom {
+  margin-left: 60px;
 }
-
-.post-bottom a:hover{
-    color: #1890FF;
+.post-content .post-bottom a {
+  margin-right: 20px;
+  color: gray;
 }
-
-.post-bottom a{
-    margin-right: 20px;
-    color: gray;
+.post-content .post-bottom a i {
+  font-size: 20px;
 }
-
-.post-bottom a i{
-    font-size: 20px;
+.post-content .post-bottom a .icon-dianzan1 {
+  color: #1890FF;
 }
-
-.post-bottom span{
-    font-size: 12px;
-    margin-left: 4px;
+.post-content .post-bottom span {
+  font-size: 12px;
+  margin-left: 4px;
 }
-
-.icon-dianzan1{
-    color: #1890FF;
+.post-content .post-bottom a:hover {
+  color: #1890FF;
 }
+/*# sourceMappingURL=index.css.map */

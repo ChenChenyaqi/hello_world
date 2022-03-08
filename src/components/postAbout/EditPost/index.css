@@ -1,6 +1,38 @@
-
-.edit-btn{
-    width: 100%;
-    margin-top: 2px;
-    position: relative;
+.edit-post-wrapper .edit-post {
+  display: flex;
+  align-items: stretch;
 }
+.edit-post-wrapper .edit-post .textarea {
+  flex: 1;
+  border-right: none;
+}
+.edit-post-wrapper .edit-post .edit-btn .publish-post-btn {
+  border-radius: 1vmin;
+  height: 100%;
+}
+.edit-post-wrapper .edit-post-icon {
+  display: flex;
+  margin-left: 1vmin;
+}
+.edit-post-wrapper .edit-post-icon .choose-channel {
+  font-size: 4vmin;
+  color: #3e3e3e;
+  margin-right: 1vmin;
+  cursor: pointer;
+}
+.edit-post-wrapper .edit-post-icon .upload-picture {
+  cursor: pointer;
+}
+.edit-post-wrapper .edit-post-icon .upload-picture .upload-list {
+  display: flex;
+  margin-top: 1.2vmin;
+}
+.edit-post-wrapper .edit-post-icon .upload-picture .upload-list .pictureOutlined {
+  font-size: 4vmin;
+  color: #3e3e3e;
+}
+.edit-post-wrapper .edit-post-icon .upload-picture .upload-list div {
+  margin-left: 1vmin;
+  font-size: 1vmin;
+}
+/*# sourceMappingURL=index.css.map */

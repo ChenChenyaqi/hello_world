@@ -12,10 +12,12 @@ import {Link} from "react-router-dom";
 // 个人中心组件
 const User = (props) => {
 
+    // 检查是否登录，没有登录则不能进入此页面
     if(!localStorage.getItem("token")){
         props.history.push("/login");
     }
 
+    //
     const [current, setCurrent] = useState('post')
     const [posts, setPosts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -89,7 +91,7 @@ const User = (props) => {
                     </Menu.Item>
                 </Menu>
             </div>
-            <div className="mypost-list">
+            <div className="my-post-list">
                 {
                     isLoading ? <Loading isLoading={isLoading}/> : <>
                         {

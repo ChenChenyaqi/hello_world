@@ -189,7 +189,7 @@ const Post = (props) => {
                     {
                         picturesPath && picturesPath.length !== 0 ? picturesPath.map((picturePath, index) => {
                             return <Image key={index}
-                                          width={200}
+                                          width={150}
                                           src={picturePath}
                                           placeholder={true}
                             />
@@ -228,7 +228,7 @@ const Post = (props) => {
                         }
                     />
                     {/*所有评论组件*/}
-                    <AllComments postId={postId} postAuthor={postAuthor}/>
+                    <AllComments postId={postId} postAuthor={postAuthor} commentCount={commentCount}/>
                 </div>
 
             </div>

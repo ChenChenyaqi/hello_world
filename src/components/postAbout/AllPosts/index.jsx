@@ -74,7 +74,7 @@ const AllPosts = () => {
                 })
             }
             {
-                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isGetMore} msg={getMoreMsg}/>
+                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isGetMore} msg={getMoreMsg} caller={"AllPosts"}/>
             }
         </div>
     )

@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import {Input, Button, message, Upload} from 'antd';
-import {UploadOutlined} from "@ant-design/icons"
 import {nanoid} from 'nanoid'
 import PubSub from 'pubsub-js'
 import {withRouter} from 'react-router-dom'
@@ -9,24 +8,30 @@ import './index.css'
 import CheckPermissions from "../../../utils/CheckPermissions";
 import axios from "axios";
 import localhost from "../../../utils/localhost";
+import PictureOutlined from "@ant-design/icons/lib/icons/PictureOutlined";
+import NumberOutlined from "@ant-design/icons/lib/icons/NumberOutlined";
 
 const {TextArea} = Input;
+let fileListLength = null
+const pubSubId = []
 
 // 编辑帖子组件
-const EditPost = (Props) => {
-    // 帖子内容
-    const [value, setValue] = useState("")
-    // 是否展示上传文件列表
-    let [showFileList, setShowFileList] = useState(0)
-    let fileListLength = null
+class EditPost extends Component {
+    state = {
+        // 帖子内容
+        value: "",
+        // 是否展示上传文件列表
+        showFileList: 0
+    }
 
     // 自动获取帖子内容
-    const onChange = ({target: {value}}) => {
-        setValue(value)
+    onChange = ({target: {value}}) => {
+        this.setState({value})
     };
 
     // 点击发布帖子时
-    const publishPost = () => {
+    publishPost = () => {
+        const {value, showFileList} = this.state
         // 先检查权限
         CheckPermissions('请先登录！')
         // 没有token则拒绝发帖
@@ -37,7 +42,8 @@ const EditPost = (Props) => {
             message.warning('内容不能为空！');
             return ""
         }
-        setShowFileList((showFileList) => showFileList + 1)
+        this.setState({showFileList: showFileList + 1})
+
         // 准备帖子数据
         const postId = nanoid()
         const postContent = value
@@ -54,16 +60,17 @@ const EditPost = (Props) => {
             {headers: {"Content-Type": "application/json"}}).then(
             response => {
                 // 清空输入框内容
-                setValue("")
-                Props.history.replace("/")
+                this.setState({value: ''})
+                this.props.history.replace("/")
                 // 发送post给AllPosts组件
-                PubSub.publish("postPublish", postObj)
+                const p1 = PubSub.publish("postPublish", postObj)
+                pubSubId.push(p1)
             }
         )
     }
 
 
-    const props = {
+    Props = {
         name: 'file',
         accept: ".png, .jpg, .jpeg",
         action: `http://${localhost}:8080/img/save`,
@@ -73,9 +80,9 @@ const EditPost = (Props) => {
         },
         maxCount: 5,
         disabled: !localStorage.getItem("token"),
-        showUploadList: true,
+        listType: "text",
         beforeUpload: (file, _) => {
-            if (fileListLength === props.maxCount) {
+            if (fileListLength === this.Props.maxCount) {
                 message.error(`限制最大上传图片数：5`);
                 return false
             }
@@ -86,8 +93,9 @@ const EditPost = (Props) => {
             return new Promise((resolve, reject) => {
                 const newFile = compressImage(file)
                 newFile.uid = nanoid();
-                props.headers.pictureId = newFile.uid;
-                props.headers.pictureTime = Date.now()
+                file.uid = newFile.uid
+                this.Props.headers.pictureId = newFile.uid;
+                this.Props.headers.pictureTime = Date.now()
                 resolve(newFile)
             })
         },
@@ -112,28 +120,54 @@ const EditPost = (Props) => {
     };
 
     // 点击上传图片按钮
-    const uploadPicture = () => {
+    uploadPicture = () => {
         CheckPermissions("请先登录！")
     }
 
-    return (
-        <div className="edit-post">
-            <TextArea
-                value={value}
-                showCount
-                maxLength={300}
-                onChange={onChange}
-                placeholder="分享点什么..."
-                autoSize={{minRows: 2, maxRows: 4}}
-            />
-            <div className="edit-btn" key={showFileList}>
-                <Button type="primary" style={{borderRadius:'6px'}} onClick={publishPost}>发布</Button>&nbsp;
-                <Upload {...props}>
-                    <Button style={{borderRadius:'6px'}} icon={<UploadOutlined/>} onClick={uploadPicture}>点击上传图片</Button>
-                </Upload>
+    componentWillUnmount() {
+        pubSubId.map((item) => {
+            return PubSub.unsubscribe(item)
+        })
+    }
+
+
+    render() {
+        const {value, showFileList} = this.state
+        const {onChange, publishPost, uploadPicture, Props} = this
+        return (
+            <div className="edit-post-wrapper">
+                <div className="edit-post">
+                    <TextArea
+                        className="textarea"
+                        value={value}
+                        maxLength={300}
+                        onChange={onChange}
+                        placeholder="分享点什么..."
+                        autoSize={{minRows: 2, maxRows: 4}}
+                    />
+                    <div className="edit-btn" key={showFileList}>
+                        <Button type="primary" className="publish-post-btn" onClick={publishPost}>
+                            发布
+                        </Button>
+                    </div>
+                </div>
+                <div className="edit-post-icon">
+                    <div className="choose-channel">
+                        <NumberOutlined/>
+                    </div>
+                    <div className="upload-picture">
+                        <Upload {...Props} className="upload-list">
+                            <div onClick={uploadPicture}>
+                                <PictureOutlined className="pictureOutlined"/>
+                            </div>
+                        </Upload>
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+
+    }
+
 }
 
 export default withRouter(EditPost);

@@ -32,8 +32,6 @@ const App = (props) => {
         axios.get(`http://${localhost}:8080/picture/delete/unstored?username=${localStorage.getItem("username")}`)
     }
 
-    // CheckPermissions("root")
-
     return (
         <div>
             <Layout>
@@ -52,8 +50,6 @@ const App = (props) => {
                 </Content>
                 {/*页脚*/}
                 <MyFooter/>
-                {/*<img src="https://helloworld-data.oss-cn-chengdu.aliyuncs.com/123.png"*/}
-                {/*     alt="123"/>*/}
             </Layout>
         </div>
     );

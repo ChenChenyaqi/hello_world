@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/mainAbout/Main/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Post/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/User/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/constantValue.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/LoginAndRegist/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainAbout/Main/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainAbout/Main/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getDataStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getDataStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/localhost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localhost.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,12 +36,15 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="214IZAjjj9hB4plq2DBl1CWlv2F" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.17.0" />
@@ -175,6 +198,9 @@
       <workItem from="1646308857136" duration="7608000" />
       <workItem from="1646364560331" duration="9554000" />
       <workItem from="1646379253357" duration="534000" />
+      <workItem from="1646380278123" duration="318000" />
+      <workItem from="1646706327792" duration="611000" />
+      <workItem from="1646732323112" duration="16772000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -372,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646379695898</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="修复没有登录就访问个人中心bug">
+      <created>1646380540249</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1646380540249</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,10 +425,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="一些修改..." />
     <MESSAGE value="修复侧边导航栏初次显示的问题" />
     <MESSAGE value="分页展示帖子，及修复发帖后，无法显示图片问题" />
     <MESSAGE value="个人中心页面，添加删除帖子功能" />
@@ -420,7 +453,8 @@
     <MESSAGE value="滑动解锁" />
     <MESSAGE value="touchMove事件引起页面滑动解锁方案" />
     <MESSAGE value="优化一点点" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化一点点" />
+    <MESSAGE value="修复没有登录就访问个人中心bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复没有登录就访问个人中心bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

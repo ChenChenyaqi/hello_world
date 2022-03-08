@@ -1,12 +1,9 @@
-.updateButton{
-    display: flex;
-    justify-content: center;
+.getMore-wrapper {
+  display: flex;
+  justify-content: center;
 }
-
-.getMore{
-    color: gray;
+.getMore-wrapper .getMore {
+  font-size: 2vmin;
+  color: gray;
 }
-
-.getMore:hover{
-    color: #1890FF;
-}
+/*# sourceMappingURL=index.css.map */

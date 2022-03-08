@@ -1,0 +1,53 @@
+@import '../../../utils/constantValue';
+
+.edit-post-wrapper {
+  .edit-post {
+    display: flex;
+    align-items: stretch;
+
+    .textarea {
+      flex: 1;
+      border-right: none;
+    }
+
+    .edit-btn {
+
+      .publish-post-btn {
+        border-radius: @borderRadius;
+        height: 100%;
+      }
+    }
+
+  }
+
+  .edit-post-icon {
+    display: flex;
+    margin-left: 1vmin;
+
+    .choose-channel {
+      font-size: 4vmin;
+      color: #3e3e3e;
+      margin-right: 1vmin;
+      cursor: pointer;
+    }
+
+    .upload-picture{
+      cursor: pointer;
+      .upload-list{
+        display: flex;
+        margin-top: 1.2vmin;
+        .pictureOutlined{
+          font-size: 4vmin;
+          color: #3e3e3e;
+        }
+        div{
+          margin-left: 1vmin;
+          font-size: 1vmin;
+        }
+      }
+    }
+  }
+
+}
+
+

@@ -1,0 +1,43 @@
+// 用户信息展示
+.user {
+  background-color: white;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 15px;
+
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    .user-other {
+      margin-left: 20px;
+    }
+
+    .logout {
+      position: absolute;
+      background-color: #ffffff;
+      top: 18px;
+      z-index: 999;
+    }
+  }
+}
+
+
+.my-post-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .post-item {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    .delete-button {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+

@@ -8,36 +8,35 @@ import Loading from "../../functionModuleAbout/Loading";
 import {commentStep} from "../../../utils/getDataStep";
 import GetMoreButton from "../../functionModuleAbout/GetMoreButton";
 import {message, Empty, Divider} from "antd";
-import store from "../../../redux/store";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
-    const {postId, postAuthor} = props
+    const {postId, postAuthor,commentCount} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
     // 是否正在请求所有评论
     const [isGettingComments, setIsGettingComments] = useState(false)
     // 分批请求评论起始点
     const [start, setStart] = useState(0)
-    // 是否正在获取更多评论
-    const [isLoading, setIsLoading] = useState(false)
-    // 加载更多提示
-    const [getMoreMsg, setGetMoreMsg] = useState("")
+    // // 是否正在获取更多评论
+    // const [isLoading, setIsLoading] = useState(false)
+    // // 加载更多提示
+    // const [getMoreMsg, setGetMoreMsg] = useState("")
 
     const getMore = () => {
-        setIsLoading(true)
-        axios.get(`http://${localhost}:8080/comment?postId=${postId}&start=${start}&step=${commentStep}`,).then(
-            response => {
-                if (response.data.length === 0) {
-                    setGetMoreMsg("暂无更多...")
-                    message.info("暂无更多...")
-                } else {
-                    setStart(start + commentStep)
-                    setCommentList([...commentList, ...response.data])
-                }
-                setIsLoading(false)
-            }
-        )
+        // setIsLoading(true)
+        // axios.get(`http://${localhost}:8080/comment?postId=${postId}&start=${start}&step=${commentStep}`,).then(
+        //     response => {
+        //         if (response.data.length === 0) {
+        //             setGetMoreMsg("暂无更多...")
+        //             message.info("暂无更多...")
+        //         } else {
+        //             setStart(start + commentStep)
+        //             setCommentList([...commentList, ...response.data])
+        //         }
+        //         setIsLoading(false)
+        //     }
+        // )
     }
 
     React.useEffect(() => {
@@ -87,9 +86,14 @@ const AllComments = (props) => {
                                     </>
                                 }
                                                               imageStyle={{height: 40}}/> :
-                                <div style={{marginBottom: '10px'}}>
-                                    <GetMoreButton isLoading={isLoading} getMore={getMore} msg={getMoreMsg}/>
-                                </div>
+                                <>
+                                    {
+                                        commentCount > commentStep > commentStep  ? <div style={{marginBottom: '10px'}}>
+                                            查看更多
+                                            {/*<GetMoreButton isLoading={isLoading} getMore={getMore} msg={getMoreMsg}/>*/}
+                                        </div> : null
+                                    }
+                                </>
                         }
                     </>
             }

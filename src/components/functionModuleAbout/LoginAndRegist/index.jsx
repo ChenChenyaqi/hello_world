@@ -1,47 +1,60 @@
-import React, {useState, useEffect} from 'react';
+import React, {Component} from 'react';
 import {UserOutlined} from "@ant-design/icons"
 import {Link} from "react-router-dom";
 import Pubsub from 'pubsub-js'
 import './index.css'
 
+// pubsub ID
+const pubSubIdList = []
 
-const LoginAndRegist = () => {
+class LoginAndRegist extends Component {
 
-    // 是否登录
-    const [isLogin, setIsLogin] = useState(false)
-    // 是否进入个人中心
-    const [isEnterUser, setIsEnterUser] = useState(false)
+    state = {
+        // 是否登录
+        isLogin: false,
+        // 是否进入个人中心
+        isEnterUser: false
+    }
 
-    const token = localStorage.getItem("token")
-
-    useEffect(()=>{
+    componentDidMount() {
+        // token
+        const token = localStorage.getItem("token")
         if (token) {
-            setIsLogin(true)
+            this.setState({isLogin: true})
         }
-        Pubsub.subscribe("logout",() => {
-            setIsLogin(false)
+        const p1 = Pubsub.subscribe("logout", () => {
+            this.setState({isLogin: false})
         })
-        Pubsub.subscribe("login",()=>{
-            setIsLogin(true)
+        const p2 = Pubsub.subscribe("login", () => {
+            this.setState({isLogin: true})
         })
-        Pubsub.subscribe("isEnterUser", (_, isEnterUser) => {
-            setIsEnterUser(isEnterUser)
+        const p3 = Pubsub.subscribe("isEnterUser", (_, isEnterUser) => {
+            this.setState({isEnterUser: true})
         })
-    },[])
 
-    return (
-        <div>
-            <div className="login-regist-button" style={{display: isLogin ? "none" : ""}}>
-                {/*<a href="/">登录</a>&nbsp;&nbsp;&nbsp;*/}
-                <Link to={'/login'}>登录</Link>&nbsp;&nbsp;
-                {/*<a href="/">注册</a>*/}
-                <Link to={'/regist'}>注册</Link>
+        pubSubIdList.push(p1, p2, p3)
+    }
+
+    componentWillUnmount() {
+        pubSubIdList.map((item) => {
+            return Pubsub.unsubscribe(item)
+        })
+    }
+
+    render() {
+        const {isLogin, isEnterUser} = this.state
+        return (
+            <div>
+                <div className="login-regist-button" style={{display: isLogin ? "none" : "block"}}>
+                    <Link to={'/login'}>登录</Link>&nbsp;&nbsp;
+                    <Link to={'/regist'}>注册</Link>
+                </div>
+                <div className="user-center" style={{display: isLogin && !isEnterUser ? "block" : "none"}}>
+                    <Link to={'/user'}><UserOutlined style={{fontSize: '22px'}}/></Link>
+                </div>
             </div>
-            <div className="user-center" style={{display: isLogin && !isEnterUser ? "" : "none"}}>
-                <Link to={'/user'}><UserOutlined style={{fontSize:'22px'}}/></Link>
-            </div>
-        </div>
-    );
+        )
+    }
 }
 
 export default LoginAndRegist;
