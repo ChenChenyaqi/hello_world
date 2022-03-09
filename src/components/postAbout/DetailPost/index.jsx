@@ -27,8 +27,6 @@ const Detail = () => {
     const [commentCount, setCommentCount] = useState(0)
     // 是否已经点过赞
     const [isLiked, setIsLiked] = useState(false)
-    // 是否展示评论区
-    const [showComment, setShowComment] = useState(false)
     // 控制回复框相关
     const [submitting, setSubmitting] = useState(false)
     const [value, setValue] = useState('')

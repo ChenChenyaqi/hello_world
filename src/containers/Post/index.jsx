@@ -12,6 +12,7 @@ import CheckPermissions from "../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
+import {Link} from "react-router-dom";
 
 const {Paragraph} = Typography
 const pubSubId = []
@@ -129,15 +130,13 @@ const Post = (props) => {
         sessionStorage.setItem('detailPostState',
             JSON.stringify(
                 {
-                    postId: postId, postAuthor: postAuthor,
-                    postContent: postContent, postTime: time,
-                    picturesPath: picturesPath, likedCount: likedCount,
-                    commentCount: commentCount
+                    postId,
+                    postAuthor,
+                    postTime,
+                    postContent
                 }
             )
         )
-        // 切换到详细帖子路由
-        window.location.href = `http://localhost:3000/#/detailPost`
     }
 
 
@@ -208,12 +207,12 @@ const Post = (props) => {
                 </div>
             </div>
             <div className="post-content">
-                <div className="post-text">
-                    <div onClick={gotoDetailPost}>
+                <div className="post-text" onClick={gotoDetailPost}>
+                    <Link to={'/detailPost'}>
                         <Paragraph>
                             {postContent}
                         </Paragraph>
-                    </div>
+                    </Link>
                 </div>
                 <Row className="post-picture">
                     {
@@ -229,7 +228,9 @@ const Post = (props) => {
                                 {
                                     picturesPath.length > 2 && index >= 1 ?
                                         <div className="extra-picture" onClick={gotoDetailPost}>
-                                            <span>+</span>{picturesPath.length - 2}
+                                            <Link to={'/detailPost'}>
+                                                <span>+</span>{picturesPath.length - 2}
+                                            </Link>
                                         </div> : null
                                 }
                             </Col>
@@ -271,9 +272,9 @@ const Post = (props) => {
                     <AllComments
                         className="allComments"
                         postId={postId} postAuthor={postAuthor}
-                                 commentCount={commentCount}
-                                 isShowViewMore={true}
-                                 gotoDetailPost={gotoDetailPost}
+                        commentCount={commentCount}
+                        isShowViewMore={true}
+                        gotoDetailPost={gotoDetailPost}
                     />
                 </div>
 
