@@ -1,76 +1,111 @@
+// 整个帖子容器
 .post-wrapper {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
   border-radius: 8px;
+  user-select: none;
 
+  // 作者信息
   .author-info {
-    /*background-color: #bfa;*/
     display: flex;
     position: relative;
     width: 100%;
     margin-top: 10px;
     margin-left: 10px;
-
+    // 详细信息
     .author-detail {
       margin-left: 10px;
-
+      // 作者名
       .author-name {
         font-size: 16px;
       }
-
+      // 发表时间
       .author-time {
         font-size: 12px;
       }
     }
 
   }
-}
+  // 帖子
+  .post-content {
+    width: 100%;
 
-
-.post-content {
-  width: 100%;
-
-  .post-text {
-    margin-top: 5px;
-    margin-left: 60px;
-    margin-right: 20px;
-  }
-
-  .post-picture {
-    margin-left: 60px;
-  }
-
-  /*点赞、评论*/
-
-  .post-bottom {
-    margin-left: 60px;
-
-    a {
+    // 帖子文字
+    .post-text {
+      margin-top: 5px;
+      margin-left: 60px;
       margin-right: 20px;
-      color: gray;
+      cursor: pointer;
+      user-select: text;
+    }
 
-      i {
-        font-size: 20px;
+    // 帖子图片
+    .post-picture {
+      margin-left: 60px;
+      list-style: none;
+      // 响应式一列
+      .col{
+        position: relative;
+        height: 200px;
+        width: 200px;
+        background-size: cover;
+        // 图片
+        .image{
+          width: 200px;
+          height: 200px;
+          visibility: hidden;
+        }
+        // 额外图片
+        .extra-picture{
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background-color: rgba(0,0,0,.3);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 5vmax;
+          color: rgba(24, 24, 24, 0.52);
+          text-align: center;
+          line-height: 200px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    /*点赞、评论区*/
+    .post-bottom {
+      margin-left: 60px;
+
+      a {
+        margin-right: 20px;
+        color: gray;
+
+        i {
+          font-size: 20px;
+        }
+
+        .icon-dianzan1 {
+          color: #1890FF;
+        }
+
       }
 
-      .icon-dianzan1 {
+      span {
+        font-size: 12px;
+        margin-left: 4px;
+      }
+
+      a:hover {
         color: #1890FF;
       }
-
-    }
-
-    span {
-      font-size: 12px;
-      margin-left: 4px;
-    }
-
-    a:hover {
-      color: #1890FF;
     }
   }
 }
+
+
 
 
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Avatar, Typography, Image, Comment} from 'antd';
+import {Avatar, Typography, Image, Comment, Row, Col} from 'antd';
 import {AntDesignOutlined} from '@ant-design/icons';
 import './index.css'
 import {timestampToTime} from '../../utils/timeUtils'
@@ -14,6 +14,7 @@ import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
 
 const {Paragraph} = Typography
+const pubSubId = []
 
 // 帖子UI组件
 const Post = (props) => {
@@ -71,11 +72,13 @@ const Post = (props) => {
         // 点开评论区时
         if (showComment) {
             setShowComment(false)
-            Pubsub.publish('showComment', {isGetComment: false, commentPostId: postId})
+            const p1 = Pubsub.publish('showComment', {isGetComment: false, commentPostId: postId})
+            pubSubId.push(p1)
         } else {
             // 没点开评论区时
             setShowComment(true)
-            Pubsub.publish('showComment', {isGetComment: true, commentPostId: postId})
+            const p2 = Pubsub.publish('showComment', {isGetComment: true, commentPostId: postId})
+            pubSubId.push(p2)
         }
     }
 
@@ -109,7 +112,8 @@ const Post = (props) => {
             response => {
                 setSubmitting(false)
                 setValue('')
-                Pubsub.publish('newComment', newComment)
+                const p3 = Pubsub.publish('newComment', newComment)
+                pubSubId.push(p3)
             }
         )
     };
@@ -161,6 +165,12 @@ const Post = (props) => {
                 setIsLiked(true)
             }
         }
+
+        return () => {
+            pubSubId.map(item => {
+                return Pubsub.subscribe(item)
+            })
+        }
     }, [])
 
     return (
@@ -185,18 +195,27 @@ const Post = (props) => {
                         {postContent}
                     </Paragraph>
                 </div>
-                <div className="post-picture">
+                <Row className="post-picture">
                     {
                         picturesPath && picturesPath.length !== 0 ? picturesPath.map((picturePath, index) => {
-                            return <Image key={index}
-                                          width={150}
-                                          src={picturePath}
-                                          placeholder={true}
-                            />
+                            if (index >= 2) {
+                                return;
+                            }
+                            return <Col className="col" key={index} style={{backgroundImage: `url(${picturePath})`}}>
+                                <Image
+                                    className="image"
+                                    src={picturePath}
+                                    placeholder={true}/>
+                                {
+                                    picturesPath.length > 2 && index >= 1 ? <div className="extra-picture">
+                                        <span>+</span>{picturesPath.length - 2}
+                                    </div> : null
+                                }
+                            </Col>
                         }) : ""
                     }
 
-                </div>
+                </Row>
                 <div className="post-bottom">
                     <a onClick={liked}>
                         {

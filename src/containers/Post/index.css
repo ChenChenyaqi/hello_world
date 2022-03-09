@@ -4,9 +4,9 @@
   flex-direction: column;
   margin-top: 10px;
   border-radius: 8px;
+  user-select: none;
 }
 .post-wrapper .author-info {
-  /*background-color: #bfa;*/
   display: flex;
   position: relative;
   width: 100%;
@@ -22,36 +22,64 @@
 .post-wrapper .author-info .author-detail .author-time {
   font-size: 12px;
 }
-.post-content {
+.post-wrapper .post-content {
   width: 100%;
-  /*点赞、评论*/
+  /*点赞、评论区*/
 }
-.post-content .post-text {
+.post-wrapper .post-content .post-text {
   margin-top: 5px;
   margin-left: 60px;
   margin-right: 20px;
+  cursor: pointer;
+  user-select: text;
 }
-.post-content .post-picture {
+.post-wrapper .post-content .post-picture {
+  margin-left: 60px;
+  list-style: none;
+}
+.post-wrapper .post-content .post-picture .col {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+}
+.post-wrapper .post-content .post-picture .col .image {
+  width: 200px;
+  height: 200px;
+  visibility: hidden;
+}
+.post-wrapper .post-content .post-picture .col .extra-picture {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5vmax;
+  color: rgba(24, 24, 24, 0.52);
+  text-align: center;
+  line-height: 200px;
+  cursor: pointer;
+}
+.post-wrapper .post-content .post-bottom {
   margin-left: 60px;
 }
-.post-content .post-bottom {
-  margin-left: 60px;
-}
-.post-content .post-bottom a {
+.post-wrapper .post-content .post-bottom a {
   margin-right: 20px;
   color: gray;
 }
-.post-content .post-bottom a i {
+.post-wrapper .post-content .post-bottom a i {
   font-size: 20px;
 }
-.post-content .post-bottom a .icon-dianzan1 {
+.post-wrapper .post-content .post-bottom a .icon-dianzan1 {
   color: #1890FF;
 }
-.post-content .post-bottom span {
+.post-wrapper .post-content .post-bottom span {
   font-size: 12px;
   margin-left: 4px;
 }
-.post-content .post-bottom a:hover {
+.post-wrapper .post-content .post-bottom a:hover {
   color: #1890FF;
 }
 /*# sourceMappingURL=index.css.map */
