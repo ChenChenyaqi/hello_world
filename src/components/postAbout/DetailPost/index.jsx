@@ -157,7 +157,7 @@ const Detail = () => {
             <div className="post-header">
                 <div className="author-photo">
                     <Avatar
-                        size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 50, xxl: 55}}
+                        size={{xs: 45, sm: 50, md: 55, lg: 60, xl: 65, xxl: 70}}
                         icon={<AntDesignOutlined/>}
                     />
                 </div>

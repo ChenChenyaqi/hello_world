@@ -229,7 +229,7 @@ const Post = (props) => {
                                     picturesPath.length > 2 && index >= 1 ?
                                         <div className="extra-picture" onClick={gotoDetailPost}>
                                             <Link to={'/detailPost'}>
-                                                <span>+</span>{picturesPath.length - 2}
+                                                <span>+{picturesPath.length - 2}</span>
                                             </Link>
                                         </div> : null
                                 }

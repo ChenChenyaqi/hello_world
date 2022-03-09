@@ -1,32 +1,33 @@
 .detail-post {
-  margin-top: 2vw;
+  margin-top: 2vmax;
   border-radius: 1vmin;
   background-color: #fff;
 }
 .detail-post .post-header {
   display: flex;
-  padding-top: 1vw;
+  padding-top: 1vmax;
 }
 .detail-post .post-header .post-info {
-  margin-left: 1vw;
+  margin-left: 2vmax;
 }
 .detail-post .post-header .post-info .post-author-name {
   display: inline-block;
   font-weight: normal;
-  font-size: 1.5vw;
+  font-size: 22px;
   color: #3e3e3e;
 }
 .detail-post .post-header .post-info .post-time {
-  font-size: 1vw;
+  font-size: 14px;
   color: #3e3e3e;
 }
 .detail-post .post-content {
-  margin: 1vw 0;
-  padding: 0 2vw;
+  margin: 1vmax 0;
+  padding: 0 2vmax;
 }
 .detail-post .post-content .content {
   word-break: break-word;
-  font-size: 1.3vw;
+  color: #3e3e3e;
+  font-size: 16px;
 }
 .detail-post .post-content .post-picture .col {
   position: relative;
@@ -40,21 +41,24 @@
   visibility: hidden;
 }
 .detail-post .post-footer {
-  padding: 0 2vw;
+  padding: 0 2vmax;
 }
 .detail-post .post-footer a {
-  font-size: 1vw;
+  font-size: 14px;
   color: #3e3e3e;
-  margin-right: 2vw;
+  margin-right: 2vmax;
 }
-.detail-post .post-footer a .icon-dianzan1 {
+.detail-post .post-footer a .icon-dianzan1,
+.detail-post .post-footer a .icon-dianzan,
+.detail-post .post-footer a .icon-pinglun {
   color: #1890FF;
+  font-size: 16px;
 }
 .detail-post .comment-sort {
-  margin: 1vw 0;
+  margin: 1vmax 0;
 }
 .detail-post .comment-sort span {
-  font-size: 3vmin;
+  font-size: 15px;
   cursor: pointer;
 }
 .detail-post .divider {
@@ -62,6 +66,6 @@
   border-bottom: rgba(62, 62, 62, 0.58) solid 1px;
 }
 .detail-post .post-comments {
-  margin-top: 2vw;
+  margin-top: 2vmax;
 }
 /*# sourceMappingURL=index.css.map */

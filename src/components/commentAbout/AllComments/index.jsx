@@ -8,6 +8,7 @@ import Loading from "../../functionModuleAbout/Loading";
 import {commentStep} from "../../../utils/getDataStep";
 import {Empty, Divider} from "antd";
 import GetMoreButton from "../../functionModuleAbout/GetMoreButton";
+import {Link} from "react-router-dom";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
@@ -98,7 +99,7 @@ const AllComments = (props) => {
                                     {
                                         commentCount > commentStep && isShowViewMore ?
                                             <div className="viewMore" onClick={gotoDetailPost}>
-                                                查看更多
+                                                <Link to={'/detailPost'}><span>查看更多</span></Link>
                                             </div> : <GetMoreButton
                                                 getMore={getMore}
                                                 isLoading={isGetMore}

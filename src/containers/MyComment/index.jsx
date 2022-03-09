@@ -9,6 +9,7 @@ import EditReply from "../../components/commentAbout/EditReply";
 import {connect} from 'react-redux'
 // 引入comment_action
 import {addCommentIdAction, removeCommentIdAction} from '../../redux/actions/comment';
+import './index.css'
 
 // 定义UI组件
 const MyComment = (props) => {
@@ -128,25 +129,25 @@ const MyComment = (props) => {
                 actions={
                     [
                         <Tooltip key="comment-basic-like" title="喜欢">
-                                    <span onClick={like}>
+                                    <span onClick={like} className='comment-like'>
                                         {createElement(action === 'liked' ? LikeFilled : LikeOutlined)}
                                         <span className="comment-action">{likeCount}</span>
                                     </span>
                         </Tooltip>,
                         <Tooltip key="comment-basic-dislike" title="不喜欢">
-                                    <span onClick={dislike}>
+                                    <span onClick={dislike} className='comment-dislike'>
                                         {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined)}
-                                        <span className="comment-action">{dislikeCount}</span>
+                                        <span className="comment-action" >{dislikeCount}</span>
                                     </span>
                         </Tooltip>,
-                        <span key="comment-basic-reply-to" onClick={reply}>回复</span>
+                        <span key="comment-basic-reply-to" className="comment-reply"  onClick={reply}>回复</span>
                     ]
                 }
                 author={
-                    <a>{commentReplyAuthor === postAuthor ? commentAuthor : `${commentAuthor} 回复 ${commentReplyAuthor}:`}</a>}
+                    <a className='comment-author'>{commentReplyAuthor === postAuthor ? commentAuthor : `${commentAuthor} 回复 ${commentReplyAuthor}:`}</a>}
                 avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
                 content={
-                    <p>
+                    <p className='comment-content'>
                         {commentContent}
                     </p>
                 }

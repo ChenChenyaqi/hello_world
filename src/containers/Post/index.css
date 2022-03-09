@@ -55,11 +55,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 5vmax;
-  color: rgba(24, 24, 24, 0.52);
   text-align: center;
   line-height: 15vmax;
   cursor: pointer;
+}
+.post-wrapper .post-content .post-picture .col .extra-picture span {
+  font-size: 5vmax;
+  color: rgba(24, 24, 24, 0.52);
 }
 .post-wrapper .post-content .post-bottom {
   margin-left: 60px;
