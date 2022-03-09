@@ -35,23 +35,22 @@
 }
 .post-wrapper .post-content .post-picture {
   margin-left: 60px;
-  list-style: none;
 }
 .post-wrapper .post-content .post-picture .col {
   position: relative;
-  height: 200px;
-  width: 200px;
+  width: 15vmax;
+  height: 15vmax;
   background-size: cover;
 }
 .post-wrapper .post-content .post-picture .col .image {
-  width: 200px;
-  height: 200px;
+  width: 15vmax;
+  height: 15vmax;
   visibility: hidden;
 }
 .post-wrapper .post-content .post-picture .col .extra-picture {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 15vmax;
+  height: 15vmax;
   background-color: rgba(0, 0, 0, 0.3);
   top: 50%;
   left: 50%;
@@ -59,7 +58,7 @@
   font-size: 5vmax;
   color: rgba(24, 24, 24, 0.52);
   text-align: center;
-  line-height: 200px;
+  line-height: 15vmax;
   cursor: pointer;
 }
 .post-wrapper .post-content .post-bottom {

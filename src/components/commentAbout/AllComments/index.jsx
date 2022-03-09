@@ -5,13 +5,14 @@ import Pubsub from 'pubsub-js'
 import localhost from "../../../utils/localhost";
 import MyComment from '../../../containers/MyComment'
 import Loading from "../../functionModuleAbout/Loading";
-import {commentStep, postStep} from "../../../utils/getDataStep";
-import {Empty, Divider, message} from "antd";
+import {commentStep} from "../../../utils/getDataStep";
+import {Empty, Divider} from "antd";
 import GetMoreButton from "../../functionModuleAbout/GetMoreButton";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
-    const {postId, postAuthor, commentCount, isShowViewMore, gotoDetailPost} = props
+    const {postId, postAuthor, commentCount,
+        isShowViewMore, gotoDetailPost} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
     // 是否正在请求所有评论

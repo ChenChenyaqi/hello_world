@@ -12,7 +12,6 @@ import CheckPermissions from "../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
-import {Link} from "react-router-dom";
 
 const {Paragraph} = Typography
 const pubSubId = []
@@ -269,10 +268,13 @@ const Post = (props) => {
                         }
                     />
                     {/*所有评论组件*/}
-                    <AllComments postId={postId} postAuthor={postAuthor}
+                    <AllComments
+                        className="allComments"
+                        postId={postId} postAuthor={postAuthor}
                                  commentCount={commentCount}
                                  isShowViewMore={true}
-                                 gotoDetailPost={gotoDetailPost}/>
+                                 gotoDetailPost={gotoDetailPost}
+                    />
                 </div>
 
             </div>

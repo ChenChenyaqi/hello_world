@@ -1,5 +1,8 @@
 @import "../../../utils/constantValue";
 
+@pic-width:15vmax;
+@pic-height:15vmax;
+
 .detail-post {
   margin-top: 2vw;
   border-radius: @borderRadius;
@@ -33,6 +36,22 @@
     .content {
       word-break: break-word;
       font-size: 1.3vw;
+    }
+    // 帖子图片
+    .post-picture {
+      // 响应式一列
+      .col {
+        position: relative;
+        width: @pic-width;
+        height: @pic-height;
+        background-size: cover;
+        // 图片
+        .image {
+          width: @pic-width;
+          height: @pic-height;
+          visibility: hidden;
+        }
+      }
     }
   }
 

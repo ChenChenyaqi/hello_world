@@ -95,10 +95,10 @@
         height: 2rem;
     }
     .main-content, .header, .wrapper{
-        padding: 0 150px;
+        padding: 0 80px;
     }
     .logout{
-        right: 150px;
+        right: 80px;
     }
     .login-form-wrapper, .regist-form-wrapper{
         width: 498px;

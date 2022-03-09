@@ -8,7 +8,6 @@ const EditComment = ({ onChange, onSubmit, submitting, value }) => (
     <>
         <Form.Item>
             <TextArea
-
                 maxLength={200}
                 autoSize={{minRows: 1, maxRows: 2}}
                 onChange={onChange}
