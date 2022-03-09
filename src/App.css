@@ -1,8 +1,8 @@
 @media (min-width: 100px) and (max-width: 703px) {
     .logo{
-        height: 1.5rem;
+        height: 1.4rem;
     }
-    .main-content, .header{
+    .main-content, .header, .wrapper{
         padding: 0 5px;
     }
     .logout{
@@ -22,7 +22,7 @@
     .logo{
         height: 1.5rem;
     }
-    .main-content, .header{
+    .main-content, .header, .wrapper{
         padding: 0 10px;
     }
     .logout{
@@ -40,7 +40,7 @@
     .logo{
         height: 1.8rem;
     }
-    .main-content, .header{
+    .main-content, .header, .wrapper{
         padding: 0 20px;
     }
     .logout{
@@ -58,7 +58,7 @@
     .logo{
         height: 2rem;
     }
-    .main-content, .header{
+    .main-content, .header, .wrapper{
         padding: 0 30px;
     }
     .logout{
@@ -74,9 +74,9 @@
 
 @media (min-width: 1130px) and (max-width: 1360px) {
     .logo{
-        height: 2.5rem;
+        height: 2rem;
     }
-    .main-content, .header{
+    .main-content, .header, .wrapper{
         padding: 0 40px;
     }
     .logout{
@@ -92,13 +92,13 @@
 
 @media (min-width: 1360px) {
     .logo{
-        height: 3rem;
+        height: 2rem;
     }
-    .main-content, .header{
-        padding: 0 100px;
+    .main-content, .header, .wrapper{
+        padding: 0 150px;
     }
     .logout{
-        right: 100px;
+        right: 150px;
     }
     .login-form-wrapper, .regist-form-wrapper{
         width: 498px;

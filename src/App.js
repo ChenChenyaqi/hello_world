@@ -12,6 +12,7 @@ import Activity from "./pages/Activity";
 import axios from "axios";
 import localhost from "./utils/localhost";
 import User from "./pages/User";
+import DetailPost from './components/postAbout/DetailPost'
 import './App.css'
 
 
@@ -45,6 +46,7 @@ const App = (props) => {
                         <Route path="/forget" component={Forget}/>
                         <Route path="/activity" component={Activity}/>
                         <Route path="/user" component={User}/>
+                        <Route path="/detailPost" component={DetailPost}/>
                         <Route path="/" component={Main}/>
                     </Switch>
                 </Content>

@@ -5,3 +5,10 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.viewMore{
+    font-size: 1vw;
+    color: #3e3e3e;
+    cursor: pointer;
+    margin: 10px auto 10px auto;
+}

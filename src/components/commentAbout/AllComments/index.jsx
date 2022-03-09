@@ -5,38 +5,45 @@ import Pubsub from 'pubsub-js'
 import localhost from "../../../utils/localhost";
 import MyComment from '../../../containers/MyComment'
 import Loading from "../../functionModuleAbout/Loading";
-import {commentStep} from "../../../utils/getDataStep";
+import {commentStep, postStep} from "../../../utils/getDataStep";
+import {Empty, Divider, message} from "antd";
 import GetMoreButton from "../../functionModuleAbout/GetMoreButton";
-import {message, Empty, Divider} from "antd";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
-    const {postId, postAuthor,commentCount} = props
+    const {postId, postAuthor, commentCount, isShowViewMore, gotoDetailPost} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
     // 是否正在请求所有评论
     const [isGettingComments, setIsGettingComments] = useState(false)
     // 分批请求评论起始点
     const [start, setStart] = useState(0)
-    // // 是否正在获取更多评论
-    // const [isLoading, setIsLoading] = useState(false)
-    // // 加载更多提示
-    // const [getMoreMsg, setGetMoreMsg] = useState("")
+    // 是否正在加载更多
+    const [isGetMore, setIsGetMore] = useState(false)
+    // 加载信息
+    const [getMoreMsg, setGetMoreMsg] = useState("")
+    //
+    const [commentPostId, setCommentPostId] = useState(null)
 
     const getMore = () => {
-        // setIsLoading(true)
-        // axios.get(`http://${localhost}:8080/comment?postId=${postId}&start=${start}&step=${commentStep}`,).then(
-        //     response => {
-        //         if (response.data.length === 0) {
-        //             setGetMoreMsg("暂无更多...")
-        //             message.info("暂无更多...")
-        //         } else {
-        //             setStart(start + commentStep)
-        //             setCommentList([...commentList, ...response.data])
-        //         }
-        //         setIsLoading(false)
-        //     }
-        // )
+        setIsGetMore(true)
+        axios.get(`http://${localhost}:8080/comment?postId=${commentPostId}&start=${start}&step=${commentStep}`).then(
+            response => {
+                const comments = response.data
+                if (comments.length === 0) {
+                    setIsGetMore(false)
+                    setGetMoreMsg("没有更多了...")
+                } else {
+                    setCommentList(() => {
+                        setIsGetMore(false)
+                        setStart(start + commentStep)
+                        return [
+                            ...commentList,
+                            ...comments
+                        ]
+                    })
+                }
+            })
     }
 
     React.useEffect(() => {
@@ -44,6 +51,7 @@ const AllComments = (props) => {
         Pubsub.subscribe('showComment', (_, {isGetComment, commentPostId}) => {
             if (isGetComment && commentPostId === postId) {
                 setIsGettingComments(true)
+                setCommentPostId(commentPostId)
                 axios.get(`http://${localhost}:8080/comment?postId=${commentPostId}&start=0&step=${commentStep}`,).then(
                     response => {
                         setIsGettingComments(false)
@@ -84,15 +92,19 @@ const AllComments = (props) => {
                                         <br/>
                                         <br/>
                                     </>
-                                }
-                                                              imageStyle={{height: 40}}/> :
+                                } imageStyle={{height: 40}}/> :
                                 <>
                                     {
-                                        commentCount > commentStep > commentStep  ? <div style={{marginBottom: '10px'}}>
-                                            查看更多
-                                            {/*<GetMoreButton isLoading={isLoading} getMore={getMore} msg={getMoreMsg}/>*/}
-                                        </div> : null
-                                    }
+                                        commentCount > commentStep && isShowViewMore ?
+                                            <div className="viewMore" onClick={gotoDetailPost}>
+                                                查看更多
+                                            </div> : <GetMoreButton
+                                                getMore={getMore}
+                                                isLoading={isGetMore}
+                                                msg={getMoreMsg}
+                                                caller={"AllPosts"}
+                                            />
+                                        }
                                 </>
                         }
                     </>

@@ -1,0 +1,70 @@
+@import "../../../utils/constantValue";
+
+.detail-post {
+  margin-top: 2vw;
+  border-radius: @borderRadius;
+  background-color: #fff;
+
+  .post-header {
+    display: flex;
+    padding-top: 1vw;
+
+    .post-info {
+      margin-left: 1vw;
+
+      .post-author-name {
+        display: inline-block;
+        font-weight: normal;
+        font-size: 1.5vw;
+        color: #3e3e3e;
+      }
+
+      .post-time {
+        font-size: 1vw;
+        color: #3e3e3e;
+      }
+    }
+  }
+
+  .post-content {
+    margin: 1vw 0;
+    padding: 0 2vw;
+
+    .content {
+      word-break: break-word;
+      font-size: 1.3vw;
+    }
+  }
+
+  .post-footer {
+    padding: 0 2vw;
+
+    a {
+      font-size: 1vw;
+      color: #3e3e3e;
+      margin-right: 2vw;
+
+      .icon-dianzan1 {
+        color: #1890FF;
+      }
+    }
+  }
+
+  .comment-sort {
+    margin: 1vw 0;
+
+    span {
+      font-size: 3vmin;
+      cursor: pointer;
+    }
+  }
+
+  .divider {
+    width: 100%;
+    border-bottom: rgba(62, 62, 62, 0.58) solid 1px;
+  }
+
+  .post-comments {
+    margin-top: 2vw;
+  }
+}

@@ -12,6 +12,7 @@ import CheckPermissions from "../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
+import {Link} from "react-router-dom";
 
 const {Paragraph} = Typography
 const pubSubId = []
@@ -123,6 +124,24 @@ const Post = (props) => {
         setValue(e.target.value)
     };
 
+    // 去详细帖子
+    const gotoDetailPost = () => {
+        // 保存数据到sessionStorage中
+        sessionStorage.setItem('detailPostState',
+            JSON.stringify(
+                {
+                    postId: postId, postAuthor: postAuthor,
+                    postContent: postContent, postTime: time,
+                    picturesPath: picturesPath, likedCount: likedCount,
+                    commentCount: commentCount
+                }
+            )
+        )
+        // 切换到详细帖子路由
+        window.location.href = `http://localhost:3000/#/detailPost`
+    }
+
+
     React.useEffect(() => {
         // 获取本帖子的图片
         axios.get(`http://${localhost}:8080/picture?postId=${props.post.postId}`).then(
@@ -177,7 +196,7 @@ const Post = (props) => {
         <div className="post-wrapper">
             <div className="author-info">
                 <Avatar
-                    size={{xs: 24, sm: 32, md: 40, lg: 64, xl: 40, xxl: 100}}
+                    size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 50, xxl: 55}}
                     icon={<AntDesignOutlined/>}
                 />
                 <div className="author-detail">
@@ -191,9 +210,11 @@ const Post = (props) => {
             </div>
             <div className="post-content">
                 <div className="post-text">
-                    <Paragraph>
-                        {postContent}
-                    </Paragraph>
+                    <div onClick={gotoDetailPost}>
+                        <Paragraph>
+                            {postContent}
+                        </Paragraph>
+                    </div>
                 </div>
                 <Row className="post-picture">
                     {
@@ -207,14 +228,14 @@ const Post = (props) => {
                                     src={picturePath}
                                     placeholder={true}/>
                                 {
-                                    picturesPath.length > 2 && index >= 1 ? <div className="extra-picture">
-                                        <span>+</span>{picturesPath.length - 2}
-                                    </div> : null
+                                    picturesPath.length > 2 && index >= 1 ?
+                                        <div className="extra-picture" onClick={gotoDetailPost}>
+                                            <span>+</span>{picturesPath.length - 2}
+                                        </div> : null
                                 }
                             </Col>
                         }) : ""
                     }
-
                 </Row>
                 <div className="post-bottom">
                     <a onClick={liked}>
@@ -226,7 +247,8 @@ const Post = (props) => {
                             likedCount ? likedCount : <span>点赞</span>
                         }
                     </a>
-                    <a onClick={comment}><i className="iconfont icon-pinglun"/>
+                    <a onClick={comment}>
+                        <i className="iconfont icon-pinglun"/>
                         {
                             commentCount ? commentCount : <span>评论</span>
                         }
@@ -247,7 +269,10 @@ const Post = (props) => {
                         }
                     />
                     {/*所有评论组件*/}
-                    <AllComments postId={postId} postAuthor={postAuthor} commentCount={commentCount}/>
+                    <AllComments postId={postId} postAuthor={postAuthor}
+                                 commentCount={commentCount}
+                                 isShowViewMore={true}
+                                 gotoDetailPost={gotoDetailPost}/>
                 </div>
 
             </div>
