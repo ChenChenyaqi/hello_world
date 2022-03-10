@@ -10,7 +10,7 @@ const MyHeader = () => {
     return (
         <Header
             className="header"
-            style={{backgroundColor: "#fff"}}>
+            style={{backgroundColor: "#fff", height:'auto'}}>
             <Row>
                 <Col xs={8} sm={4} md={4} lg={4} xl={4}>
                     {/*logo*/}
