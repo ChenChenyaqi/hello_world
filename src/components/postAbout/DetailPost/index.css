@@ -29,14 +29,17 @@
   color: #3e3e3e;
   font-size: 16px;
 }
+.detail-post .post-content .post-picture {
+  margin-top: 1vmax;
+}
 .detail-post .post-content .post-picture .col {
   position: relative;
-  width: 15vmax;
   height: 15vmax;
   background-size: cover;
+  overflow: hidden;
 }
 .detail-post .post-content .post-picture .col .image {
-  width: 15vmax;
+  width: 100vw;
   height: 15vmax;
   visibility: hidden;
 }

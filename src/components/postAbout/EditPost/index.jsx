@@ -78,16 +78,16 @@ class EditPost extends Component {
             contentType: "multipart/form-data",
             username: localStorage.getItem("username")
         },
-        maxCount: 5,
+        maxCount: 6,
         disabled: !localStorage.getItem("token"),
         listType: "text",
         beforeUpload: (file, _) => {
             if (fileListLength === this.Props.maxCount) {
-                message.error(`限制最大上传图片数：5`);
+                message.error(`限制最大上传图片数：6`);
                 return false
             }
-            if (file.size > 1024 * 1024 * 5) {
-                message.error(`图片大小超过5Mb`);
+            if (file.size > 1024 * 1024 * 6) {
+                message.error(`图片大小超过6Mb`);
                 return Upload.LIST_IGNORE
             }
             return new Promise((resolve, reject) => {

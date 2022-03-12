@@ -1,7 +1,7 @@
 import React, {Component, useState} from 'react';
 import './index.css'
 import {AntDesignOutlined} from "@ant-design/icons";
-import {Avatar, Row, Col, Image, Comment} from "antd";
+import {Avatar, Row, Col, Image, Comment, List} from "antd";
 import AllComments from "../../commentAbout/AllComments";
 import Pubsub from "pubsub-js";
 import axios from "axios";
@@ -174,18 +174,27 @@ const Detail = () => {
                 <div className="content">
                     {postContent}
                 </div>
-                <Row className="post-picture">
+                <div className="post-picture">
                     {
-                        picturesPath && picturesPath.length !== 0 ? picturesPath.map((picturePath, index) => {
-                            return <Col className="col" key={index} style={{backgroundImage: `url(${picturePath})`}}>
-                                <Image
-                                    className="image"
-                                    src={picturePath}
-                                    placeholder={true}/>
-                            </Col>
-                        }) : ""
+                        picturesPath && picturesPath.length !== 0 ? <List
+                            grid={{
+                                gutter:5,
+                                xs: 3,
+                                sm: 3,
+                                md: 3,
+                                lg: 3,
+                                xl: 3,
+                                xxl: 3,
+                            }}
+                            dataSource={picturesPath}
+                            renderItem={picturePath => (
+                                <List.Item className="col" style={{backgroundImage: `url(${picturePath})`}}>
+                                    <Image preview={true} className="image" src={picturePath} placeholder={true}/>
+                                </List.Item>
+                            )}
+                        /> : null
                     }
-                </Row>
+                </div>
             </div>
             <div className="post-footer">
                 <a onClick={liked}>

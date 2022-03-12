@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/flexible.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/headerAbout/MyHeaderNav/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.less" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -192,7 +193,8 @@
       <workItem from="1646828000217" duration="574000" />
       <workItem from="1646829232717" duration="5172000" />
       <workItem from="1646873558075" duration="4222000" />
-      <workItem from="1646878386755" duration="7575000" />
+      <workItem from="1646878386755" duration="8241000" />
+      <workItem from="1647080521095" duration="5734000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -439,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646834322080</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="优化代码">
+      <created>1646887834185</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1646887834185</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

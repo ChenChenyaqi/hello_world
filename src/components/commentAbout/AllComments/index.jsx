@@ -100,12 +100,16 @@ const AllComments = (props) => {
                                         commentCount > commentStep && isShowViewMore ?
                                             <div className="viewMore" onClick={gotoDetailPost}>
                                                 <Link to={'/detailPost'}><span>查看更多</span></Link>
-                                            </div> : <GetMoreButton
-                                                getMore={getMore}
-                                                isLoading={isGetMore}
-                                                msg={getMoreMsg}
-                                                caller={"AllPosts"}
-                                            />
+                                            </div> : <>
+                                                {
+                                                    !isShowViewMore ? <GetMoreButton
+                                                        getMore={getMore}
+                                                        isLoading={isGetMore}
+                                                        msg={getMoreMsg}
+                                                        caller={"AllPosts"}
+                                                    /> : null
+                                                }
+                                            </>
                                         }
                                 </>
                         }
