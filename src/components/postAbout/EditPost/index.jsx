@@ -10,6 +10,7 @@ import axios from "axios";
 import localhost from "../../../utils/localhost";
 import PictureOutlined from "@ant-design/icons/lib/icons/PictureOutlined";
 import NumberOutlined from "@ant-design/icons/lib/icons/NumberOutlined";
+import store from "../../../redux/store";
 
 const {TextArea} = Input;
 let fileListLength = null
@@ -33,10 +34,8 @@ class EditPost extends Component {
     publishPost = () => {
         const {value, showFileList} = this.state
         // 先检查权限
-        CheckPermissions('请先登录！')
-        // 没有token则拒绝发帖
-        if (!localStorage.getItem("token")) {
-            return ""
+        if(!store.getState().permission){
+            return message.warn('请先登录！')
         }
         if (value === "" || value.trim() === "") {
             message.warning('内容不能为空！');
@@ -79,7 +78,7 @@ class EditPost extends Component {
             username: localStorage.getItem("username")
         },
         maxCount: 6,
-        disabled: !localStorage.getItem("token"),
+        disabled: !store.getState().permission,
         listType: "text",
         beforeUpload: (file, _) => {
             if (fileListLength === this.Props.maxCount) {
@@ -121,7 +120,10 @@ class EditPost extends Component {
 
     // 点击上传图片按钮
     uploadPicture = () => {
-        CheckPermissions("请先登录！")
+        if(!store.getState().permission){
+            message.warn('请先登录！')
+            return;
+        }
     }
 
     componentWillUnmount() {
@@ -156,8 +158,8 @@ class EditPost extends Component {
                         <NumberOutlined/>
                     </div>
                     <div className="upload-picture">
-                        <Upload {...Props} className="upload-list">
-                            <div onClick={uploadPicture}>
+                        <Upload onClick={uploadPicture} {...Props} className="upload-list">
+                            <div>
                                 <PictureOutlined className="pictureOutlined"/>
                             </div>
                         </Upload>

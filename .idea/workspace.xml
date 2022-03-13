@@ -2,15 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/FrontendAuth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/permission.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/permission.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routerMap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MyComment/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CheckPermissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CheckPermissions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +46,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.17.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.17.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react_staging2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -50,19 +60,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Code\webstorm\helloworld\src\utils" />
-      <recent name="E:\Code\webstorm\helloworld\public" />
-      <recent name="E:\Code\webstorm\helloworld\src\containers\Post" />
-      <recent name="E:\Code\webstorm\helloworld\src\redux\reducers" />
-      <recent name="E:\Code\webstorm\helloworld\src\redux\actions" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Code\webstorm\helloworld\src\utils" />
       <recent name="E:\Code\webstorm\helloworld\src\components\commentAbout" />
       <recent name="E:\Code\webstorm\helloworld\src\components\MyHeader\LoginAndRegist\Regist" />
       <recent name="E:\Code\webstorm\helloworld\public\img" />
       <recent name="E:\Code\webstorm\helloworld\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Code\webstorm\helloworld\src" />
+      <recent name="E:\Code\webstorm\helloworld\src\utils" />
+      <recent name="E:\Code\webstorm\helloworld\public" />
+      <recent name="E:\Code\webstorm\helloworld\src\containers\Post" />
+      <recent name="E:\Code\webstorm\helloworld\src\redux\reducers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -194,7 +204,10 @@
       <workItem from="1646829232717" duration="5172000" />
       <workItem from="1646873558075" duration="4222000" />
       <workItem from="1646878386755" duration="8241000" />
-      <workItem from="1647080521095" duration="5734000" />
+      <workItem from="1647080521095" duration="10278000" />
+      <workItem from="1647093778267" duration="143000" />
+      <workItem from="1647135732430" duration="14952000" />
+      <workItem from="1647162415843" duration="5783000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -448,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646887834185</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="优化代码">
+      <created>1647086310158</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1647086310158</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

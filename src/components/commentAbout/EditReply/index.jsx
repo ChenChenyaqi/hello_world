@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Form, Button, Input } from 'antd';
+import {Form, Button, Input, message} from 'antd';
 import CheckPermissions from "../../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 import axios from "axios";
@@ -20,12 +20,11 @@ const EditReply = ({ replyTo, postId }) => {
     }
 
     const onSubmit = () => {
-        CheckPermissions("请先登录！")
-        if (!value) {
-            return;
+        if(!store.getState().permission){
+            return message.warn('请先登录！')
         }
-        if(!localStorage.getItem("token")){
-            return;
+        if (!value.trim()) {
+            return message.info('请输入内容！');
         }
         setSubmitting(true)
         // 创建评论数据

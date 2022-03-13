@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {Form, Input, Button, Checkbox, Layout, message} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
@@ -7,6 +7,8 @@ import Pubsub from 'pubsub-js'
 import $ from 'jquery'
 import './index.css'
 import localhost from "../../utils/localhost";
+import store from "../../redux/store";
+import CheckPermissions from "../../utils/CheckPermissions";
 
 let id;
 
@@ -19,7 +21,7 @@ const Login = (props) => {
     // 用户名
     const username = localStorage.getItem("username")
     // 密码
-    const password = localStorage.getItem("password")
+    const password = localStorage.getItem("token") ? "xxxxxx" : ""
     // 显示验证码
     const [showCode, setShowCode] = useState(false)
 
@@ -106,6 +108,22 @@ const Login = (props) => {
         id = Pubsub.subscribe('success', () => {
             // 收集页面数据
             const {username, password, remember} = values
+            // 检查permission
+            if(store.getState().permission){
+                // 提示登录成功
+                setShowCode(false)
+                message.success('登录成功！')
+                localStorage.setItem("username", username)
+                // 如果点击了记住我，则保存
+                if (remember) {
+                    localStorage.setItem("remember", remember)
+                } else {
+                    localStorage.setItem("remember", "")
+                }
+                // 登录成功跳转主页面
+                props.history.push("/")
+                return;
+            }
             const userObj = {username, password}
             const userJson = JSON.stringify(userObj)
             // 发送请求确认是否可以登录
@@ -118,11 +136,12 @@ const Login = (props) => {
                         // 提示登录成功
                         setShowCode(false)
                         message.success(response.data.msg)
-                        // 保存token、用户名、密码
+                        // 保存token、用户名
                         Pubsub.publish("login", {})
                         localStorage.setItem("token", response.data.token)
+                        // 更新permission
+                        CheckPermissions()
                         localStorage.setItem("username", username)
-                        localStorage.setItem("password", password)
                         // 如果点击了记住我，则保存
                         if (remember) {
                             localStorage.setItem("remember", remember)
@@ -131,6 +150,7 @@ const Login = (props) => {
                         }
                         // 登录成功跳转主页面
                         props.history.push("/")
+
                     } else {
                         // 提示用户名或密码错误
                         message.error(response.data.msg)

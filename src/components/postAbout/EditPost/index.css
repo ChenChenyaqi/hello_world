@@ -12,12 +12,12 @@
 }
 .edit-post-wrapper .edit-post-icon {
   display: flex;
-  margin-left: 1vmin;
+  margin-left: 16px;
 }
 .edit-post-wrapper .edit-post-icon .choose-channel {
-  font-size: 4vmin;
+  font-size: 20px;
   color: #3e3e3e;
-  margin-right: 1vmin;
+  margin-right: 10px;
   cursor: pointer;
 }
 .edit-post-wrapper .edit-post-icon .upload-picture {
@@ -25,10 +25,10 @@
 }
 .edit-post-wrapper .edit-post-icon .upload-picture .upload-list {
   display: flex;
-  margin-top: 1.2vmin;
+  margin-top: 6px;
 }
 .edit-post-wrapper .edit-post-icon .upload-picture .upload-list .pictureOutlined {
-  font-size: 4vmin;
+  font-size: 20px;
   color: #3e3e3e;
 }
 .edit-post-wrapper .edit-post-icon .upload-picture .upload-list div {

@@ -8,6 +8,9 @@ import {HashRouter} from "react-router-dom";
 import App from './App'
 import store from "./redux/store";
 import {Provider} from "react-redux";
+import CheckPermissions from "./utils/CheckPermissions";
+
+CheckPermissions()
 
 // 渲染App到页面
 ReactDOM.render(

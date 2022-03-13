@@ -1,5 +1,5 @@
 import React, {createElement, useEffect, useState} from 'react';
-import {Avatar, Comment, Tooltip} from "antd";
+import {Avatar, Comment, message, Tooltip} from "antd";
 import {AntDesignOutlined, DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined} from "@ant-design/icons";
 import moment from "moment";
 import axios from "axios";
@@ -10,6 +10,7 @@ import {connect} from 'react-redux'
 // 引入comment_action
 import {addCommentIdAction, removeCommentIdAction} from '../../redux/actions/comment';
 import './index.css'
+import store from "../../redux/store";
 
 // 定义UI组件
 const MyComment = (props) => {
@@ -27,58 +28,86 @@ const MyComment = (props) => {
     const [likeCount, setLikeCount] = useState(commentLike)
     // 不喜欢数
     const [dislikeCount, setDislikeCount] = useState(commentDisLike)
+    // 点赞用户列表
+    const [likeArray, setLikeArray] = useState([])
+    // 点踩用户列表
+    const [dislikeArray, setDislikeArray] = useState([])
     // 是点赞还是点踩
     const [action, setAction] = useState(null);
+    // 是否已经点过赞/踩
+    const [likedFlag, setLikedFlag] = useState(false);
+    const [dislikedFlag, setDislikedFlag] = useState(false);
+    // 当前用户
+    const username = localStorage.getItem("username")
 
     // 点赞时
     const like = () => {
-        setAction('liked');
-        let arr1 = JSON.parse(localStorage.getItem("likedComments"))
-        arr1.push(commentId)
-        localStorage.setItem("likedComments", JSON.stringify(arr1))
-        let arr2 = JSON.parse(localStorage.getItem("disLikedComments"))
-        for (let i = 0; i < arr2.length; i++) {
-            if (arr2[i] === commentId) {
-                arr2.splice(i, 1)
-            }
+        if (!store.getState().permission) {
+            return message.warn('请先登录！')
         }
-        localStorage.setItem("disLikedComments", JSON.stringify(arr2))
-        // 发送请求，点赞
-        axios.get(`http://${localhost}:8080/comment/like?commentId=${commentId}`).then(
-            response => {
-                setLikeCount(likeCount + 1)
-                if (dislikeCount > 0) {
-                    setDislikeCount(dislikeCount - 1)
-                }
+        if(!likedFlag){
+            setAction('liked');
+            setLikedFlag(true)
+            setDislikedFlag(false)
+            // 更新点赞列表
+            const newLikeArray = [...likeArray]
+            newLikeArray.push(username)
+            setLikeArray(newLikeArray)
+            const newDislikeArray = [...dislikeArray]
+            if(newDislikeArray.includes(username)){
+                newDislikeArray.splice(newDislikeArray.indexOf(username),1)
+                setDislikeArray(newDislikeArray)
+                axios.get(`http://${localhost}:8080/comment/update/dislikedArray?dislikedArray=${newDislikeArray.join(',')}&commentId=${commentId}`).then()
             }
-        )
+            axios.get(`http://${localhost}:8080/comment/update/likedArray?likedArray=${newLikeArray.join(',')}&commentId=${commentId}`).then()
+            // 发送请求，点赞
+            axios.get(`http://${localhost}:8080/comment/like?commentId=${commentId}`).then(
+                response => {
+                    setLikeCount(likeCount + 1)
+                    if (dislikeCount > 0) {
+                        setDislikeCount(dislikeCount - 1)
+                    }
+                }
+            )
+        }
     };
 
     // 点踩时
     const dislike = () => {
-        setAction('disliked');
-        let arr1 = JSON.parse(localStorage.getItem("disLikedComments"))
-        arr1.push(commentId)
-        localStorage.setItem("disLikedComments", JSON.stringify(arr1))
-        let arr2 = JSON.parse(localStorage.getItem("likedComments"))
-        for (let i = 0; i < arr2.length; i++) {
-            if (arr2[i] === commentId) {
-                arr2.splice(i, 1)
-            }
+        if (!store.getState().permission) {
+            return message.warn('请先登录！')
         }
-        localStorage.setItem("likedComments", JSON.stringify(arr2))
-        // 发送请求，点踩
-        axios.get(`http://${localhost}:8080/comment/dislike?commentId=${commentId}`).then(
-            response => {
-                if (likeCount > 0) {
-                    setLikeCount(likeCount - 1)
-                }
+        if(!dislikedFlag){
+            setAction('disliked');
+            setDislikedFlag(true);
+            setLikedFlag(false);
+            // 更新点踩列表
+            const newDislikeArray = [...dislikeArray]
+            newDislikeArray.push(username)
+            setDislikeArray(newDislikeArray)
+            const newLikeArray = [...likeArray]
+            if(newLikeArray.includes(username)){
+                newLikeArray.splice(newLikeArray.indexOf(username),1)
+                setLikeArray(newLikeArray)
+                axios.get(`http://${localhost}:8080/comment/update/likedArray?likedArray=${newLikeArray.join(',')}&commentId=${commentId}`).then()
             }
-        )
+            axios.get(`http://${localhost}:8080/comment/update/dislikedArray?dislikedArray=${newDislikeArray.join(',')}&commentId=${commentId}`).then()
+            // 发送请求，点踩
+            axios.get(`http://${localhost}:8080/comment/dislike?commentId=${commentId}`).then(
+                response => {
+                    if (likeCount > 0) {
+                        setLikeCount(likeCount - 1)
+                    }
+                }
+            )
+        }
     };
 
     // 点击回复时
     const reply = () => {
+        if (!store.getState().permission) {
+            return message.warn('请先登录！')
+        }
         if (state.commentId === commentId) {
             remove()
         } else {
@@ -87,39 +116,30 @@ const MyComment = (props) => {
     }
 
     useEffect(() => {
-        // 若没有点赞/点踩数据，则加上
-        let likedComments = localStorage.getItem("likedComments")
-        if (!likedComments) {
-            localStorage.setItem("likedComments", JSON.stringify([]))
-        } else {
-            let arr = JSON.parse(likedComments)
-            let index = -1
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] === commentId) {
-                    index = i
-                    break
+        // 获取此评论点赞与点踩用户数组
+        axios.get(`http://${localhost}:8080/comment/likeAndDislikeArray?commentId=${commentId}`).then(
+            response => {
+                const likedStr = response.data[0];
+                const dislikedStr = response.data[1];
+                if(likedStr){
+                    const likedArray = likedStr.split(',');
+                    if(likedArray.includes(username)){
+                        setAction('liked')
+                        setLikedFlag(true)
+                    }
+                    setLikeArray(likedArray);
+                }
+                if(dislikedStr){
+                    const dislikedArray = dislikedStr.split(',');
+
+                    if(dislikedArray.includes(username)){
+                        setAction('disliked')
+                        setDislikedFlag(true)
+                    }
+                    setDislikeArray(dislikedArray);
                 }
             }
-            if (index >= 0) {
-                setAction("liked")
-            }
-        }
-        let disLikedComments = localStorage.getItem("disLikedComments")
-        if (!disLikedComments) {
-            localStorage.setItem("disLikedComments", JSON.stringify([]))
-        } else {
-            let arr = JSON.parse(disLikedComments)
-            let index = -1
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] === commentId) {
-                    index = i
-                    break
-                }
-            }
-            if (index >= 0) {
-                setAction("disliked")
-            }
-        }
+        )
     }, [])
 
     return (
@@ -137,10 +157,10 @@ const MyComment = (props) => {
                         <Tooltip key="comment-basic-dislike" title="不喜欢">
                                     <span onClick={dislike} className='comment-dislike'>
                                         {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined)}
-                                        <span className="comment-action" >{dislikeCount}</span>
+                                        <span className="comment-action">{dislikeCount}</span>
                                     </span>
                         </Tooltip>,
-                        <span key="comment-basic-reply-to" className="comment-reply"  onClick={reply}>回复</span>
+                        <span key="comment-basic-reply-to" className="comment-reply" onClick={reply}>回复</span>
                     ]
                 }
                 author={

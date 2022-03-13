@@ -1,15 +1,15 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import './index.css'
 import {AntDesignOutlined} from "@ant-design/icons";
-import {Avatar, Row, Col, Image, Comment, List} from "antd";
+import {Avatar, Image, Comment, List, message} from "antd";
 import AllComments from "../../commentAbout/AllComments";
 import Pubsub from "pubsub-js";
 import axios from "axios";
 import localhost from "../../../utils/localhost";
 import EditComment from "../../commentAbout/EditComment";
 import {timestampToTime} from "../../../utils/timeUtils";
-import CheckPermissions from "../../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
+import store from "../../../redux/store";
 
 const pubSubId = []
 
@@ -25,46 +25,52 @@ const Detail = () => {
     const [likedCount, setLikedCount] = useState(0)
     // 评论数
     const [commentCount, setCommentCount] = useState(0)
+    // 点赞人员列表
+    const [likedArray, setLikedArray] = useState([])
     // 是否已经点过赞
     const [isLiked, setIsLiked] = useState(false)
     // 控制回复框相关
     const [submitting, setSubmitting] = useState(false)
     const [value, setValue] = useState('')
+    // 当前用户名
+    const username = localStorage.getItem("username")
 
     // 点赞
     const liked = (e) => {
         e.preventDefault()
+        if (!store.getState().permission) {
+            return message.warn('请先登录！')
+        }
         // 若没点过赞
         if (!isLiked) {
             setLikedCount(likedCount + 1)
             setIsLiked(true)
+            const newLikedArray = [...likedArray]
+            newLikedArray.push(username)
+            setLikedArray(newLikedArray)
+            axios.get(`http://${localhost}:8080/post/update/likedArray?likedArray=${newLikedArray.join(',')}&postId=${postId}`)
             axios.get(`http://${localhost}:8080/post/liked?postId=${postId}`)
-            let arr = JSON.parse(localStorage.getItem("likedPostsId"))
-            arr.push(postId)
-            localStorage.setItem("likedPostsId", JSON.stringify(arr))
+
         } else {
             // 若点过赞，则取消赞
             setLikedCount(likedCount - 1)
             setIsLiked(false)
+            const newLikedArray = [...likedArray]
+            newLikedArray.pop()
+            setLikedArray(newLikedArray)
+            axios.get(`http://${localhost}:8080/post/update/likedArray?likedArray=${newLikedArray.join(',')}&postId=${postId}`)
             axios.get(`http://${localhost}:8080/post/unLiked?postId=${postId}`)
-            let arr = JSON.parse(localStorage.getItem("likedPostsId"))
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] === postId) {
-                    arr.splice(i, 1)
-                }
-            }
-            localStorage.setItem("likedPostsId", JSON.stringify(arr))
+
         }
     }
 
     // 发布评论
     const handleSubmit = () => {
-        CheckPermissions("请先登录！")
-        if (!value) {
-            return;
+        if(!store.getState().permission){
+            return message.warn('请先登录！')
         }
-        if (!localStorage.getItem("token")) {
-            return;
+        if (!value.trim()) {
+            return message.info('请输入内容！')
         }
         setSubmitting(true)
         // 创建评论数据
@@ -125,25 +131,17 @@ const Detail = () => {
                 setCommentCount(response.data)
             }
         )
-        // 若没有这个likedPostsId，则为用户本地存储加上
-        let likedPostsId = localStorage.getItem("likedPostsId")
-        if (!likedPostsId) {
-            localStorage.setItem("likedPostsId", JSON.stringify([]))
-        } else {
-            // 若在likedPostsId 中发现了这个帖子的Id，说明用户已经点过赞了
-            let arr = JSON.parse(likedPostsId)
-            // 本帖在localStorage中的位置
-            let index = -1
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] === postId) {
-                    index = i
-                    break
+        axios.get(`http://${localhost}:8080/post/likedArray?postId=${postId}`).then(
+            response => {
+                if (response.data) {
+                    const likedArray = response.data.split(',')
+                    if(likedArray.includes(username)){
+                        setIsLiked(true)
+                    }
+                    setLikedArray(likedArray)
                 }
             }
-            if (index >= 0) {
-                setIsLiked(true)
-            }
-        }
+        )
 
         return () => {
             pubSubId.map(item => {

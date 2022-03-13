@@ -14,6 +14,8 @@ import localhost from "./utils/localhost";
 import User from "./pages/User";
 import DetailPost from './components/postAbout/DetailPost'
 import './App.css'
+import FrontendAuth from "./FrontendAuth";
+import {routerMap} from "./routerMap";
 
 
 const {Content} = Layout;
@@ -41,13 +43,7 @@ const App = (props) => {
                 <Content className="main-content">
                     {/*匹配路由，登录页、注册页、主页*/}
                     <Switch>
-                        <Route path="/login" component={Login}/>
-                        <Route path="/regist" component={Regist}/>
-                        <Route path="/forget" component={Forget}/>
-                        <Route path="/activity" component={Activity}/>
-                        <Route path="/user" component={User}/>
-                        <Route path="/detailPost" component={DetailPost}/>
-                        <Route path="/" component={Main}/>
+                        <FrontendAuth routerConfig={routerMap}/>
                     </Switch>
                 </Content>
                 {/*页脚*/}

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Redirect} from 'react-router-dom'
 import {Avatar, Empty, Menu, message, Popconfirm, Divider} from 'antd';
 import {AntDesignOutlined, HomeOutlined, MessageOutlined} from '@ant-design/icons';
 import './index.css'
@@ -8,19 +9,17 @@ import localhost from "../../utils/localhost";
 import Post from "../../containers/Post";
 import Loading from "../../components/functionModuleAbout/Loading";
 import {Link} from "react-router-dom";
+import CheckPermissions from "../../utils/CheckPermissions";
+import store from "../../redux/store";
 
 // 个人中心组件
 const User = (props) => {
-
-    // 检查是否登录，没有登录则不能进入此页面
-    if(!localStorage.getItem("token")){
-        props.history.push("/login");
-    }
 
     //
     const [current, setCurrent] = useState('post')
     const [posts, setPosts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+
 
     // 切换导航
     const handleClick = e => {
@@ -51,7 +50,9 @@ const User = (props) => {
     // 点击退出登录后
     const logout = () => {
         localStorage.removeItem("token")
+        CheckPermissions()
         Pubsub.publish("logout", {})
+        props.history.replace('/login')
     }
 
     useEffect(() => {
@@ -64,64 +65,69 @@ const User = (props) => {
             })
     }, [])
 
-
     return (
-        <div className="user">
-            <div className="user-info">
-                <div className="user-avatar">
-                    <Avatar
-                        size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 60, xxl: 80}}
-                        icon={<AntDesignOutlined/>}
-                    />
-                </div>
-                <div className="user-other">
-                    <h2>{localStorage.getItem("username")}</h2>
-                </div>
-                <div className="logout">
-                    <Link onClick={logout} to={'/login'}>退出登录</Link>
-                </div>
-            </div>
-            <div>
-                <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-                    <Menu.Item key="post" icon={<HomeOutlined/>}>
-                        我的帖子
-                    </Menu.Item>
-                    <Menu.Item key="message" icon={<MessageOutlined/>}>
-                        消息
-                    </Menu.Item>
-                </Menu>
-            </div>
-            <div className="my-post-list">
-                {
-                    isLoading ? <Loading isLoading={isLoading}/> : <>
-                        {
-                            posts.length === 0 ? <Empty description={<span style={{fontSize: '15px'}}>暂无帖子</span>}
-                                                        imageStyle={{height: 70}}/>
-                                : posts.map((post) => {
-                                    return (
-                                        <div key={post.postId} className="post-item">
-                                            <Post post={post}/>
-                                            <div className="delete-button">
-                                                <Popconfirm
-                                                    title="确认删除？"
-                                                    okText="是"
-                                                    cancelText="否"
-                                                    onConfirm={deletePost(post.postId)}
-                                                >
-                                                    <a href="#" onClick={(e) => {
-                                                        e.preventDefault()
-                                                    }}>删除</a>
-                                                </Popconfirm>
-                                            </div>
-                                            <Divider/>
-                                        </div>
-                                    )
-                                })
-                        }
-                    </>
-                }
-            </div>
-        </div>
+        <>
+            {
+                !store.getState().permission ? <Redirect to={'/'}/> :
+                    <div className="user">
+                        <div className="user-info">
+                            <div className="user-avatar">
+                                <Avatar
+                                    size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 60, xxl: 80}}
+                                    icon={<AntDesignOutlined/>}
+                                />
+                            </div>
+                            <div className="user-other">
+                                <h2>{localStorage.getItem("username")}</h2>
+                            </div>
+                            <div className="logout">
+                                <Link onClick={logout} to={'/login'}>退出登录</Link>
+                            </div>
+                        </div>
+                        <div>
+                            <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+                                <Menu.Item key="post" icon={<HomeOutlined/>}>
+                                    我的帖子
+                                </Menu.Item>
+                                <Menu.Item key="message" icon={<MessageOutlined/>}>
+                                    消息
+                                </Menu.Item>
+                            </Menu>
+                        </div>
+                        <div className="my-post-list">
+                            {
+                                isLoading ? <Loading isLoading={isLoading}/> : <>
+                                    {
+                                        posts.length === 0 ?
+                                            <Empty description={<span style={{fontSize: '15px'}}>暂无帖子</span>}
+                                                   imageStyle={{height: 70}}/>
+                                            : posts.map((post) => {
+                                                return (
+                                                    <div key={post.postId} className="post-item">
+                                                        <Post post={post}/>
+                                                        <div className="delete-button">
+                                                            <Popconfirm
+                                                                title="确认删除？"
+                                                                okText="是"
+                                                                cancelText="否"
+                                                                onConfirm={deletePost(post.postId)}
+                                                            >
+                                                                <a href="#" onClick={(e) => {
+                                                                    e.preventDefault()
+                                                                }}>删除</a>
+                                                            </Popconfirm>
+                                                        </div>
+                                                        <Divider/>
+                                                    </div>
+                                                )
+                                            })
+                                    }
+                                </>
+                            }
+                        </div>
+                    </div>
+            }
+        </>
     );
 }
 
