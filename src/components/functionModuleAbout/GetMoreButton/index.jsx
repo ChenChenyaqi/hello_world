@@ -18,7 +18,7 @@ class GetMoreButton extends Component{
             return
         }
         // 判断是否滚动到底部，如果到底部，则发送请求，获取更多
-        if (isSendGetMore &&  document.documentElement.clientHeight + document.documentElement.scrollTop - scrollElement.offsetTop
+        if (isSendGetMore &&  document.documentElement.clientHeight + (document.documentElement.scrollTop || document.body.scrollTop) - scrollElement.offsetTop
             >= scrollElement.scrollHeight) {
             isSendGetMore = false
             getMore()
