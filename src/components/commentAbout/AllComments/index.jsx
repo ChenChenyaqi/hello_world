@@ -12,8 +12,8 @@ import {Link} from "react-router-dom";
 
 const AllComments = (props) => {
     // 获取此帖子下所有评论
-    const {postId, postAuthor, commentCount,
-        isShowViewMore, gotoDetailPost} = props
+    const {postId, postAuthor, postTime, postContent, commentCount,
+        isShowViewMore, gotoDetailPost, showSimpleReplyList} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
     // 是否正在请求所有评论
@@ -78,8 +78,9 @@ const AllComments = (props) => {
             {
                 isGettingComments ? <Loading isLoading={isGettingComments}/> : commentList.map((comment) => {
                     return <div key={comment.commentId}>
-                        <MyComment comment={comment} postId={postId}
-                                   postAuthor={postAuthor}/>
+                        <MyComment comment={comment}  postId={postId} postAuthor={postAuthor}
+                                   postTime={postTime} postContent={postContent}
+                                   showSimpleReplyList={showSimpleReplyList}/>
                         <Divider style={{margin: '-5px 0px'}}/>
                     </div>
                 })

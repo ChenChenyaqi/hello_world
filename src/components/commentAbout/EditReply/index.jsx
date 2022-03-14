@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Form, Button, Input, message} from 'antd';
-import CheckPermissions from "../../../utils/CheckPermissions";
 import {nanoid} from "nanoid";
 import axios from "axios";
 import localhost from "../../../utils/localhost";
@@ -10,7 +9,7 @@ import store from "../../../redux/store";
 const { TextArea } = Input;
 
 // 回复框
-const EditReply = ({ replyTo, postId }) => {
+const EditReply = ({ replyTo, commentId, action}) => {
 
     const [value, setValue] = useState(null)
     const [submitting, setSubmitting] = useState(false)
@@ -27,19 +26,19 @@ const EditReply = ({ replyTo, postId }) => {
             return message.info('请输入内容！');
         }
         setSubmitting(true)
-        // 创建评论数据
-        const newComment = {
-            commentId: nanoid(),
-            commentPostId: postId,
-            commentAuthor: localStorage.getItem("username"),
-            commentReplyAuthor: '@' + replyTo,
-            commentContent: value,
-            commentTime: Date.now().toString(),
-            commentLike: 0,
-            commentDislike: 0
+        // 创建回复数据
+        const newReply = {
+            replyId: nanoid(),
+            replyCommentId: commentId,
+            replyAuthor: localStorage.getItem("username"),
+            replyReplyUser: !action ? replyTo : '@ ' + replyTo,
+            replyContent: value,
+            replyTime: Date.now().toString(),
+            replyLike: 0,
+            replyDislike: 0
         }
         // 保存到服务器
-        axios.post(`http://${localhost}:8080/comment/save`, newComment, {
+        axios.post(`http://${localhost}:8080/reply/save`, newReply, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -47,7 +46,7 @@ const EditReply = ({ replyTo, postId }) => {
             response => {
                 setSubmitting(false)
                 setValue('')
-                Pubsub.publish('newComment',newComment)
+                Pubsub.publish('newReply',newReply)
                 store.dispatch({type:'remove'})
             }
         )

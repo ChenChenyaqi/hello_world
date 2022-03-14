@@ -11,7 +11,7 @@ import Pubsub from 'pubsub-js'
 import {nanoid} from "nanoid";
 import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
-import {Link} from "react-router-dom";
+import {Link, Redirect, Route} from "react-router-dom";
 import store from "../../redux/store";
 
 const {Paragraph} = Typography
@@ -21,7 +21,7 @@ const pubSubId = []
 const Post = (props) => {
     // 从props中获取数据
     const {postId, postAuthor, postTime, postContent} = props.post
-    const {state, remove} = props
+    const {state, remove, location} = props
     // 处理时间
     const time = timestampToTime(postTime)
     // 本帖子所有图片路径
@@ -270,9 +270,11 @@ const Post = (props) => {
                     <AllComments
                         className="allComments"
                         postId={postId} postAuthor={postAuthor}
+                        postTime={postTime} postContent={postContent}
                         commentCount={commentCount}
                         isShowViewMore={true}
                         gotoDetailPost={gotoDetailPost}
+                        showSimpleReplyList={true}
                     />
                 </div>
 

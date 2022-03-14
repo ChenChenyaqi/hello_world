@@ -2,25 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FrontendAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/permission.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/permission.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routerMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/replyAbout/AllReply/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/replyAbout/AllReply/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/replyAbout/SimpleAllReply/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/replyAbout/SimpleAllReply/index.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/replyAbout/SimpleAllReply/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/replyAbout/SimpleAllReply/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/MyReply/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/MyReply/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/currentReply.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/reply.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/currentReply.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/reply.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/EditReply/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/EditPost/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MyComment/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/constant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/CheckPermissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CheckPermissions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routerMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routerMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getDataStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getDataStep.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,19 +65,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Code\webstorm\helloworld\src\containers" />
+      <recent name="E:\Code\webstorm\helloworld\src\components\replyAbout" />
+      <recent name="E:\Code\webstorm\helloworld\src" />
+      <recent name="E:\Code\webstorm\helloworld\src\utils" />
+      <recent name="E:\Code\webstorm\helloworld\public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Code\webstorm\helloworld\src\utils" />
       <recent name="E:\Code\webstorm\helloworld\src\components\commentAbout" />
       <recent name="E:\Code\webstorm\helloworld\src\components\MyHeader\LoginAndRegist\Regist" />
       <recent name="E:\Code\webstorm\helloworld\public\img" />
       <recent name="E:\Code\webstorm\helloworld\public" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Code\webstorm\helloworld\src" />
-      <recent name="E:\Code\webstorm\helloworld\src\utils" />
-      <recent name="E:\Code\webstorm\helloworld\public" />
-      <recent name="E:\Code\webstorm\helloworld\src\containers\Post" />
-      <recent name="E:\Code\webstorm\helloworld\src\redux\reducers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -207,7 +212,8 @@
       <workItem from="1647080521095" duration="10278000" />
       <workItem from="1647093778267" duration="143000" />
       <workItem from="1647135732430" duration="14952000" />
-      <workItem from="1647162415843" duration="5783000" />
+      <workItem from="1647162415843" duration="18740000" />
+      <workItem from="1647213471322" duration="7911000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -468,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647086310158</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="配置了路由拦截，完善了点赞点踩功能">
+      <created>1647169902348</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1647169902348</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +505,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="分页展示帖子，及修复发帖后，无法显示图片问题" />
     <MESSAGE value="个人中心页面，添加删除帖子功能" />
     <MESSAGE value="点赞、评论静态效果" />
     <MESSAGE value="实现评论点赞功能" />
@@ -517,7 +529,8 @@
     <MESSAGE value="优化一点点" />
     <MESSAGE value="修复没有登录就访问个人中心bug" />
     <MESSAGE value="优化代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化代码" />
+    <MESSAGE value="配置了路由拦截，完善了点赞点踩功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="配置了路由拦截，完善了点赞点踩功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

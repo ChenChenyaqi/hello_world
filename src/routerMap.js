@@ -7,7 +7,7 @@ import User from "./pages/User";
 import DetailPost from "./components/postAbout/DetailPost";
 
 export const routerMap = [
-    {path:'/', name:'main', component: Main},
+    {path:'/', name:'main', component: Main, needRout:true},
     {path:'/login', name:'login', component: Login},
     {path:'/regist', name:'regist', component: Regist},
     {path:'/forget', name:'forget', component: Forget},

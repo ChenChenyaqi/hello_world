@@ -1,18 +1,11 @@
 import React from 'react';
 import {Layout} from 'antd';
-import {Route, Switch} from 'react-router-dom'
+import {Switch} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import MyHeader from "./components/headerAbout/MyHeader";
 import MyFooter from "./components/footerAbout/MyFooter";
-import Login from "./pages/Login";
-import Regist from "./pages/Regist";
-import Main from "./components/mainAbout/Main";
-import Forget from "./pages/Forget";
-import Activity from "./pages/Activity";
 import axios from "axios";
 import localhost from "./utils/localhost";
-import User from "./pages/User";
-import DetailPost from './components/postAbout/DetailPost'
 import './App.css'
 import FrontendAuth from "./FrontendAuth";
 import {routerMap} from "./routerMap";

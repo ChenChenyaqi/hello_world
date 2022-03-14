@@ -2,13 +2,11 @@
   margin-left: 5vw;
   margin-right: 5vw;
   margin-top: -5vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 .viewMore {
   cursor: pointer;
   margin: 10px auto 10px auto;
+  text-align: center;
 }
 .viewMore span {
   font-size: 13px;

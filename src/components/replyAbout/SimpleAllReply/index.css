@@ -1,0 +1,21 @@
+.simpleReply-wrapper {
+  background-color: rgba(122, 115, 114, 0.35);
+  margin-left: 40px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+.simpleReply-wrapper p {
+  display: inline-block;
+}
+.simpleReply-wrapper .simpleReply {
+  margin-bottom: -15px;
+}
+.simpleReply-wrapper .getMore {
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+.simpleReply-wrapper .getMore .link {
+  color: #3e3e3e;
+}
+/*# sourceMappingURL=index.css.map */
