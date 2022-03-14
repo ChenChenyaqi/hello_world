@@ -24,6 +24,8 @@ const Login = (props) => {
     const password = localStorage.getItem("token") ? "xxxxxx" : ""
     // 显示验证码
     const [showCode, setShowCode] = useState(false)
+    // pubsubId
+    const pubsubId = [];
 
     let moveX;
     let downX;
@@ -56,7 +58,10 @@ const Login = (props) => {
         if (moveX === outBoxWidth - sliderWidth) {
             $("#remind").text("验证通过")
             $(".slider").html("&#10004;")
-            Pubsub.publish("success", {})
+            const pId1 = Pubsub.publish("success", {})
+            pubsubId.push(pId1)
+            $(".slider").css("left", 0)
+            $(".slider_back").width('0')
         } else if (moveX < outBoxWidth - sliderWidth) {
             $(".slider").css("left", 0)
             $(".slider_back").width('0')
@@ -92,7 +97,10 @@ const Login = (props) => {
         if (moveX === outBoxWidth - sliderWidth) {
             $("#remind").text("验证通过")
             $(".slider").html("&#10004;")
-            Pubsub.publish("success", {})
+            const pId2 = Pubsub.publish("success", {})
+            pubsubId.push(pId2)
+            $(".slider").css("left", 0)
+            $(".slider_back").width('0')
         } else if (moveX < outBoxWidth - sliderWidth) {
             $(".slider").css("left", 0)
             $(".slider_back").width('0')
@@ -153,7 +161,11 @@ const Login = (props) => {
 
                     } else {
                         // 提示用户名或密码错误
+                        pubsubId.forEach(id => {
+                            Pubsub.unsubscribe(id)
+                        })
                         message.error(response.data.msg)
+
                     }
                 },
             )
