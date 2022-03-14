@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import PubSub from 'pubsub-js'
 import Post from "../../../containers/Post";
 import axios from "axios";
@@ -20,6 +20,8 @@ const AllPosts = () => {
     const [isGetMore, setIsGetMore] = useState(false)
     // 加载信息
     const [getMoreMsg, setGetMoreMsg] = useState("")
+    //
+    const allPosts = useRef()
 
     const getMore = () => {
         setIsGetMore(true)
@@ -67,14 +69,14 @@ const AllPosts = () => {
 
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div ref={allPosts} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
             {
                 isLoading ? <Loading isLoading={isLoading}/> : posts.map((post) => {
                     return <Post key={post.postId} post={post}/>
                 })
             }
             {
-                isLoading ? null : <GetMoreButton getMore={getMore} isLoading={isGetMore} msg={getMoreMsg} caller={"AllPosts"}/>
+                isLoading ? null : <GetMoreButton obj={allPosts} getMore={getMore} isLoading={isGetMore} msg={getMoreMsg} caller={"AllPosts"}/>
             }
         </div>
     )

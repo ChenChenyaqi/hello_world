@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import './index.css'
 import axios from "axios";
 import Pubsub from 'pubsub-js'
@@ -26,6 +26,7 @@ const AllComments = (props) => {
     const [getMoreMsg, setGetMoreMsg] = useState("")
     //
     const [commentPostId, setCommentPostId] = useState(null)
+    const allComments = useRef()
 
     const getMore = () => {
         setIsGetMore(true)
@@ -74,7 +75,7 @@ const AllComments = (props) => {
     }, [])
 
     return (
-        <div className="comment-wrapper">
+        <div ref={allComments} className="comment-wrapper">
             {
                 isGettingComments ? <Loading isLoading={isGettingComments}/> : commentList.map((comment) => {
                     return <div key={comment.commentId}>
@@ -104,6 +105,7 @@ const AllComments = (props) => {
                                             </div> : <>
                                                 {
                                                     !isShowViewMore ? <GetMoreButton
+                                                        obj={allComments}
                                                         getMore={getMore}
                                                         isLoading={isGetMore}
                                                         msg={getMoreMsg}

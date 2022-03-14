@@ -215,7 +215,7 @@ const MyComment = (props) => {
                             showSimpleReplyList ?
                                 <SimpleAllReply commentAuthor={commentAuthor} replyList={replyList} postId={postId} postAuthor={postAuthor}
                                                 postTime={postTime} postContent={postContent}/> :
-                                <AllReply replyList={replyList} replyCommentId={commentId} commentId={commentId}
+                                <AllReply replyCommentId={commentId} commentId={commentId}
                                           commentAuthor={commentAuthor}/>
                         }
                     </>

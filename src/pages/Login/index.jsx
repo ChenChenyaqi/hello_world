@@ -60,8 +60,6 @@ const Login = (props) => {
             $(".slider").html("&#10004;")
             const pId1 = Pubsub.publish("success", {})
             pubsubId.push(pId1)
-            $(".slider").css("left", 0)
-            $(".slider_back").width('0')
         } else if (moveX < outBoxWidth - sliderWidth) {
             $(".slider").css("left", 0)
             $(".slider_back").width('0')
@@ -99,8 +97,6 @@ const Login = (props) => {
             $(".slider").html("&#10004;")
             const pId2 = Pubsub.publish("success", {})
             pubsubId.push(pId2)
-            $(".slider").css("left", 0)
-            $(".slider_back").width('0')
         } else if (moveX < outBoxWidth - sliderWidth) {
             $(".slider").css("left", 0)
             $(".slider_back").width('0')
@@ -164,6 +160,8 @@ const Login = (props) => {
                         pubsubId.forEach(id => {
                             Pubsub.unsubscribe(id)
                         })
+                        Pubsub.unsubscribe(id)
+                        setShowCode(false)
                         message.error(response.data.msg)
 
                     }

@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/replyAbout/AllReply/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/replyAbout/AllReply/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/commentAbout/AllComments/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functionModuleAbout/GetMoreButton/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/AllPosts/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/replyAbout/SimpleAllReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/replyAbout/SimpleAllReply/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Regist/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Regist/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/localhost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localhost.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +195,8 @@
       <workItem from="1647093778267" duration="143000" />
       <workItem from="1647135732430" duration="14952000" />
       <workItem from="1647162415843" duration="18740000" />
-      <workItem from="1647213471322" duration="13160000" />
+      <workItem from="1647213471322" duration="13567000" />
+      <workItem from="1647250333401" duration="5423000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -472,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647221638460</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="修复登录注册页在手机端显示bug">
+      <created>1647232331996</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1647232331996</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +512,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="点赞、评论静态效果" />
     <MESSAGE value="实现评论点赞功能" />
     <MESSAGE value="实现简单回复帖子功能" />
     <MESSAGE value="修复没有显示评论量问题" />
@@ -531,7 +536,8 @@
     <MESSAGE value="优化代码" />
     <MESSAGE value="配置了路由拦截，完善了点赞点踩功能" />
     <MESSAGE value="实现嵌套评论" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现嵌套评论" />
+    <MESSAGE value="修复登录注册页在手机端显示bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复登录注册页在手机端显示bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">

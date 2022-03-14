@@ -29,9 +29,11 @@ const SimpleAllReply = ({replyList, commentAuthor, postId, postAuthor,
                     </div>
                 })
             }
-            <div className="getMore" onClick={getMore}>
-                <Link to='/detailPost' className="link">查看更多回复</Link>
-            </div>
+            {
+                replyList.length > 3 ? <div className="getMore" onClick={getMore}>
+                    <Link to='/detailPost' className="link">查看更多回复</Link>
+                </div> : null
+            }
         </div>
     );
 }

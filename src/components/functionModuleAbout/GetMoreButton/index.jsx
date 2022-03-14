@@ -10,29 +10,35 @@ let isSendGetMore = true
 class GetMoreButton extends Component{
 
     toGetMore = () => {
+        const {obj, getMore, msg} = this.props
+        const scrollElement = obj.current;
         // 如果没有数据了，就取消滚动事件
-        if(this.props.msg){
-           window.removeEventListener('scroll', this.toGetMore)
+        if(msg){
+            window.removeEventListener('scroll', this.toGetMore)
             return
         }
-        // 获取getMore按钮
-        const getMoreBtn = document.querySelector('.getMore')
         // 判断是否滚动到底部，如果到底部，则发送请求，获取更多
-        if (isSendGetMore && window.pageYOffset + document.documentElement.clientHeight > getMoreBtn.offsetTop + getMoreBtn.offsetHeight) {
+        if (isSendGetMore &&  document.documentElement.clientHeight + document.documentElement.scrollTop - scrollElement.offsetTop
+            >= scrollElement.scrollHeight) {
             isSendGetMore = false
-            this.props.getMore()
+            getMore()
             setTimeout(() => {
                 isSendGetMore = true
             }, 200)
+            // 解绑滚动事件
         }
     }
 
     componentDidMount() {
+        const {obj} = this.props
+        const scrollElement = obj.current;
         // 绑定滚动事件
         window.addEventListener('scroll', this.toGetMore)
     }
 
     componentWillUnmount() {
+        const {obj} = this.props
+        const scrollElement = obj.current;
         // 解绑滚动事件
         window.removeEventListener('scroll', this.toGetMore)
     }
