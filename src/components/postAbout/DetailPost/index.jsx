@@ -10,6 +10,7 @@ import EditComment from "../../commentAbout/EditComment";
 import {timestampToTime} from "../../../utils/timeUtils";
 import {nanoid} from "nanoid";
 import store from "../../../redux/store";
+import MyAvatar from "../../userAbout/MyAvatar";
 
 const pubSubId = []
 
@@ -34,6 +35,10 @@ const Detail = () => {
     const [value, setValue] = useState('')
     // 当前用户名
     const username = localStorage.getItem("username")
+    // 用户头像
+    const [userAvatar, setUserAvatar] = useState('')
+    // 帖子用户头像
+    const [postAuthorAvatar, setPostAuthorAvatar] = useState('')
 
     // 点赞
     const liked = (e) => {
@@ -109,6 +114,18 @@ const Detail = () => {
         const {postId} = JSON.parse(sessionStorage.getItem("detailPostState"))
         Pubsub.publish('showComment', {isGetComment: true, commentPostId: postId})
 
+        // 获取用户头像
+        axios.get(`http://${localhost}:8080/user/avatar?username=${username}`).then(
+            response => {
+                setUserAvatar(response.data)
+            }
+        )
+        // 获取帖子用户头像
+        axios.get(`http://${localhost}:8080/user/avatar?username=${postAuthor}`).then(
+            response => {
+                setPostAuthorAvatar(response.data)
+            }
+        )
         // 获取本帖子的图片
         axios.get(`http://${localhost}:8080/picture?postId=${postId}`).then(
             response => {
@@ -154,10 +171,7 @@ const Detail = () => {
         <div className="detail-post wrapper">
             <div className="post-header">
                 <div className="author-photo">
-                    <Avatar
-                        size={{xs: 45, sm: 50, md: 55, lg: 60, xl: 65, xxl: 70}}
-                        icon={<AntDesignOutlined/>}
-                    />
+                    <MyAvatar username={postAuthor} setSize={true} url={postAuthorAvatar}/>
                 </div>
                 <div className="post-info">
                     <div className="post-author-name">
@@ -219,7 +233,7 @@ const Detail = () => {
             <div className="post-comments">
                 {/*发布评论框*/}
                 <Comment
-                    avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
+                    avatar={<MyAvatar username={username} bgcolor={'#7265e6'} url={userAvatar}/>}
                     style={{marginLeft: '10px'}}
                     content={
                         <EditComment

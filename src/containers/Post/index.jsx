@@ -11,8 +11,9 @@ import Pubsub from 'pubsub-js'
 import {nanoid} from "nanoid";
 import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
-import {Link, Redirect, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import store from "../../redux/store";
+import MyAvatar from "../../components/userAbout/MyAvatar";
 
 const {Paragraph} = Typography
 const pubSubId = []
@@ -21,7 +22,7 @@ const pubSubId = []
 const Post = (props) => {
     // 从props中获取数据
     const {postId, postAuthor, postTime, postContent} = props.post
-    const {state, remove, location} = props
+    const {state, remove} = props
     // 处理时间
     const time = timestampToTime(postTime)
     // 本帖子所有图片路径
@@ -41,6 +42,10 @@ const Post = (props) => {
     const [value, setValue] = useState('')
     // 当前用户名
     const username = localStorage.getItem("username")
+    // 本帖作者头像
+    const [postAuthorAvatar, setPostAuthorAvatar] = useState('')
+    // 用户头像
+    const [userAvatar, setUserAvatar] = useState('')
 
     // 点赞
     const liked = (e) => {
@@ -147,6 +152,18 @@ const Post = (props) => {
 
 
     React.useEffect(() => {
+        // 获取本帖用户头像
+        axios.get(`http://${localhost}:8080/user/avatar?username=${postAuthor}`).then(
+            response => {
+                setPostAuthorAvatar(response.data)
+            }
+        )
+        // 获取用户头像
+        axios.get(`http://${localhost}:8080/user/avatar?username=${username}`).then(
+            response => {
+                setUserAvatar(response.data)
+            }
+        )
         // 获取本帖子的图片
         axios.get(`http://${localhost}:8080/picture?postId=${props.post.postId}`).then(
             response => {
@@ -191,10 +208,7 @@ const Post = (props) => {
     return (
         <div className="post-wrapper">
             <div className="author-info">
-                <Avatar
-                    size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 50, xxl: 55}}
-                    icon={<AntDesignOutlined/>}
-                />
+                <MyAvatar username={postAuthor} setSize={true} url={postAuthorAvatar}/>
                 <div className="author-detail">
                     <div className="author-name">
                         {postAuthor}
@@ -255,7 +269,7 @@ const Post = (props) => {
                 <div className="comment" style={{display: `${showComment ? "" : "none"}`}}>
                     {/*发布评论框*/}
                     <Comment
-                        avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
+                        avatar={<MyAvatar username={username} bgcolor={'#7265e6'} url={userAvatar}/>}
                         style={{marginLeft: '10px'}}
                         content={
                             <EditComment

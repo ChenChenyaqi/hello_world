@@ -10,6 +10,7 @@ import axios from "axios";
 import localhost from "../../utils/localhost";
 import EditReply from "../../components/commentAbout/EditReply";
 import {addCurrentReplyIdAction, removeCurrentReplyIdAction} from "../../redux/actions/currentReply";
+import MyAvatar from "../../components/userAbout/MyAvatar";
 
 const MyReply = ({replyObj, state, add, remove, commentAuthor, commentId}) => {
     const {replyId, replyContent, replyAuthor, replyReplyUser,
@@ -29,6 +30,8 @@ const MyReply = ({replyObj, state, add, remove, commentAuthor, commentId}) => {
     const [dislikedFlag, setDislikedFlag] = useState(false);
     // 当前用户
     const username = localStorage.getItem("username")
+    // 本回复作者头像
+    const [replyAuthorAvatar,setReplyAuthorAvatar] = useState('')
 
     // 点赞时
     const like = () => {
@@ -106,6 +109,12 @@ const MyReply = ({replyObj, state, add, remove, commentAuthor, commentId}) => {
     }
 
     useEffect(() => {
+        // 获取回复作者头像
+        axios.get(`http://${localhost}:8080/user/avatar?username=${replyAuthor}`).then(
+            response => {
+                setReplyAuthorAvatar(response.data)
+            }
+        )
         // 获取此评论点赞与点踩用户数组
         axios.get(`http://${localhost}:8080/reply/likeAndDislikeArray?replyId=${replyId}`).then(
             response => {
@@ -155,7 +164,7 @@ const MyReply = ({replyObj, state, add, remove, commentAuthor, commentId}) => {
                 }
                 author={
                     <a className='comment-author'>{replyReplyUser === commentAuthor ? replyAuthor : `${replyAuthor} 回复：${replyReplyUser}`}</a>}
-                avatar={<Avatar size={28} className="avatar">icon={<AntDesignOutlined/>}</Avatar>}
+                avatar={<MyAvatar username={replyAuthor} bgcolor={'#ffbf00'} url={replyAuthorAvatar}/>}
                 content={
                     <p className='comment-content'>
                         {replyContent}
