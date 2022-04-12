@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="修复document.documentElement.scrollTop在手机端失效问题：document.documentElement.scrollTop || document.body.scrollTop">
-      <change afterPath="$PROJECT_DIR$/src/components/userAbout/MyAvatar/index.jsx" afterDir="false" />
+    <list default="true" id="0edb3078-0810-4ce2-ad7e-2f3bdd48090f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/postAbout/DetailPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/MyComment/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MyComment/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/MyReply/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MyReply/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/localhost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/localhost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +29,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.17.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.17.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react_staging2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -201,7 +194,11 @@
       <workItem from="1647213471322" duration="13567000" />
       <workItem from="1647250333401" duration="6782000" />
       <workItem from="1647260812303" duration="1290000" />
-      <workItem from="1647503000280" duration="11649000" />
+      <workItem from="1647503000280" duration="12166000" />
+      <workItem from="1647515790026" duration="278000" />
+      <workItem from="1648683006703" duration="20000" />
+      <workItem from="1649678444329" duration="140000" />
+      <workItem from="1649736923011" duration="552000" />
     </task>
     <task id="LOCAL-00001" summary="一些修改...">
       <created>1645707350865</created>
@@ -497,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647261943484</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="新增在User中心里上传头像功能">
+      <created>1647515466133</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1647515466133</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +535,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="修复没有显示评论量问题" />
     <MESSAGE value="修复没有登录可以评论bug" />
     <MESSAGE value="优化项目结构" />
     <MESSAGE value="修改ReadMe" />
@@ -556,7 +559,8 @@
     <MESSAGE value="修复登录注册页在手机端显示bug" />
     <MESSAGE value="修复登录时密码错误，导致验证条出现bug问题；修复获取更多触发时机错误问题；修复SimpleAllReply下显示查看更多回复显示时机问题" />
     <MESSAGE value="修复document.documentElement.scrollTop在手机端失效问题：document.documentElement.scrollTop || document.body.scrollTop" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复document.documentElement.scrollTop在手机端失效问题：document.documentElement.scrollTop || document.body.scrollTop" />
+    <MESSAGE value="新增在User中心里上传头像功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增在User中心里上传头像功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637994903678">
