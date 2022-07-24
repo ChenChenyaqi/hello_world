@@ -1,0 +1,11 @@
+.replies-wrapper {
+  padding: 5px 0;
+}
+.replies-wrapper ul {
+  list-style: none;
+}
+.replies-wrapper .each-page {
+  margin-bottom: 10px;
+  text-align: center;
+}
+/*# sourceMappingURL=index.css.map */

@@ -18,16 +18,23 @@
 .qrcode{
   display: none;
   position: absolute;
-  z-index: 9999;
-  right: -25px;
+  z-index: 1;
+  top: 100%;
+  left: -50%;
   width: 120px;
   height: 120px;
   background-color: #fff;
-}
+  text-align: center;
 
-.qrcode img{
-  position: absolute;
-  left: 10px;
-  top: 10px;
-}
+  img{
+    display: block;
+    margin: 0 auto;
+  }
 
+  span{
+    display: inline-block;
+    position: absolute;
+    top: 65%;
+    left:20%;
+  }
+}

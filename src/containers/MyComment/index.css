@@ -1,0 +1,15 @@
+.comment-like,
+.comment-dislike {
+  font-size: 15px !important;
+}
+.comment-reply {
+  font-size: 13px !important;
+}
+.comment-content {
+  font-size: 16px;
+}
+.comment-author {
+  font-size: 14px;
+  word-break: break-word;
+}
+/*# sourceMappingURL=index.css.map */

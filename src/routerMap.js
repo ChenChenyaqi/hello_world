@@ -12,6 +12,6 @@ export const routerMap = [
     {path:'/regist', name:'regist', component: Regist},
     {path:'/forget', name:'forget', component: Forget},
     {path:'/activity', name:'activity', component: Activity},
-    {path:'/user', name:'user', component: User, auth:true},
-    {path:'/detailPost', name:'detailPost', component: DetailPost}
+    {path:'/user/:username', name:'user', component: User, auth:true},
+    {path:'/detailPost/:postId', name:'detailPost', component: DetailPost}
 ]

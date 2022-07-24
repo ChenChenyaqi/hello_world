@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 const AllComments = (props) => {
     // 获取此帖子下所有评论
     const {postId, postAuthor, postTime, postContent, commentCount,
-        isShowViewMore, gotoDetailPost, showSimpleReplyList} = props
+        isShowViewMore, showSimpleReplyList} = props
     // 此贴评论
     const [commentList, setCommentList] = useState([])
     // 是否正在请求所有评论
@@ -100,8 +100,8 @@ const AllComments = (props) => {
                                 <>
                                     {
                                         commentCount > commentStep && isShowViewMore ?
-                                            <div className="viewMore" onClick={gotoDetailPost}>
-                                                <Link to={'/detailPost'}><span>查看更多</span></Link>
+                                            <div className="viewMore">
+                                                <Link to={`/detailPost/${postId}`}><span>查看更多</span></Link>
                                             </div> : <>
                                                 {
                                                     !isShowViewMore ? <GetMoreButton

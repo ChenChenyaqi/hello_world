@@ -11,9 +11,8 @@ import Pubsub from 'pubsub-js'
 import {nanoid} from "nanoid";
 import {connect} from "react-redux";
 import {addCommentIdAction, removeCommentIdAction} from "../../redux/actions/comment";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import store from "../../redux/store";
-import MyAvatar from "../../components/userAbout/MyAvatar";
 
 const {Paragraph} = Typography
 const pubSubId = []
@@ -42,10 +41,6 @@ const Post = (props) => {
     const [value, setValue] = useState('')
     // 当前用户名
     const username = localStorage.getItem("username")
-    // 本帖作者头像
-    const [postAuthorAvatar, setPostAuthorAvatar] = useState('')
-    // 用户头像
-    const [userAvatar, setUserAvatar] = useState('')
 
     // 点赞
     const liked = (e) => {
@@ -135,35 +130,7 @@ const Post = (props) => {
         setValue(e.target.value)
     };
 
-    // 去详细帖子
-    const gotoDetailPost = () => {
-        // 保存数据到sessionStorage中
-        sessionStorage.setItem('detailPostState',
-            JSON.stringify(
-                {
-                    postId,
-                    postAuthor,
-                    postTime,
-                    postContent
-                }
-            )
-        )
-    }
-
-
     React.useEffect(() => {
-        // 获取本帖用户头像
-        axios.get(`http://${localhost}:8080/user/avatar?username=${postAuthor}`).then(
-            response => {
-                setPostAuthorAvatar(response.data)
-            }
-        )
-        // 获取用户头像
-        axios.get(`http://${localhost}:8080/user/avatar?username=${username}`).then(
-            response => {
-                setUserAvatar(response.data)
-            }
-        )
         // 获取本帖子的图片
         axios.get(`http://${localhost}:8080/picture?postId=${props.post.postId}`).then(
             response => {
@@ -208,7 +175,10 @@ const Post = (props) => {
     return (
         <div className="post-wrapper">
             <div className="author-info">
-                <MyAvatar username={postAuthor} setSize={true} url={postAuthorAvatar}/>
+                <Avatar
+                    size={{xs: 30, sm: 35, md: 40, lg: 45, xl: 50, xxl: 55}}
+                    icon={<AntDesignOutlined/>}
+                />
                 <div className="author-detail">
                     <div className="author-name">
                         {postAuthor}
@@ -219,8 +189,8 @@ const Post = (props) => {
                 </div>
             </div>
             <div className="post-content">
-                <div className="post-text" onClick={gotoDetailPost}>
-                    <Link to={'/detailPost'}>
+                <div className="post-text">
+                    <Link to={`/detailPost/${postId}`}>
                         <Paragraph>
                             {postContent}
                         </Paragraph>
@@ -239,8 +209,8 @@ const Post = (props) => {
                                     placeholder={true}/>
                                 {
                                     picturesPath.length > 2 && index >= 1 ?
-                                        <div className="extra-picture" onClick={gotoDetailPost}>
-                                            <Link to={'/detailPost'}>
+                                        <div className="extra-picture">
+                                            <Link to={`/detailPost/${postId}`}>
                                                 <span>+{picturesPath.length - 2}</span>
                                             </Link>
                                         </div> : null
@@ -269,7 +239,7 @@ const Post = (props) => {
                 <div className="comment" style={{display: `${showComment ? "" : "none"}`}}>
                     {/*发布评论框*/}
                     <Comment
-                        avatar={<MyAvatar username={username} bgcolor={'#7265e6'} url={userAvatar}/>}
+                        avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
                         style={{marginLeft: '10px'}}
                         content={
                             <EditComment
@@ -287,7 +257,6 @@ const Post = (props) => {
                         postTime={postTime} postContent={postContent}
                         commentCount={commentCount}
                         isShowViewMore={true}
-                        gotoDetailPost={gotoDetailPost}
                         showSimpleReplyList={true}
                     />
                 </div>
@@ -304,4 +273,4 @@ export default connect(
         add: addCommentIdAction,
         remove: removeCommentIdAction
     }
-)(Post)
+)(withRouter(Post))

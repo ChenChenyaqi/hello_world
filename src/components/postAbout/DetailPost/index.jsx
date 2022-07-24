@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './index.css'
 import {AntDesignOutlined} from "@ant-design/icons";
 import {Avatar, Image, Comment, List, message} from "antd";
@@ -10,14 +10,19 @@ import EditComment from "../../commentAbout/EditComment";
 import {timestampToTime} from "../../../utils/timeUtils";
 import {nanoid} from "nanoid";
 import store from "../../../redux/store";
-import MyAvatar from "../../userAbout/MyAvatar";
 
 const pubSubId = []
 
-const Detail = () => {
+const Detail = ({match:{path}}) => {
 
-    // 从props中获取数据
-    const {postId, postAuthor, postTime, postContent} = JSON.parse(sessionStorage.getItem("detailPostState"))
+    let postId;
+    const arr =  path.split('/');
+    postId = arr[arr.length - 1];
+
+    const [postTime, setPostTime] = useState(0);
+    const [postAuthor, setPostAuthor] = useState("");
+    const [postContent, setPostContent] = useState("")
+
     // 处理时间
     const time = timestampToTime(postTime)
     // 本帖子所有图片路径
@@ -35,10 +40,15 @@ const Detail = () => {
     const [value, setValue] = useState('')
     // 当前用户名
     const username = localStorage.getItem("username")
-    // 用户头像
-    const [userAvatar, setUserAvatar] = useState('')
-    // 帖子用户头像
-    const [postAuthorAvatar, setPostAuthorAvatar] = useState('')
+
+    useEffect(() => {
+        axios.get(`http://${localhost}:8080/post/getById?postId=${postId}`)
+            .then(({data}) => {
+                setPostAuthor(data.postAuthor);
+                setPostContent(data.postContent);
+                setPostTime(data.postTime);
+            })
+    }, [])
 
     // 点赞
     const liked = (e) => {
@@ -111,21 +121,9 @@ const Detail = () => {
 
 
     React.useEffect(() => {
-        const {postId} = JSON.parse(sessionStorage.getItem("detailPostState"))
+
         Pubsub.publish('showComment', {isGetComment: true, commentPostId: postId})
 
-        // 获取用户头像
-        axios.get(`http://${localhost}:8080/user/avatar?username=${username}`).then(
-            response => {
-                setUserAvatar(response.data)
-            }
-        )
-        // 获取帖子用户头像
-        axios.get(`http://${localhost}:8080/user/avatar?username=${postAuthor}`).then(
-            response => {
-                setPostAuthorAvatar(response.data)
-            }
-        )
         // 获取本帖子的图片
         axios.get(`http://${localhost}:8080/picture?postId=${postId}`).then(
             response => {
@@ -171,14 +169,19 @@ const Detail = () => {
         <div className="detail-post wrapper">
             <div className="post-header">
                 <div className="author-photo">
-                    <MyAvatar username={postAuthor} setSize={true} url={postAuthorAvatar}/>
+                    <Avatar
+                        size={{xs: 45, sm: 50, md: 55, lg: 60, xl: 65, xxl: 70}}
+                        icon={<AntDesignOutlined/>}
+                    />
                 </div>
                 <div className="post-info">
                     <div className="post-author-name">
                         {postAuthor}
                     </div>
                     <div className="post-time">
-                        {time}
+                        {
+                            postTime ? time : ""
+                        }
                     </div>
                 </div>
             </div>
@@ -233,7 +236,7 @@ const Detail = () => {
             <div className="post-comments">
                 {/*发布评论框*/}
                 <Comment
-                    avatar={<MyAvatar username={username} bgcolor={'#7265e6'} url={userAvatar}/>}
+                    avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
                     style={{marginLeft: '10px'}}
                     content={
                         <EditComment

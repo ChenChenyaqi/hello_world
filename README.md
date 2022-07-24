@@ -16,9 +16,8 @@ src
     |	|--footerAbout	//# 页面底部相关组件
     |	|	|--MyFooter		// 页脚组件
     |	|--functionModuleAbout	// 功能组件
-    |	|	|--GetMoreButton		// 获取更多（自动检测是否滑动到底部）
     |	|	|--LoginAndRegist		// 存放登录注册的容器组件
-    |	|	|--Loading		// 加载中
+    |	|	|--UpdateButton			// 点击获取更新数据组件
     |	|--headerAbout	//# 页面顶部相关组件
     |	|	|--MyHeader		// 页头组件
     |	|	|--MyHeaderNav	// 页头导航组件
@@ -28,16 +27,7 @@ src
     |	|--postAbout	//# 帖子相关组件
     |	|	|--AllPosts		// 存放所有帖子的容器组件
     |	|	|--EditPost		// 发布帖子组件
-    |	|	|--DetaillPost	// 详细帖子
-    |	|--replyAbout	//# 回复相关组件
-    |	|	|--AllReply		// 存放所有回复的容器组件
-    |	|	|--SimpleAllReply	// 简易版所有回复的容器
-    |	|--userAbout	//# 用户相关组件
-    |	|	|--MyAvatar		// 用户头像
-    |--containers //## 所有容器组件
-    |	|--MyComment // 评论组件
-    |	|--MyReply	// 回复组件
-    |	|--Post		// 帖子组价
+    |	|	|--Post			// 帖子组件
   	|--pages	//## 所有路由组件
     |	|--Activity	// 活动组件
     |	|--Forget	// 忘记密码组件
@@ -47,8 +37,6 @@ src
   	|--utils	// 项目所需工具方法
   	|App.js
   	|index.js
-    |FrontendAuth.js	// 路由守卫校验
-    |routerMap	// 映射路由
 ```
 
 ## 三、技术选项

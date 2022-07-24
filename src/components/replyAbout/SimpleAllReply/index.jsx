@@ -31,7 +31,7 @@ const SimpleAllReply = ({replyList, commentAuthor, postId, postAuthor,
             }
             {
                 replyList.length > 3 ? <div className="getMore" onClick={getMore}>
-                    <Link to='/detailPost' className="link">查看更多回复</Link>
+                    <Link to={`/detailPost/${postId}`} className="link">查看更多回复</Link>
                 </div> : null
             }
         </div>

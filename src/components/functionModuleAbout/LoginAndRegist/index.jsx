@@ -50,7 +50,7 @@ class LoginAndRegist extends Component {
                     <Link to={'/regist'}>注册</Link>
                 </div>
                 <div className="user-center" style={{display: isLogin && !isEnterUser ? "block" : "none"}}>
-                    <Link to={'/user'}><UserOutlined style={{fontSize: '22px'}}/></Link>
+                    <Link to={`/user/${localStorage.getItem("username")}`}><UserOutlined style={{fontSize: '22px'}}/></Link>
                 </div>
             </div>
         )

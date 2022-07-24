@@ -1,0 +1,15 @@
+.reply {
+  display: flex;
+}
+.reply .comment-like,
+.reply .comment-dislike {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.reply .comment-reply {
+  cursor: pointer;
+}
+.reply .comment-content {
+  padding-right: 10px;
+}
+/*# sourceMappingURL=index.css.map */

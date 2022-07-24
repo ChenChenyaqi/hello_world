@@ -14,7 +14,7 @@ import Pubsub from 'pubsub-js'
 import {replyStep} from "../../utils/getDataStep";
 import {addCurrentReplyIdAction, removeCurrentReplyIdAction} from "../../redux/actions/currentReply";
 import SimpleAllReply from "../../components/replyAbout/SimpleAllReply";
-import MyAvatar from "../../components/userAbout/MyAvatar";
+import AllComments from "../../components/commentAbout/AllComments";
 
 // 定义UI组件
 const MyComment = (props) => {
@@ -46,8 +46,6 @@ const MyComment = (props) => {
     const [dislikedFlag, setDislikedFlag] = useState(false);
     // 当前用户
     const username = localStorage.getItem("username")
-    // 本评论作者头像
-    const [commentAuthorAvatar,setCommentAuthorAvatar] = useState('')
 
     // 此评论下的所有回复
     const [replyList, setReplyList] = useState(null)
@@ -140,12 +138,6 @@ const MyComment = (props) => {
     }
 
     useEffect(() => {
-        // 获取本评论用户头像
-        axios.get(`http://${localhost}:8080/user/avatar?username=${commentAuthor}`).then(
-            response => {
-                setCommentAuthorAvatar(response.data)
-            }
-        )
         // 获取此评论点赞与点踩用户数组
         axios.get(`http://${localhost}:8080/comment/likeAndDislikeArray?commentId=${commentId}`).then(
             response => {
@@ -204,7 +196,7 @@ const MyComment = (props) => {
                 }
                 author={
                     <a className='comment-author'>{commentAuthor}</a>}
-                avatar={<MyAvatar username={commentAuthor} bgcolor={'#00a2ae'} url={commentAuthorAvatar}/>}
+                avatar={<Avatar>icon={<AntDesignOutlined/>}</Avatar>}
                 content={
                     <p className='comment-content'>
                         {commentContent}

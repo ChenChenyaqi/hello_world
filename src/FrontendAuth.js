@@ -10,6 +10,17 @@ const FrontendAuth = (props) => {
     const [component, setComponent] = useState(null)
     const [url, setUrl] = useState(null)
 
+    const matchPath = (path, target) => {
+        const targetArr = target.split('/');
+        if(targetArr[1] === 'detailPost' || targetArr[1] === "user"){
+            const arr = path.split('/');
+            return arr[1] === targetArr[1];
+        } else {
+            return path === target;
+        }
+
+    }
+
     const check = () => {
         // routerConfig就是配置的routerMap
         const {routerConfig, location} = props;
@@ -19,7 +30,7 @@ const FrontendAuth = (props) => {
         // 如果该路由不用进行权限校验
         // 获取访问路径
         const targetRouterConfig = routerConfig.find(
-            (item) => item.path === pathname
+            (item) => matchPath(item.path, pathname)
         );
 
         // 检验权限
